@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method="POST" action="{% url 'register' %}" autocomplete="off">
+    {% csrf_token %}
+    {% for field in form %}
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field }}
+        {% if field.errors %}
+            {% for error in field.errors %}
+            <br />
+            <small>{{ error }}</small>
+            {% endfor %}
+        {% endif %}
+        <br />
+    {% endfor %}
+    <input type="submit" value="Register">
+</form>
+
+{% endblock content %}
