@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method="POST" action="{% url 'account_edit' %}" autocomplete="off">
+    {% csrf_token %}
+    {% for field in u_form %}
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field }}
+        <br />
+    {% endfor %}
+    {% for field in p_form %}
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field }}
+        <br />
+    {% endfor %}
+    <input type="submit" value="edit">
+</form>
+
+{% endblock content %}

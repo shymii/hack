@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'website',
-    'users',
+    'users.apps.UsersConfig',
     'captcha',
 ]
 

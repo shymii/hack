@@ -16,6 +16,11 @@
         {% endif %}
         <br />
     {% endfor %}
+    {% if messages %}
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    {% endif %}
     <input type="submit" value="Login">
 </form>
 

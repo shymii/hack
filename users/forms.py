@@ -1,8 +1,9 @@
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UserChangeForm
 from django.contrib.auth.models import User
 from django import forms
 from captcha.fields import ReCaptchaField
 from captcha.widgets import ReCaptchaV2Checkbox
+from .models import user_profile
 
 class CreateUserForm(UserCreationForm):
     captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox(api_params={'hl': 'pl'}, attrs={'data-theme': 'dark'}))
@@ -21,3 +22,24 @@ class CreateUserForm(UserCreationForm):
 
 class LoginUserForm(AuthenticationForm):
     captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox(api_params={'hl': 'pl'}, attrs={'data-theme': 'dark'}))
+
+class ModifyUserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'email']
+
+class ModifyUserDataForm(forms.ModelForm):
+    birth_date = forms.DateField(required = False)
+    sex = forms.BooleanField(required = False)
+
+    class Meta:
+        model = user_profile
+        fields = ['birth_date', 'sex']
+
+    def save(self, commit = True):
+        user = super(ModifyUserDataForm, self).save(commit = False)
+        user.birth_date = self.cleaned_data['birth_date']
+        user.sex = self.cleaned_data['sex']
+        if commit:
+            user.save()
+        return user
