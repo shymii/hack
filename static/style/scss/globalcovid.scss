@@ -1,0 +1,49 @@
+.header {
+    height: auto;
+}
+.main {
+    h2 {
+        text-align: center;
+        font-size: 4em;
+        color: #252426;
+        margin-bottom: 0.5em;
+    }
+    .globalCharts {
+        width: 80%;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        .myChart {
+            flex-basis: 100%;
+        }
+        #casesRes {
+            display: block;
+            flex-basis: 100%;
+            text-align: center;
+            font-size: 3em;
+            color: #252426; 
+            padding-bottom: 0.5em;
+            padding-top: 0.5em;
+        }
+        .smallchart {
+            margin-top: 2em;
+            margin-bottom: 2em;
+            flex-basis: 75%;
+        }
+        .desc {
+            flex-basis: 20%;
+            padding: 0.5em;
+            padding-top: 8em;
+            p {
+                text-align: center;
+                font-size: 2em;
+                color: #252426; 
+                display: block;
+                padding-bottom: 1em;
+            }
+        }
+    }
+}
+.footer {
+    height: auto;
+}
