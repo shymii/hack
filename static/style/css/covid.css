@@ -2,16 +2,33 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  align-content: flex-start;
+  border-bottom-left-radius: 1em;
 }
 .main h2 {
   flex-basis: 100%;
+  margin: 0;
+  padding: 1em;
+  height: 20%;
 }
-.main .global-stats {
-  flex-basis: 34%;
+.main a {
+  text-align: center;
+  height: 30%;
+  background-color: #535657;
+  padding: 1em;
+  border-radius: 1em;
+  flex-basis: 30%;
+  font-size: 90%;
+  text-decoration: none;
 }
-.main .comparison {
-  flex-basis: 34%;
+.main a article {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
-.main .single-stats {
-  flex-basis: 34%;
+.main a article h4 {
+  text-align: left;
+  font-weight: 100;
+  font-size: 1.3em;
 }
