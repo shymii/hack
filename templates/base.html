@@ -6,27 +6,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hack</title>
-    <link rel="stylesheet" href="{% static "scss/base.css" %}">
+    <link rel="stylesheet" href="{% static "style/css/base.css" %}">
     {% block css %}
     {% endblock css %}
 </head>
 <body>
     <header class="header">
-        <h2 class="header-title">yeah project</h2>
         <nav class="header-nav">
             <ul class="header-nav-list">
-                <li class="header-nav-list-item"><a href="#">zdrowie psychiczne</a></li>
-                <li class="header-nav-list-item"><a href="#">zdrowie fizyczne</a></li>
-                <li class="header-nav-list-item"><a href="#">korona kielce</a></li>
+                <li class="header-nav-list-item"><a href="#">mental health</a></li>
+                <li class="header-nav-list-item"><a href="#">physical health</a></li>
+                <li class="header-nav-list-item"><a href="/covid/">COVID-19</a></li>
+            </ul>
+        </nav>
+        <nav class="header-account">
+            <p>account</p>
+            <ul class="header-account-list">
+                <li class="header-account-list-item"><a href="#">login</a></li>
+                <li class="header-account-list-item"><a href="#">profile</a></li>
+                <li class="header-account-list-item"><a href="#">idk</a></li>
             </ul>
         </nav>
     </header>
-    <main>
+    <main class="main">
         {% block content %}
         {% endblock content %}
     </main>
     <footer class="footer">
-        <p class="footer-content">masne stronki ema</p>
+        <p>henlo we do some ye ye u know in the footer lul</p>
     </footer>
     {% block scripts %}
     {% endblock scripts %}

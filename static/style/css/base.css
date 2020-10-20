@@ -1,0 +1,73 @@
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #3D3C3A;
+}
+body * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  color: #FFFBFC;
+}
+body .header {
+  flex-basis: 15%;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  padding: 2em 0;
+}
+body .header .header-nav .header-nav-list {
+  list-style: none;
+}
+body .header .header-nav .header-nav-list .header-nav-list-item {
+  width: 80%;
+  margin-left: 10%;
+  margin-bottom: 0.4em;
+}
+body .header .header-nav .header-nav-list .header-nav-list-item a {
+  display: block;
+  padding: 0.8em 0.4em;
+  text-decoration: none;
+  border-radius: 0.5em;
+}
+body .header .header-nav .header-nav-list .header-nav-list-item a:hover {
+  background-color: #1985A1;
+}
+body .header .header-account p {
+  text-align: left;
+  padding: 0.8em;
+}
+body .header .header-account .header-account-list {
+  list-style: none;
+}
+body .header .header-account .header-account-list .header-account-list-item {
+  width: 80%;
+  margin-left: 10%;
+  margin-bottom: 0.4em;
+}
+body .header .header-account .header-account-list .header-account-list-item a {
+  display: block;
+  padding: 0.8em 0.4em;
+  text-decoration: none;
+  border-radius: 0.5em;
+}
+body .header .header-account .header-account-list .header-account-list-item a:hover {
+  background-color: #1985A1;
+}
+body .main {
+  flex-basis: 85%;
+  height: 90vh;
+}
+body .footer {
+  flex-basis: 100%;
+  height: 10vh;
+}
+body .footer p {
+  padding: 2em;
+}
