@@ -40,6 +40,12 @@
 {% block scripts %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 <script>
+    function commaSeparateNumber(val){
+        while (/(\d+)(\d{3})/.test(val.toString())){
+        val = val.toString().replace(/(\d+)(\d{3})/, '$1'+','+'$2');
+        }
+        return val;
+    }
     fetch(`https://covid19-api.org/api/timeline`)
             .then(res => res.json())
             .then(data => {
@@ -59,10 +65,10 @@
                 n++;
             });
             n--;
-            document.getElementById("dailyRes").innerHTML = `Dzisiejsza liczba przypadków: ${cases[n] - cases[n-1]}`;
-            document.getElementById("casesRes").innerHTML = `Łączna liczba przypadków: ${cases[n]}`;
-            document.getElementById("deathRes").innerHTML = `Śmierci łącznie: ${deaths[n]}`;
-            document.getElementById("recoveredRes").innerHTML = `Wyzdrowiałych łącznie: ${recovered[n]}`;
+            document.getElementById("dailyRes").innerHTML = `Dzisiejsza liczba przypadków: ${commaSeparateNumber(cases[n] - cases[n-1])}`;
+            document.getElementById("casesRes").innerHTML = `Łączna liczba przypadków: ${commaSeparateNumber(cases[n])}`;
+            document.getElementById("deathRes").innerHTML = `Śmierci łącznie: ${commaSeparateNumber(deaths[n])}`;
+            document.getElementById("recoveredRes").innerHTML = `Wyzdrowiałych łącznie: ${commaSeparateNumber(recovered[n])}`;
             for (n ; n > 0 ; n--) {
                 let val = cases[n + 1] - cases[n];
                 if (val < 0) {
