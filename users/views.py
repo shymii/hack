@@ -45,8 +45,10 @@ def logout_view(request):
 
 @login_required(login_url = 'login')
 def account_view(request):
+    surveys = user_survey.objects.filter(user = request.user.user_profile).order_by('-survey_date')
+    context = {'surveys': surveys}
     template = 'users/account.html'
-    return render(request, template)
+    return render(request, template, context)
 
 @login_required(login_url = 'login')
 def account_edit(request):
@@ -68,7 +70,7 @@ def account_edit(request):
 def account_survey(request):
     this_user = request.user.user_profile
     today = date.today()
-    surveys = user_survey.objects.filter(user=this_user, survey_date=today)
+    surveys = user_survey.objects.filter(user = this_user, survey_date = today)
     if not surveys:
         if request.method == 'POST':
             form = SurveyForm(request.POST)
@@ -83,4 +85,4 @@ def account_survey(request):
         context = {'form': form}
         return render(request, template, context)
     else: 
-        return redirect('homepage')
+        return redirect('account')

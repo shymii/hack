@@ -5,4 +5,12 @@
 <p>{{ user.email }}</p>
 <p>{{ user.first_name }}</p>
 <p>{{ user.last_name }}</p>
+
+{% if surveys %}
+    {% for survey in surveys %}
+        <p>{{ survey.waist }}</p>
+    {% endfor %}
+{% else %}
+    <p>Nie posiadasz jeszcze wypełnionej ankiety!</p>
+{% endif %}
 {% endblock content %}
