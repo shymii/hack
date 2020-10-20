@@ -1,0 +1,17 @@
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.main h2 {
+  flex-basis: 100%;
+}
+.main .global-stats {
+  flex-basis: 34%;
+}
+.main .comparison {
+  flex-basis: 34%;
+}
+.main .single-stats {
+  flex-basis: 34%;
+}
