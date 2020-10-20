@@ -7,21 +7,27 @@
 
 {% block content %}
 <h2>COVID-19</h2>
-<article class="global-stats">
-    <h4>global stats</h4>
-    <p>hey, ur interested in global stats?</p>
-    <a href="/covid/global/">here u can check them</a>
-</article>
-<article class="comparison">
-    <h4>comparison stats</h4>
-    <p>hey, ur interested in comparing up to 3 countries?</p>
-    <a href="/covid/compare/">here u can choose the countries and check the stats</a>
-</article>
-<article class="single-stats">
-    <h4>single country stats</h4>
-    <p>hey, ur interested in only one country stats?</p>
-    <a href="/covid/country/">here u can check them</a>
-</article>
+<a href="{% url 'globalcovid' %}">
+    <article class="global-stats">
+        <h4>global stats</h4>
+        <p>hey, ur interested in global stats?</p>
+        <p>here u can check them</p>
+    </article>
+</a>
+<a href="{% url 'comparecovid' %}">
+    <article class="comparison">
+        <h4>comparison stats</h4>
+        <p>hey, ur interested in comparing up to 3 countries?</p>
+        <p>here u can choose the countries and check the stats</p>
+    </article>
+</a>
+<a href="{% url 'countrycovid' %}">
+    <article class="single-stats">
+        <h4>single country stats</h4>
+        <p>hey, ur interested in only one country stats?</p>
+        <p>here u can check them</p>
+    </article>
+</a>
 {% endblock content %}
 
 {% block scripts %}

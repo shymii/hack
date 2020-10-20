@@ -4,7 +4,7 @@ body {
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
-  background-color: #3D3C3A;
+  background-color: #535657;
 }
 body * {
   padding: 0;
@@ -37,7 +37,7 @@ body .header .header-nav .header-nav-list .header-nav-list-item a {
   border-radius: 0.5em;
 }
 body .header .header-nav .header-nav-list .header-nav-list-item a:hover {
-  background-color: #1985A1;
+  background-color: #8D91C7;
 }
 body .header .header-account p {
   text-align: left;
@@ -58,11 +58,12 @@ body .header .header-account .header-account-list .header-account-list-item a {
   border-radius: 0.5em;
 }
 body .header .header-account .header-account-list .header-account-list-item a:hover {
-  background-color: #1985A1;
+  background-color: #8D91C7;
 }
 body .main {
   flex-basis: 85%;
   height: 90vh;
+  background-color: #FFFBFC;
 }
 body .footer {
   flex-basis: 100%;
