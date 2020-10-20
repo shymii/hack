@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from .decorators import unauthenticated_user
 
 from .forms import CreateUserForm, LoginUserForm, ModifyUserForm, ModifyUserDataForm, SurveyForm
+from .models import user_profile, user_survey
 
 # Create your views here.
 @unauthenticated_user
