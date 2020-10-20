@@ -8,6 +8,8 @@ from .decorators import unauthenticated_user
 from .forms import CreateUserForm, LoginUserForm, ModifyUserForm, ModifyUserDataForm, SurveyForm
 from .models import user_profile, user_survey
 
+from datetime import date
+
 # Create your views here.
 @unauthenticated_user
 def register_view(request):
@@ -64,15 +66,21 @@ def account_edit(request):
 
 @login_required(login_url = 'login')
 def account_survey(request):
-    if request.method == 'POST':
-      form = SurveyForm(request.POST)
-      if form.is_valid():
-          instance = form.save(commit = False)
-          instance.user = request.user.user_profile
-          instance.save()
-          return redirect('account')
-    else:
-        form = SurveyForm()
-    template = 'users/survey.html'
-    context = {'form': form}
-    return render(request, template, context)
+    this_user = request.user.user_profile
+    today = date.today()
+    surveys = user_survey.objects.filter(user=this_user, survey_date=today)
+    if not surveys:
+        if request.method == 'POST':
+            form = SurveyForm(request.POST)
+            if form.is_valid():
+                instance = form.save(commit = False)
+                instance.user = request.user.user_profile
+                instance.save()
+                return redirect('account')
+        else:
+            form = SurveyForm()
+        template = 'users/survey.html'
+        context = {'form': form}
+        return render(request, template, context)
+    else: 
+        return redirect('homepage')
