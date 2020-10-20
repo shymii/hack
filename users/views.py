@@ -5,7 +5,7 @@ from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from .decorators import unauthenticated_user
 
-from .forms import CreateUserForm, LoginUserForm, ModifyUserForm, ModifyUserDataForm
+from .forms import CreateUserForm, LoginUserForm, ModifyUserForm, ModifyUserDataForm, SurveyForm
 
 # Create your views here.
 @unauthenticated_user
@@ -63,4 +63,15 @@ def account_edit(request):
 
 @login_required(login_url = 'login')
 def account_survey(request):
-    pass
+    if request.method == 'POST':
+      form = SurveyForm(request.POST)
+      if form.is_valid():
+          instance = form.save(commit = False)
+          instance.user = request.user.user_profile
+          instance.save()
+          return redirect('account')
+    else:
+        form = SurveyForm()
+    template = 'users/survey.html'
+    context = {'form': form}
+    return render(request, template, context)

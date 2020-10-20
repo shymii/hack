@@ -1,21 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
 <form method="POST" action="{% url 'register' %}" autocomplete="off">
     {% csrf_token %}
     {% for field in form %}
-        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-        {{ field }}
-        {% if field.errors %}
-            {% for error in field.errors %}
-            <br />
-            <small>{{ error }}</small>
-            {% endfor %}
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}
+        {% if field.help_text %}
+            <span>{{ field.help_text }}</span>
         {% endif %}
-        <br />
+        {% for error in field.errors %}
+            <span>{{ error }}</span>
+        {% endfor %}
     {% endfor %}
-    <input type="submit" value="Register">
+    <input type="submit" value="register">
 </form>
-
 {% endblock content %}

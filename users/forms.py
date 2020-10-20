@@ -3,10 +3,14 @@ from django.contrib.auth.models import User
 from django import forms
 from captcha.fields import ReCaptchaField
 from captcha.widgets import ReCaptchaV2Checkbox
-from .models import user_profile
+from .models import user_profile, user_survey
 
 class CreateUserForm(UserCreationForm):
     captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox(api_params={'hl': 'pl'}, attrs={'data-theme': 'dark'}))
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2', 'captcha']
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['first_name'].label = 'Imię'
@@ -16,30 +20,58 @@ class CreateUserForm(UserCreationForm):
         self.fields['password1'].label = 'Hasło'
         self.fields['password2'].label = 'Potwierdź hasło'
         self.error_messages['password_mismatch'] = 'Hasła muszą być takie same!'
-    class Meta:
-        model = User
-        fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2', 'captcha']
 
 class LoginUserForm(AuthenticationForm):
     captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox(api_params={'hl': 'pl'}, attrs={'data-theme': 'dark'}))
+    class Meta:
+        model = User
+        fields = ['username', 'password', 'captcha']
 
 class ModifyUserForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['first_name', 'last_name', 'email']
 
-class ModifyUserDataForm(forms.ModelForm):
-    birth_date = forms.DateField(required = False)
-    sex = forms.BooleanField(required = False)
+GENDER_CHOICES = [
+    (0, 'mężczyzna'),
+    (1, 'kobieta')
+]
 
+class ModifyUserDataForm(forms.ModelForm):
+    sex = forms.ChoiceField(widget = forms.RadioSelect, choices = GENDER_CHOICES)
     class Meta:
         model = user_profile
         fields = ['birth_date', 'sex']
+        widgets = {
+            'birth_date': forms.DateInput(format = ('%m/%d/%Y'), attrs = {'type': 'date'})
+        }
 
-    def save(self, commit = True):
-        user = super(ModifyUserDataForm, self).save(commit = False)
-        user.birth_date = self.cleaned_data['birth_date']
-        user.sex = self.cleaned_data['sex']
-        if commit:
-            user.save()
-        return user
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['birth_date'].label = 'Data urodzenia'
+        self.fields['sex'].label = 'Płeć'
+
+STRESS_CHOICES = [
+    ('niski', 'niski'),
+    ('zrównoważony', 'zrównoważony'),
+    ('wysoki', 'wysoki')
+]
+
+class SurveyForm(forms.ModelForm):
+    stress = forms.ChoiceField(widget = forms.RadioSelect, choices = STRESS_CHOICES)
+    class Meta:
+        model = user_survey
+        fields = ['weight', 'height', 'chest', 'bicep', 'thigh', 'waist', 'hips', 'arms', 'stress']
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['weight'].label = 'Waga'
+        self.fields['height'].label = 'Wzrost'
+        self.fields['chest'].label = 'Klatka piersiowa'
+        self.fields['bicep'].label = 'Biceps'
+        self.fields['thigh'].label = 'Uda'
+        self.fields['waist'].label = 'Talia'
+        self.fields['hips'].label = 'Biodra'
+        self.fields['arms'].label = 'Barki'
+        self.fields['stress'].label = 'Poziom stresu'
+

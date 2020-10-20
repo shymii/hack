@@ -1,20 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
 <form method="POST" action="{% url 'account_edit' %}" autocomplete="off">
     {% csrf_token %}
     {% for field in u_form %}
-        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-        {{ field }}
-        <br />
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}
     {% endfor %}
     {% for field in p_form %}
-        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-        {{ field }}
-        <br />
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}
     {% endfor %}
-    <input type="submit" value="edit">
+    <input type="submit" value="edytuj">
 </form>
-
 {% endblock content %}

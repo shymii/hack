@@ -6,14 +6,7 @@ from .models import user_profile
 @receiver(post_save, sender = User)
 def create_profile(sender, instance, created, **kwargs):
     if created:
-        user_profile.objects.create(
-            user = instance,
-            username = instance.username,
-            first_name = instance.first_name,
-            last_name = instance.last_name,
-            email = instance.email,
-            )
-        #print('Profile created!')
+        user_profile.objects.create(user = instance)
 
 @receiver(post_save, sender = User)
 def update_profile(sender, instance, created, **kwargs):
@@ -21,10 +14,4 @@ def update_profile(sender, instance, created, **kwargs):
         try:
             instance.user_profile.save()
         except:
-            user_profile.objects.create(
-                user = instance,
-                username = instance.username,
-                first_name = instance.first_name,
-                last_name = instance.last_name,
-                email = instance.email,
-            )
+            user_profile.objects.create(user = instance)
