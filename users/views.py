@@ -15,7 +15,7 @@ from django.http import JsonResponse
 # Create your views here.
 @is_admin
 def create_json(request):
-    surveys = user_survey.objects.filter(user = request.user.user_profile).order_by('-survey_date')
+    surveys = user_survey.objects.filter(user = request.user.user_profile).order_by('survey_date')
     survey_results = {
         'weight' : [],
         'height' : [],
@@ -25,7 +25,8 @@ def create_json(request):
         'waist' : [],
         'hips' : [],
         'arms' : [],
-        'stress' : []
+        'stress' : [],
+        'date': []
     }
     for result in surveys:
         survey_results['weight'].append(float(result.weight))
@@ -37,6 +38,7 @@ def create_json(request):
         survey_results['hips'].append(float(result.hips))
         survey_results['arms'].append(float(result.arms))
         survey_results['stress'].append(str(result.stress))
+        survey_results['date'].append(str(result.survey_date))
     return JsonResponse({'survey_results' : survey_results})
 
 @unauthenticated_user

@@ -1,4 +1,9 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'style/css/account.css' %}">
+{% endblock css %}
 
 {% block content %}
 <p>Zalogowano jako {{ user }}</p>
@@ -8,12 +13,17 @@
 <p>{{ user.user_profile.sex }}</p>
 
 {% if surveys %}
-    {% for survey in surveys %}
-        <p>{{ survey.waist }}</p>
-    {% endfor %}
+<section class="charts">
+    <canvas id="chartHeight"></canvas>
+    <canvas id="chartWeight"></canvas>
+    <canvas id="chartChest"></canvas>
+</section>
 {% else %}
     <p>Nie posiadasz jeszcze wypełnionej ankiety!</p>
 {% endif %}
-
-{{ survey_result }}
 {% endblock content %}
+
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+<script src={% static "js/comparesurveys.js" %}></script>
+{% endblock scripts %}

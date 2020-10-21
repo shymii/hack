@@ -1,0 +1,10 @@
+.charts{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    canvas{
+        height: 200px;
+        display: inline;
+    }
+}
