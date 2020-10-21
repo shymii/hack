@@ -3,9 +3,16 @@ from django.contrib.auth.models import User
 from django.db.models.signals import pre_save
 
 # Create your models here.
+GENDER_CHOICES = [
+    ('nieznana', 'nieznana'),
+    ('mężczyzna', 'mężczyzna'),
+    ('kobieta', 'kobieta')
+]
+
 class user_profile(models.Model):
     user = models.OneToOneField(User, on_delete = models.CASCADE, blank = True, null = True, editable = False)
-    sex = models.BooleanField(null = True, blank = True)
+    sex = models.CharField(null = True, blank = True, max_length = 10, choices = GENDER_CHOICES)
+    city = models.CharField(max_length = 40, blank = True, null = True)
     birth_date = models.DateField(null = True, blank = True)
 
     def my_property(self):

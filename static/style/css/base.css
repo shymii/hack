@@ -11,7 +11,7 @@ body * {
   margin: 0;
   box-sizing: border-box;
   font-family: sans-serif;
-  color: #FFFBFC;
+  /* color: #FFFBFC; */
 }
 body .header {
   flex-basis: 15%;

@@ -33,15 +33,16 @@ class ModifyUserForm(forms.ModelForm):
         fields = ['first_name', 'last_name', 'email']
 
 GENDER_CHOICES = [
-    (0, 'mężczyzna'),
-    (1, 'kobieta')
+    ('nieznana', 'nieznana'),
+    ('mężczyzna', 'mężczyzna'),
+    ('kobieta', 'kobieta')
 ]
 
 class ModifyUserDataForm(forms.ModelForm):
-    sex = forms.ChoiceField(widget = forms.RadioSelect, choices = GENDER_CHOICES)
+    sex = forms.ChoiceField(widget = forms.Select, choices = GENDER_CHOICES)
     class Meta:
         model = user_profile
-        fields = ['birth_date', 'sex']
+        fields = ['birth_date', 'sex', 'city']
         widgets = {
             'birth_date': forms.DateInput(format = ('%Y-%m-%d'), attrs = {'type': 'date'})
         }
@@ -50,6 +51,7 @@ class ModifyUserDataForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['birth_date'].label = 'Data urodzenia'
         self.fields['sex'].label = 'Płeć'
+        self.fields['city'].label = 'Miasto'
 
 STRESS_CHOICES = [
     ('niski', 'niski'),

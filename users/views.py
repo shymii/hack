@@ -10,7 +10,34 @@ from .models import user_profile, user_survey
 
 from datetime import date
 
+from django.http import JsonResponse
+
 # Create your views here.
+def create_json(request):
+    surveys = user_survey.objects.filter(user = request.user.user_profile).order_by('-survey_date')
+    survey_results = {
+        'weight' : [],
+        'height' : [],
+        'chest' : [],
+        'bicep' : [],
+        'thigh' : [],
+        'waist' : [],
+        'hips' : [],
+        'arms' : [],
+        'stress' : []
+    }
+    for result in surveys:
+        survey_results['weight'].append(float(result.weight))
+        survey_results['height'].append(int(result.height))
+        survey_results['chest'].append(float(result.chest))
+        survey_results['bicep'].append(float(result.bicep))
+        survey_results['thigh'].append(float(result.thigh))
+        survey_results['waist'].append(float(result.waist))
+        survey_results['hips'].append(float(result.hips))
+        survey_results['arms'].append(float(result.arms))
+        survey_results['stress'].append(str(result.stress))
+    return JsonResponse({'survey_results' : survey_results})
+
 @unauthenticated_user
 def register_view(request):
     form = CreateUserForm(request.POST)
@@ -46,6 +73,7 @@ def logout_view(request):
 @login_required(login_url = 'login')
 def account_view(request):
     surveys = user_survey.objects.filter(user = request.user.user_profile).order_by('-survey_date')
+    survey_result = create_json(request)
     context = {'surveys': surveys}
     template = 'users/account.html'
     return render(request, template, context)
