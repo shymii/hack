@@ -42,7 +42,7 @@ class ModifyUserDataForm(forms.ModelForm):
     sex = forms.ChoiceField(widget = forms.Select, choices = GENDER_CHOICES)
     class Meta:
         model = user_profile
-        fields = ['birth_date', 'sex', 'city']
+        fields = ['birth_date', 'sex', 'city', 'image']
         widgets = {
             'birth_date': forms.DateInput(format = ('%Y-%m-%d'), attrs = {'type': 'date'})
         }

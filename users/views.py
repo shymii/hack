@@ -85,7 +85,7 @@ def account_view(request):
 def account_edit(request):
     if request.method == 'POST':
         u_form = ModifyUserForm(request.POST, instance = request.user)
-        p_form = ModifyUserDataForm(request.POST, instance = request.user.user_profile)
+        p_form = ModifyUserDataForm(request.POST, request.FILES, instance = request.user.user_profile)
         if u_form.is_valid() and p_form.is_valid():
             u_form.save()
             p_form.save()
