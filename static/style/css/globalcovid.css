@@ -1,7 +1,6 @@
-.header {
-  height: auto;
+.main {
+  height: auto !important;
 }
-
 .main h2 {
   text-align: center;
   font-size: 4em;
@@ -45,5 +44,5 @@
 }
 
 .footer {
-  height: auto;
+  height: 10vh;
 }
