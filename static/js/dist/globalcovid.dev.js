@@ -16,6 +16,7 @@ fetch("https://covid19-api.org/api/timeline").then(function (res) {
   var deaths = [];
   var recovered = [];
   var daily = [];
+  var active = [];
   var n = 0;
   data.forEach(function (element) {
     cases.unshift(data[n].total_cases);
@@ -33,6 +34,7 @@ fetch("https://covid19-api.org/api/timeline").then(function (res) {
     n++;
   });
   n--;
+  var k = n;
   document.getElementById("dailyRes").innerHTML = "Dzisiejsza liczba przypadk\xF3w: ".concat(commaSeparateNumber(cases[n] - cases[n - 1]));
   document.getElementById("casesRes").innerHTML = "\u0141\u0105czna liczba przypadk\xF3w: ".concat(commaSeparateNumber(cases[n]));
   document.getElementById("deathRes").innerHTML = "\u015Amierci \u0142\u0105cznie: ".concat(commaSeparateNumber(deaths[n]));
@@ -40,17 +42,21 @@ fetch("https://covid19-api.org/api/timeline").then(function (res) {
 
   for (n; n > 0; n--) {
     var val = cases[n + 1] - cases[n];
+    var wal = cases[n] - recovered[n];
 
     if (val < 0) {
       val = -val;
     }
 
     daily.unshift(val);
+    active.unshift(wal);
   }
 
+  document.getElementById("activeRes").innerHTML = "Aktywnych przypadk\xF3w jest: ".concat(commaSeparateNumber(active[k - 1]));
   var myChart = document.getElementById("myChart").getContext('2d');
   var dailyChart = document.getElementById("dailyChart").getContext('2d');
   var deathChart = document.getElementById("deathChart").getContext('2d');
+  var activeChart = document.getElementById("activeChart").getContext('2d');
   var chart = new Chart(myChart, {
     type: 'line',
     data: {
@@ -90,6 +96,19 @@ fetch("https://covid19-api.org/api/timeline").then(function (res) {
         label: "Śmierci",
         data: deaths,
         backgroundColor: '#696969',
+        minBarLength: 100
+      }]
+    },
+    options: {}
+  });
+  var activeCh = new Chart(activeChart, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: "Aktywne przypadki",
+        data: active,
+        backgroundColor: '#FFC34D',
         minBarLength: 100
       }]
     },

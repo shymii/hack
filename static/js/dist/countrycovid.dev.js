@@ -40,6 +40,8 @@ function masno() {
 
     daily.unshift(0);
     daily.unshift(0);
+    document.getElementById("cipsko").innerHTML = '&nbsp;';
+    document.getElementById("cipsko").innerHTML = '<canvas id="myChart"></canvas>';
     var myChart = document.getElementById("myChart").getContext('2d');
     var chart = new Chart(myChart, {
       type: 'line',

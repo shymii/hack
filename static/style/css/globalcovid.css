@@ -4,7 +4,7 @@
 .main h2 {
   text-align: center;
   font-size: 4em;
-  color: #252426;
+  color: #FFFBFC;
   margin-bottom: 0.5em;
 }
 .main .globalCharts {
@@ -21,7 +21,7 @@
   flex-basis: 100%;
   text-align: center;
   font-size: 3em;
-  color: #252426;
+  color: #FFFBFC;
   padding-bottom: 0.5em;
   padding-top: 0.5em;
 }
@@ -38,7 +38,7 @@
 .main .globalCharts .desc p {
   text-align: center;
   font-size: 2em;
-  color: #252426;
+  color: #FFFBFC;
   display: block;
   padding-bottom: 1em;
 }
