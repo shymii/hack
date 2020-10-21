@@ -13,17 +13,27 @@
 <body>
     <header class="header">
         <nav class="header-nav">
+            <p>health</p>
             <ul class="header-nav-list">
-                <li class="header-nav-list-item"><a href="#">mental health</a></li>
-                <li class="header-nav-list-item"><a href="#">physical health</a></li>
-                <li class="header-nav-list-item"><a href="{% url 'covid' %}">COVID-19</a></li>
+                <li class="header-nav-list-item {% if request.resolver_match.view_name == 'mental_health_view' %} header-item-active {% endif %}"><a href="#">mental health</a></li>
+                <li class="header-nav-list-item {% if request.resolver_match.view_name == 'physical_health_view' %} header-item-active {% endif %}"><a href="#">physical health</a></li>
+                <li class="header-nav-list-item {% if request.resolver_match.view_name == 'covid' or request.resolver_match.view_name == 'globalcovid' or request.resolver_match.view_name == 'comparecovid' or request.resolver_match.view_name == 'countrycovid' %} header-item-active {% endif %}"><a href="{% url 'covid' %}">COVID-19</a></li>
             </ul>
         </nav>
         <nav class="header-account">
             <p>account</p>
             <ul class="header-account-list">
-                <li class="header-account-list-item"><a href="{% url 'login' %}">login</a></li>
-                <li class="header-account-list-item"><a href="{% url 'account' %}">profile</a></li>
+                {% if not user.is_authenticated %}
+                <li class="header-account-list-item {% if request.resolver_match.view_name == 'login' %} header-item-active {% endif %}"><a href="{% url 'login' %}">login</a></li>
+                {% else %}
+                <li class="header-account-list-item {% if request.resolver_match.view_name == 'account' %} header-item-active {% endif %}"><a href="{% url 'account' %}">profile</a>
+                    <ul class="header-account-nested-list {% if request.resolver_match.view_name == 'account_edit' or request.resolver_match.view_name == 'account_survey' %} header-account-nested-list-active {% else %} header-account-nested-list-inactive {% endif %}">
+                        <li class="header-account-nested-list-item {% if request.resolver_match.view_name == 'account_edit' %} header-item-active {% endif %}"><a href="{% url 'account_edit' %}">edit</a></li>
+                        <li class="header-account-nested-list-item {% if request.resolver_match.view_name == 'account_survey' %} header-item-active {% endif %}"><a href="{% url 'account_survey' %}">survey</a></li>
+                        <li class="header-account-nested-list-item logout"><a href="{% url 'logout' %}">logout</a></li>
+                    </ul>
+                </li>
+                {% endif %}
                 <li class="header-account-list-item"><a href="#">idk</a></li>
             </ul>
         </nav>

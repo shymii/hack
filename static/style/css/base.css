@@ -1,17 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;500;700&display=swap");
 body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
-  background-color: #535657;
+  background-color: #262626;
 }
 body * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
-  /* color: #FFFBFC; */
+  font-family: "Raleway", sans-serif;
+  color: #FFFBFC;
+}
+@keyframes hovernav {
+  from {
+    width: 0;
+  }
+  to {
+    width: 40%;
+  }
+}
+@keyframes dropdown {
+  0% {
+    transform: scaleY(0);
+  }
+  80% {
+    transform: scaleY(1.1);
+  }
+  100% {
+    transform: scaleY(1);
+  }
 }
 body .header {
   flex-basis: 15%;
@@ -22,6 +42,12 @@ body .header {
   text-align: center;
   padding: 2em 0;
 }
+body .header .header-nav p {
+  text-align: left;
+  padding: 0.8em;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+}
 body .header .header-nav .header-nav-list {
   list-style: none;
 }
@@ -29,19 +55,51 @@ body .header .header-nav .header-nav-list .header-nav-list-item {
   width: 80%;
   margin-left: 10%;
   margin-bottom: 0.4em;
+  height: 3em;
+  overflow: hidden;
+}
+body .header .header-nav .header-nav-list .header-nav-list-item .header-nav-nested-list {
+  list-style: none;
+  transition-duration: 0.5s;
+  max-height: 0;
+}
+body .header .header-nav .header-nav-list .header-nav-list-item .header-nav-nested-list .header-nav-nested-list-item {
+  font-size: 80%;
+  text-align: right;
+}
+body .header .header-nav .header-nav-list .header-nav-list-item:hover .header-nav-nested-list-inactive {
+  animation: dropdown 0.5s ease-in;
+  max-height: auto;
+}
+body .header .header-nav .header-nav-list .header-nav-list-item .header-nav-nested-list-active {
+  max-height: 10em;
 }
 body .header .header-nav .header-nav-list .header-nav-list-item a {
   display: block;
   padding: 0.8em 0.4em;
   text-decoration: none;
-  border-radius: 0.5em;
+  position: relative;
 }
-body .header .header-nav .header-nav-list .header-nav-list-item a:hover {
-  background-color: #8D91C7;
+body .header .header-nav .header-nav-list .header-nav-list-item a::after {
+  content: " ";
+  width: 0;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-radius: 0.5em;
+  border-bottom: 5px solid #6573e0;
+  transition-duration: 0.5s;
+}
+body .header .header-nav .header-nav-list .header-nav-list-item a:hover::after {
+  content: " ";
+  width: 40%;
+  animation: hovernav 0.3s ease-in;
 }
 body .header .header-account p {
   text-align: left;
   padding: 0.8em;
+  letter-spacing: 0.15em;
+  font-weight: 700;
 }
 body .header .header-account .header-account-list {
   list-style: none;
@@ -50,20 +108,68 @@ body .header .header-account .header-account-list .header-account-list-item {
   width: 80%;
   margin-left: 10%;
   margin-bottom: 0.4em;
+  overflow: hidden;
+}
+body .header .header-account .header-account-list .header-account-list-item .header-account-nested-list {
+  list-style: none;
+  transition-duration: 0.5s;
+  max-height: 0;
+}
+body .header .header-account .header-account-list .header-account-list-item .header-account-nested-list .header-account-nested-list-item {
+  font-size: 80%;
+  text-align: right;
+}
+body .header .header-account .header-account-list .header-account-list-item .header-account-nested-list .logout a {
+  color: #8a0e0e;
+}
+body .header .header-account .header-account-list .header-account-list-item:hover .header-account-nested-list-inactive {
+  animation: dropdown 0.5s ease-in;
+  max-height: 10em;
+}
+body .header .header-account .header-account-list .header-account-list-item .header-account-nested-list-active {
+  max-height: 10em;
 }
 body .header .header-account .header-account-list .header-account-list-item a {
   display: block;
   padding: 0.8em 0.4em;
   text-decoration: none;
-  border-radius: 0.5em;
+  position: relative;
 }
-body .header .header-account .header-account-list .header-account-list-item a:hover {
-  background-color: #8D91C7;
+body .header .header-account .header-account-list .header-account-list-item a::after {
+  content: " ";
+  width: 0;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-radius: 0.5em;
+  border-bottom: 5px solid #6573e0;
+  transition-duration: 0.5s;
+}
+body .header .header-account .header-account-list .header-account-list-item a:hover::after {
+  content: " ";
+  width: 40%;
+  animation: hovernav 0.3s ease-in;
+}
+body .header .header-item-active > a {
+  position: relative;
+}
+body .header .header-item-active > a::after {
+  content: " ";
+  width: 40% !important;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-radius: 0.5em;
+  border-bottom: 5px solid #6573e0;
+  transition-duration: 0.5s;
 }
 body .main {
   flex-basis: 85%;
-  height: auto;
+  height: 90vh;
   background-color: #FFFBFC;
+}
+body .main * {
+  color: #363636;
 }
 body .footer {
   flex-basis: 100%;
