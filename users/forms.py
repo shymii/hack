@@ -31,6 +31,12 @@ class ModifyUserForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['first_name', 'last_name', 'email']
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['first_name'].widget = forms.TextInput(attrs={'placeholder': ' '})
+        self.fields['last_name'].widget = forms.TextInput(attrs={'placeholder': ' '})
+        self.fields['email'].widget = forms.TextInput(attrs={'placeholder': ' '})
 
 GENDER_CHOICES = [
     ('nieznana', 'nieznana'),
@@ -52,6 +58,7 @@ class ModifyUserDataForm(forms.ModelForm):
         self.fields['birth_date'].label = 'Data urodzenia'
         self.fields['sex'].label = 'Płeć'
         self.fields['city'].label = 'Miasto'
+        self.fields['city'].widget = forms.TextInput(attrs={'placeholder': ' '})
 
 STRESS_CHOICES = [
     ('niski', 'niski'),

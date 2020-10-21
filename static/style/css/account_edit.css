@@ -1,0 +1,83 @@
+.main h1 {
+  margin: 5vw 0 0 10vw;
+  padding-bottom: 1vw;
+  position: relative;
+}
+.main h1::after {
+  content: " ";
+  position: absolute;
+  width: 10vw;
+  right: 60vw;
+  bottom: 0;
+  border-radius: 0.5em;
+  border-bottom: 5px solid #6573e0;
+}
+.main form {
+  margin: 4vw 0 0 17vw;
+  position: relative;
+  display: grid;
+  width: 50%;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+.main form .form-fields .form-div {
+  height: 3vw;
+  width: 15vw;
+  position: relative;
+  margin-bottom: 1vw;
+}
+.main form .form-fields .form-div input, .main form .form-fields .form-div select {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  padding: 1vw;
+  border-radius: 0.5em;
+  background-color: #303030;
+  outline: none;
+  border: none;
+  transition-duration: border 0.5s;
+}
+.main form .form-fields .form-div input option, .main form .form-fields .form-div select option {
+  border: none;
+  outline: none;
+}
+.main form .form-fields .form-div label {
+  text-transform: lowercase;
+  margin-right: 2vw;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  transition: transform 0.5s;
+}
+.main form .form-fields .form-div label span {
+  pointer-events: none;
+  position: absolute;
+  bottom: 1vw;
+  padding-left: 1vw;
+}
+.main form .form-fields .form-div input:focus, .main form .form-fields .form-div select:focus {
+  border: 1px solid #6573e0;
+}
+.main form .form-fields .form-div input:focus + label, .main form .form-fields .form-div select:focus + label {
+  transform: translateY(-50%);
+}
+.main form .form-fields .form-div input:not(:placeholder-shown) + label, .main form .form-fields .form-div select:valid + label {
+  transform: translateY(-50%);
+}
+.main form input[type=submit] {
+  background-color: #6573e0;
+  border: none;
+  outline: none;
+  padding: 1vw 5vw;
+  cursor: pointer;
+  border-radius: 0.5em;
+  display: block;
+  width: 15vw;
+  height: 3vw;
+}
+.main form input[type=submit]:hover {
+  border: 1px solid #FFFBFC;
+}

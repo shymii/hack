@@ -5,7 +5,7 @@ body {
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
-  background-color: #262626;
+  background-color: #303030;
 }
 body * {
   padding: 0;
@@ -38,9 +38,23 @@ body .header {
   height: auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: start;
   text-align: center;
   padding: 2em 0;
+  position: relative;
+}
+body .header::after {
+  content: " ";
+  position: absolute;
+  height: 90%;
+  right: -2px;
+  bottom: 5%;
+  border-radius: 0.5em;
+  border-right: 5px solid #6573e0;
+}
+body .header .header-nav {
+  margin-top: 5vh;
+  flex-basis: 25vh;
 }
 body .header .header-nav p {
   text-align: left;
@@ -55,7 +69,6 @@ body .header .header-nav .header-nav-list .header-nav-list-item {
   width: 80%;
   margin-left: 10%;
   margin-bottom: 0.4em;
-  height: 3em;
   overflow: hidden;
 }
 body .header .header-nav .header-nav-list .header-nav-list-item .header-nav-nested-list {
@@ -64,12 +77,12 @@ body .header .header-nav .header-nav-list .header-nav-list-item .header-nav-nest
   max-height: 0;
 }
 body .header .header-nav .header-nav-list .header-nav-list-item .header-nav-nested-list .header-nav-nested-list-item {
-  font-size: 80%;
+  font-size: 90%;
   text-align: right;
 }
 body .header .header-nav .header-nav-list .header-nav-list-item:hover .header-nav-nested-list-inactive {
   animation: dropdown 0.5s ease-in;
-  max-height: auto;
+  max-height: 10em;
 }
 body .header .header-nav .header-nav-list .header-nav-list-item .header-nav-nested-list-active {
   max-height: 10em;
@@ -116,7 +129,7 @@ body .header .header-account .header-account-list .header-account-list-item .hea
   max-height: 0;
 }
 body .header .header-account .header-account-list .header-account-list-item .header-account-nested-list .header-account-nested-list-item {
-  font-size: 80%;
+  font-size: 90%;
   text-align: right;
 }
 body .header .header-account .header-account-list .header-account-list-item .header-account-nested-list .logout a {
@@ -166,10 +179,10 @@ body .header .header-item-active > a::after {
 body .main {
   flex-basis: 85%;
   height: 90vh;
-  background-color: #FFFBFC;
+  background-color: #262626;
 }
 body .main * {
-  color: #363636;
+  color: #FFFBFC;
 }
 body .footer {
   flex-basis: 100%;
