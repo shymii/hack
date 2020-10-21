@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, User
 from django.contrib.auth import login, logout
 
 from django.contrib.auth.decorators import login_required
-from .decorators import unauthenticated_user
+from .decorators import unauthenticated_user, is_admin
 
 from .forms import CreateUserForm, LoginUserForm, ModifyUserForm, ModifyUserDataForm, SurveyForm
 from .models import user_profile, user_survey
@@ -13,6 +13,7 @@ from datetime import date
 from django.http import JsonResponse
 
 # Create your views here.
+@is_admin
 def create_json(request):
     surveys = user_survey.objects.filter(user = request.user.user_profile).order_by('-survey_date')
     survey_results = {
