@@ -13,7 +13,11 @@ function masno(){
             data.forEach(element => {
                 cases.unshift(data[n].cases);
                 let masno = data[n].last_update;
-                let update = masno.replace("T", " ")
+                let update = "";
+                for (let i = 5; i < 10 ; i++) {
+                    update += masno[i]
+                }
+                update = update.replace("-", ".");
                 labels.unshift(update)
                 deaths.unshift(data[n].deaths)
                 recovered.unshift(data[n].recovered)
@@ -26,6 +30,8 @@ function masno(){
                 }
                 daily.unshift(val);
             }
+            daily.unshift(0);
+            daily.unshift(0);
             var myChart = document.getElementById("myChart").getContext('2d')
 
             var chart = new Chart(myChart, {

@@ -16,7 +16,11 @@ fetch(`https://covid19-api.org/api/timeline`)
         data.forEach(element => {
             cases.unshift(data[n].total_cases);
             let masno = data[n].last_update;
-            let update = masno.replace("T", " ")
+            let update = "";
+            for (let i = 5; i < 10 ; i++) {
+                update += masno[i]
+            }
+            update = update.replace("-", ".");
             labels.unshift(update)
             deaths.unshift(data[n].total_deaths)
             recovered.unshift(data[n].total_recovered)
