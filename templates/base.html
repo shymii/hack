@@ -6,7 +6,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hack</title>
-    <link rel="stylesheet" href='{% static "style/css/base.css" %}'>
+    {% if request.session.browse_mode == 'dark' %}
+    <link rel="stylesheet" href='{% static "style/css/base-dark.css" %}'>
+    {% else %}
+    <link rel="stylesheet" href='{% static "style/css/base-dark.css" %}'>
+    {% endif %}
     {% block css %}
     {% endblock css %}
 </head>

@@ -60,6 +60,7 @@ def login_view(request):
         form = LoginUserForm(data = request.POST)
         if form.is_valid():
             user = form.get_user()
+            request.session['browse_mode'] = 'dark'
             login(request, user)
             return redirect('homepage')
     else:

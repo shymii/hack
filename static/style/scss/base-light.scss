@@ -5,6 +5,7 @@
 /// #303030
 /// #262626
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;500;700&display=swap');
+@import "utilities/variables-light";
 
 body {
     padding: 0;
@@ -12,14 +13,14 @@ body {
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
-    background-color:#303030;
+    background-color: $bgcolor1;
     
     * {
         padding: 0;
         margin: 0;
         box-sizing: border-box;
         font-family: 'Raleway', sans-serif;
-        color: #FFFBFC;
+        color: $color;
     }
 
     @keyframes  hovernav{
@@ -55,7 +56,7 @@ body {
             right: -2px;
             bottom: 5%;
             border-radius: .5em;
-            border-right: 5px solid #6573e0;
+            border-right: 5px solid $purple;
         }        
 
         .header-nav {
@@ -102,7 +103,7 @@ body {
                             bottom: 0;
                             right: 0;
                             border-radius: .5em;
-                            border-bottom: 5px solid #6573e0;
+                            border-bottom: 5px solid $purple;
                             transition-duration: .5s;
                         }
                         &:hover::after {
@@ -160,7 +161,7 @@ body {
                             bottom: 0;
                             right: 0;
                             border-radius: .5em;
-                            border-bottom: 5px solid #6573e0;
+                            border-bottom: 5px solid $purple;
                             transition-duration: .5s;
                         }
                         &:hover::after {
@@ -183,7 +184,7 @@ body {
                    bottom: 0;
                    right: 0;
                    border-radius: .5em;
-                   border-bottom: 5px solid #6573e0;
+                   border-bottom: 5px solid $purple;
                    transition-duration: .5s;
                }
            }
@@ -193,9 +194,9 @@ body {
     .main {
         flex-basis: 85%;
         height: 90vh;
-        background-color: #262626;
+        background-color: $bgcolor2;
         *{
-            color: #FFFBFC;
+            color: $color;
         }
     }
 
