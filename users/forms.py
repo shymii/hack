@@ -14,11 +14,18 @@ class CreateUserForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['first_name'].label = 'Imię'
+        self.fields['first_name'].widget = forms.TextInput(attrs={'placeholder': ' '})
         self.fields['last_name'].label = 'Nazwisko'
+        self.fields['last_name'].widget = forms.TextInput(attrs={'placeholder': ' '})
         self.fields['username'].label = 'Nazwa użytkownika'
+        self.fields['username'].widget = forms.TextInput(attrs={'placeholder': ' '})
         self.fields['email'].label = 'Adres e-mail'
+        self.fields['email'].widget = forms.TextInput(attrs={'placeholder': ' '})
         self.fields['password1'].label = 'Hasło'
+        self.fields['password1'].widget = forms.TextInput(attrs={'placeholder': ' '})
         self.fields['password2'].label = 'Potwierdź hasło'
+        self.fields['password2'].widget = forms.TextInput(attrs={'placeholder': ' '})
+        self.fields['captcha'].label = ''
         self.error_messages['password_mismatch'] = 'Hasła muszą być takie same!'
 
 class LoginUserForm(AuthenticationForm):
@@ -26,6 +33,12 @@ class LoginUserForm(AuthenticationForm):
     class Meta:
         model = User
         fields = ['username', 'password', 'captcha']
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['username'].widget = forms.TextInput(attrs={'placeholder': ' '})
+        self.fields['password'].widget = forms.TextInput(attrs={'placeholder': ' '})
+        self.fields['captcha'].label = ''
 
 class ModifyUserForm(forms.ModelForm):
     class Meta:
@@ -48,7 +61,7 @@ class ModifyUserDataForm(forms.ModelForm):
     sex = forms.ChoiceField(widget = forms.Select, choices = GENDER_CHOICES)
     class Meta:
         model = user_profile
-        fields = ['birth_date', 'sex', 'city']
+        fields = ['birth_date', 'sex', 'city', 'image']
         widgets = {
             'birth_date': forms.DateInput(format = ('%Y-%m-%d'), attrs = {'type': 'date'})
         }
@@ -75,12 +88,20 @@ class SurveyForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['weight'].label = 'Waga'
+        self.fields['weight'].widget = forms.TextInput(attrs={'placeholder': ' '})
         self.fields['height'].label = 'Wzrost'
+        self.fields['height'].widget = forms.TextInput(attrs={'placeholder': ' '})
         self.fields['chest'].label = 'Klatka piersiowa'
+        self.fields['chest'].widget = forms.TextInput(attrs={'placeholder': ' '})
         self.fields['bicep'].label = 'Biceps'
+        self.fields['bicep'].widget = forms.TextInput(attrs={'placeholder': ' '})
         self.fields['thigh'].label = 'Uda'
+        self.fields['thigh'].widget = forms.TextInput(attrs={'placeholder': ' '})
         self.fields['waist'].label = 'Talia'
+        self.fields['waist'].widget = forms.TextInput(attrs={'placeholder': ' '})
         self.fields['hips'].label = 'Biodra'
+        self.fields['hips'].widget = forms.TextInput(attrs={'placeholder': ' '})
         self.fields['arms'].label = 'Barki'
+        self.fields['arms'].widget = forms.TextInput(attrs={'placeholder': ' '})
         self.fields['stress'].label = 'Poziom stresu'
 

@@ -1,0 +1,109 @@
+@import "utilities/variables-light";
+
+.main{
+    h1{
+        margin: 5vw 0 0 10vw;
+        padding-bottom: 1vw;
+        position: relative;
+        &::after{
+            content: " ";
+            position: absolute;
+            width: 10vw;
+            right: 60vw;
+            bottom: 0;
+            border-radius: .5em;
+            border-bottom: 5px solid $purple;
+        }
+    }
+    form{
+        margin: 4vw 0 0 17vw;
+        position: relative;
+        display: grid;
+        width: 50%;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        .form-fields{
+            .form-div{
+                height: 3vw;
+                width: 15vw;
+                position: relative;
+                margin-bottom: 1vw;
+                ul{
+                    padding-top: 1vw;
+                    list-style: none;
+                    display: flex;
+                    flex-direction: column;
+                    input[type="radio"]{
+                        padding: 0;
+                        height: 1em;
+                        width: 1em;
+                        border-radius: 0;
+                    }
+                    label{
+                        position: relative;
+                    }
+                    &+label{
+                        top: -1.5vw;
+                    }
+                }
+                input,select{
+                    position: relative;
+                    height: 100%;
+                    width: 100%;
+                    padding: 1vw;
+                    border-radius: .5em;
+                    background-color: $bgcolor1;
+                    outline: none;
+                    border: none;
+                    transition-duration: border .5s;
+                    option{
+                        border:none;
+                        outline: none;
+                    }
+                }
+                label{
+                    text-transform: lowercase;
+                    margin-right: 2vw;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    pointer-events: none;
+                    transition: transform .5s;
+                    span{
+                        pointer-events: none;
+                        position: absolute;
+                        bottom: 1vw;
+                        padding-left: 1vw;
+                    }
+                }
+                input:focus, select:focus{
+                    border: 1px solid $purple;
+                    +label{
+                        transform: translateY(-50%);
+                    }
+                }
+                input:not(:placeholder-shown), select:valid{
+                    +label{
+                        transform: translateY(-50%);
+                    }
+                }
+            }
+        }
+        input[type="submit"]{
+            background-color: $purple;
+            border: none;
+            outline: none;
+            padding: 1vw 5vw;
+            cursor: pointer;
+            border-radius: .5em;
+            display: block;
+            width: 15vw;
+            height: 3vw;
+            &:hover{
+                border: 1px solid $color;
+            }
+        }
+    }
+}

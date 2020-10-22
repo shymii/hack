@@ -22,5 +22,5 @@ urlpatterns = [
     path('', include('users.urls')),
     path('', include('corona.urls')),
     path('', include('mental_health.urls')),
-    path('', include('physical_health.urls'))
+    path('', include('physical_health.urls')),
 ]

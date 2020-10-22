@@ -1,17 +1,30 @@
 {% extends 'base.html' %}
+{% load static %}
 
+{% block css %}
+{% if request.session.browse_mode == 'dark' %}
+<link rel="stylesheet" href="{% static 'style/css/form-dark.css' %}">
+{% else %}
+<link rel="stylesheet" href="{% static 'style/css/form-light.css' %}">
+{% endif %}
+{% endblock css %}
 {% block content %}
+<h1>Zaloguj się</h1>
 <form method="POST" action="{% url 'login' %}" autocomplete="off">
-    {% csrf_token %}
-    {% for field in form %}
-        <label for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}
-        {% if field.help_text %}
-            <span>{{ field.help_text }}</span>
-        {% endif %}
-        {% for error in field.errors %}
-            <span>{{ error }}</span>
+    <div class="form-fields">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="form-div">
+            {{ field }}<label for="{{ field.id_for_label }}"><span>{{ field.label }}</span></label>
+            {% if field.help_text %}
+                <span>{{ field.help_text }}</span>
+            {% endif %}
+            {% for error in field.errors %}
+                <span>{{ error }}</span>
+            {% endfor %}
+        </div>
         {% endfor %}
-    {% endfor %}
+    </div>
     <input type="submit" value="Login">
 </form>
 {% endblock content %}

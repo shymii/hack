@@ -26,13 +26,31 @@
   position: relative;
   margin-bottom: 1vw;
 }
+.main form .form-fields .form-div ul {
+  padding-top: 1vw;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+.main form .form-fields .form-div ul input[type=radio] {
+  padding: 0;
+  height: 1em;
+  width: 1em;
+  border-radius: 0;
+}
+.main form .form-fields .form-div ul label {
+  position: relative;
+}
+.main form .form-fields .form-div ul + label {
+  top: -1.5vw;
+}
 .main form .form-fields .form-div input, .main form .form-fields .form-div select {
   position: relative;
   height: 100%;
   width: 100%;
   padding: 1vw;
   border-radius: 0.5em;
-  background-color: #303030;
+  background-color: #f0f0f0;
   outline: none;
   border: none;
   transition-duration: border 0.5s;
@@ -79,5 +97,5 @@
   height: 3vw;
 }
 .main form input[type=submit]:hover {
-  border: 1px solid #FFFBFC;
+  border: 1px solid #303030;
 }

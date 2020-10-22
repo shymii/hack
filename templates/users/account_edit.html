@@ -2,7 +2,11 @@
 {% load static %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'style/css/account_edit.css' %}">
+{% if request.session.browse_mode == 'dark' %}
+<link rel="stylesheet" href="{% static 'style/css/form-dark.css' %}">
+{% else %}
+<link rel="stylesheet" href="{% static 'style/css/form-light.css' %}">
+{% endif %}
 {% endblock css %}
 {% block content %}
 <h1>Edytuj swój profil</h1>

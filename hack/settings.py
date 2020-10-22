@@ -122,8 +122,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'users/media'
+
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
+    BASE_DIR / 'static',
 ]
 
 RECAPTCHA_PUBLIC_KEY = '6LdojtgZAAAAAHZgyivGRl3gydSj3J705id4XlQr'

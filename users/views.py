@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UserChangeForm
 from django.contrib.auth import login, logout
 
@@ -47,7 +48,10 @@ def register_view(request):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
+            messages.success(request, 'Pomyślnie utworzono użytkownika')
             return redirect('login')
+        else:
+            messages.error(request, 'Błąd, uzupełnij ponownie formularz')
     else:
         form = CreateUserForm()
     template = 'users/register.html'
@@ -60,9 +64,13 @@ def login_view(request):
         form = LoginUserForm(data = request.POST)
         if form.is_valid():
             user = form.get_user()
-            request.session['browse_mode'] = 'dark'
+            request.session.setdefault('browse_mode', 'dark')
+            # request.session['browse_mode'] = 'dark'
             login(request, user)
+            messages.success(request, 'Zalogowano jako %s' % user)
             return redirect('homepage')
+        else:
+            messages.error(request, 'Błąd, uzupełnij ponownie formularz')
     else:
         form = LoginUserForm()
     template = 'users/login.html'
@@ -72,6 +80,7 @@ def login_view(request):
 @login_required(login_url = 'login')
 def logout_view(request):
     logout(request)
+    messages.success(request, 'Wylogowano')
     return redirect('homepage')
 
 @login_required(login_url = 'login')
@@ -86,11 +95,14 @@ def account_view(request):
 def account_edit(request):
     if request.method == 'POST':
         u_form = ModifyUserForm(request.POST, instance = request.user)
-        p_form = ModifyUserDataForm(request.POST, instance = request.user.user_profile)
+        p_form = ModifyUserDataForm(request.POST, request.FILES, instance = request.user.user_profile)
         if u_form.is_valid() and p_form.is_valid():
             u_form.save()
             p_form.save()
+            messages.success(request, 'Pomyślnie edytowano profil')
             return redirect('account')
+        else:
+            messages.error(request, 'Błąd, uzupełnij ponownie formularz')
     else:
         u_form = ModifyUserForm(instance = request.user)
         p_form = ModifyUserDataForm(instance = request.user.user_profile)
@@ -110,11 +122,22 @@ def account_survey(request):
                 instance = form.save(commit = False)
                 instance.user = request.user.user_profile
                 instance.save()
+                messages.success(request, 'Pomyślnie dodano ankietę')
                 return redirect('account')
+            else:
+                messages.error(request, 'Błąd, uzupełnij ponownie formularz')
         else:
             form = SurveyForm()
         template = 'users/survey.html'
         context = {'form': form}
         return render(request, template, context)
     else: 
+        messages.warning(request, 'Dzisiejsza ankieta została już wypełniona, spróbuj ponownie jutro')
         return redirect('account')
+
+def browse_mode(request, url):
+    if request.session['browse_mode'] == 'dark':
+        request.session['browse_mode'] = 'light'
+    else:
+        request.session['browse_mode'] = 'dark'
+    return redirect(url)

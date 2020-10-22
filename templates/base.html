@@ -9,7 +9,7 @@
     {% if request.session.browse_mode == 'dark' %}
     <link rel="stylesheet" href='{% static "style/css/base-dark.css" %}'>
     {% else %}
-    <link rel="stylesheet" href='{% static "style/css/base-dark.css" %}'>
+    <link rel="stylesheet" href='{% static "style/css/base-light.css" %}'>
     {% endif %}
     {% block css %}
     {% endblock css %}
@@ -35,6 +35,7 @@
             <ul class="header-account-list">
                 {% if not user.is_authenticated %}
                 <li class="header-account-list-item {% if request.resolver_match.view_name == 'login' %} header-item-active {% endif %}"><a href="{% url 'login' %}">login</a></li>
+                <li class="header-account-list-item {% if request.resolver_match.view_name == 'register' %} header-item-active {% endif %}"><a href="{% url 'register' %}">register</a></li>
                 {% else %}
                 <li class="header-account-list-item {% if request.resolver_match.view_name == 'account' %} header-item-active {% endif %}"><a href="{% url 'account' %}">profile</a>
                     <ul class="header-account-nested-list {% if request.resolver_match.view_name == 'account_edit' or request.resolver_match.view_name == 'account_survey' %} header-account-nested-list-active {% else %} header-account-nested-list-inactive {% endif %}">
@@ -51,10 +52,38 @@
     <main class="main">
         {% block content %}
         {% endblock content %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                <span class="alert-message">
+                    {{ message }}
+                </span>
+                <span class="alert-close">
+                    ×
+                </span>
+            </div>
+        {% endfor %}
     </main>
     <footer class="footer">
         <p>henlo we do some ye ye u know in the footer lul</p>
+        <a href="{% url 'browse_mode' request.resolver_match.view_name %}">change browse mode, currently: {{ request.session.browse_mode }}</a>
     </footer>
+    <script>
+        const alertClose = document.querySelectorAll(".alert-close");
+        const alerts = document.querySelectorAll(".alert");
+        alerts.forEach(alert => {
+                setTimeout(function(){ alert.classList.add("alert-hide"); }, 3000);
+                })
+        alertClose.forEach(element => {
+            element.addEventListener("click", function() {
+                alerts.forEach(alert => {
+                    if(alert.contains(element)){
+                        alert.classList.add("alert-hide");
+                    }
+                })
+            })
+        })
+        
+    </script>
     {% block scripts %}
     {% endblock scripts %}
 </body>
