@@ -3,12 +3,12 @@
 }
 
 .main * {
-  color: #FFFBFC;
+  color: #303030;
 }
 .main h2 {
   text-align: center;
   font-size: 4em;
-  color: #FFFBFC;
+  color: #303030;
   margin-bottom: 0.5em;
 }
 .main input, .main select, .main button, .main option {
@@ -20,7 +20,7 @@
   display: flex;
   flex-wrap: wrap;
 }
-.main .globalCharts .myChart {
+.main .globalCharts #cipsko {
   flex-basis: 100%;
 }
 .main .globalCharts #casesRes {
@@ -28,7 +28,7 @@
   flex-basis: 100%;
   text-align: center;
   font-size: 3em;
-  color: #FFFBFC;
+  color: #303030;
   padding-bottom: 0.5em;
   padding-top: 0.5em;
 }
@@ -45,7 +45,7 @@
 .main .globalCharts .desc p {
   text-align: center;
   font-size: 2em;
-  color: #FFFBFC;
+  color: #303030;
   display: block;
   padding-bottom: 1em;
 }

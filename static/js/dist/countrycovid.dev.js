@@ -50,7 +50,7 @@ function masno() {
         datasets: [{
           label: "Potwierdzone przypadki",
           data: cases,
-          backgroundColor: '#8b0000',
+          backgroundColor: '#CE0217',
           minBarLength: 100
         }, {
           label: "Liczba zgonów",
@@ -65,7 +65,76 @@ function masno() {
         }, {
           label: "Dzienna liczba przypadków",
           data: daily,
-          backgroundColor: '#7188e6',
+          backgroundColor: '#3585CA',
+          minBarLength: 100
+        }]
+      },
+      options: {}
+    });
+  });
+  fetch("https://covid19-api.org/api/prediction/".concat(country)).then(function (res) {
+    return res.json();
+  }).then(function (data) {
+    var cases = [];
+    var labels = [];
+    var daily = [];
+    var idkidk = [];
+    var n = 0;
+    data.forEach(function (element) {
+      cases.push(data[n].cases);
+      var masno = data[n].date;
+      var update = "";
+
+      for (var i = 5; i < 10; i++) {
+        update += masno[i];
+      }
+
+      update = update.replace("-", ".");
+      labels.push(update);
+      idkidk.push(update);
+      n++;
+    });
+
+    for (n; n > 0; n--) {
+      var val = cases[n - 1] - cases[n];
+
+      if (val < 0) {
+        val = -val;
+      }
+
+      daily.push(val);
+    }
+
+    ;
+    idkidk.shift();
+    daily.shift();
+    document.getElementById("pred").innerHTML = '&nbsp;';
+    document.getElementById("pred").innerHTML = '<canvas id="predChart"></canvas>';
+    document.getElementById("dailypred").innerHTML = '&nbsp;';
+    document.getElementById("dailypred").innerHTML = '<canvas id="dpredChart"></canvas>';
+    var predChart = document.getElementById("predChart").getContext('2d');
+    var dailypredChart = document.getElementById("dpredChart").getContext('2d');
+    var pchart = new Chart(predChart, {
+      type: 'line',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: "Potwierdzone przypadki",
+          data: cases,
+          backgroundColor: '#CE0217',
+          minBarLength: 100
+        }]
+      },
+      options: {}
+    });
+    var dpredCh = new Chart(dailypredChart, {
+      type: 'line',
+      data: {
+        labels: idkidk,
+        datasets: [{
+          label: "Dzienne przypadki",
+          data: daily,
+          backgroundColor: '#3585CA',
           minBarLength: 100
         }]
       },

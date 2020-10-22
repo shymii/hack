@@ -3,12 +3,12 @@
 }
 .main {
     * {
-        color: #FFFBFC;
+        color: #303030;
     }
     h2 {
         text-align: center;
         font-size: 4em;
-        color: #FFFBFC;
+        color: #303030;
         margin-bottom: 0.5em;
     }
     input, select, button, option {
@@ -19,7 +19,7 @@
         margin: auto;
         display: flex;
         flex-wrap: wrap;
-        .myChart {
+        #cipsko {
             flex-basis: 100%;
         }
         #casesRes {
@@ -27,7 +27,7 @@
             flex-basis: 100%;
             text-align: center;
             font-size: 3em;
-            color: #FFFBFC; 
+            color: #303030; 
             padding-bottom: 0.5em;
             padding-top: 0.5em;
         }
@@ -43,7 +43,7 @@
             p {
                 text-align: center;
                 font-size: 2em;
-                color: #FFFBFC; 
+                color: #303030; 
                 display: block;
                 padding-bottom: 1em;
             }

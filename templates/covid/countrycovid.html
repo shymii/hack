@@ -261,9 +261,30 @@
     <option value="ZW">Zimbabwe</option>
   </select> <br>
   <button onclick="masno();">Wyświetl</button> <br>
-  <section class="globalCharts" id="cipsko">
-    <canvas id="myChart"></canvas>
+  <section class="globalCharts">
+    <section  id="cipsko">
+      <canvas id="myChart"></canvas>
     </section>
+    <h2>Prognozy na następne dwa tygodnie: </h2>
+    <section class="smallchart" id="pred">
+      <canvas id="predChart"></canvas>
+    </section>
+    <section class="desc">
+        <p>Prognoza wszystkich zarażeń</p>
+        <p id="predRes">
+
+        </p>
+    </section>
+    <section class="desc">
+      <p>Prognoza dziennych zarażeń</p>
+      <p id="dpredRes">
+
+      </p>
+    </section>
+    <section class="smallchart" id="dailypred">
+      <canvas id="dpredChart"></canvas>
+    </section>
+  </section>
 {% endblock content %}
 
 {% block scripts %}
