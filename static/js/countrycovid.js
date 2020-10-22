@@ -72,6 +72,5 @@ function masno(){
                 },
                 options:{}
             })
-            console.log(chart)
         });
 }
