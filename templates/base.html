@@ -6,7 +6,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hack</title>
-    <link rel="stylesheet" href='{% static "style/css/base.css" %}'>
+    {% if request.session.browse_mode == 'dark' %}
+    <link rel="stylesheet" href='{% static "style/css/base-dark.css" %}'>
+    {% else %}
+    <link rel="stylesheet" href='{% static "style/css/base-dark.css" %}'>
+    {% endif %}
     {% block css %}
     {% endblock css %}
 </head>
@@ -15,9 +19,15 @@
         <nav class="header-nav">
             <p>health</p>
             <ul class="header-nav-list">
-                <li class="header-nav-list-item {% if request.resolver_match.view_name == 'mental_health_view' %} header-item-active {% endif %}"><a href="#">mental health</a></li>
-                <li class="header-nav-list-item {% if request.resolver_match.view_name == 'physical_health_view' %} header-item-active {% endif %}"><a href="#">physical health</a></li>
-                <li class="header-nav-list-item {% if request.resolver_match.view_name == 'covid' or request.resolver_match.view_name == 'globalcovid' or request.resolver_match.view_name == 'comparecovid' or request.resolver_match.view_name == 'countrycovid' %} header-item-active {% endif %}"><a href="{% url 'covid' %}">COVID-19</a></li>
+                <li class="header-nav-list-item {% if request.resolver_match.view_name == 'mental_health_view' %} header-item-active {% endif %}"><a href="{% url 'mental_health_view' %}">mental health</a></li>
+                <li class="header-nav-list-item {% if request.resolver_match.view_name == 'physical_health_view' %} header-item-active {% endif %}"><a href="{% url 'physical_health_view' %}">physical health</a></li>
+                <li class="header-nav-list-item {% if request.resolver_match.view_name == 'covid' %} header-item-active {% endif %}"><a href="{% url 'covid' %}">COVID-19</a>
+                    <ul class="header-nav-nested-list {% if request.resolver_match.view_name == 'globalcovid' or request.resolver_match.view_name == 'comparecovid' or request.resolver_match.view_name == 'countrycovid' %} header-nav-nested-list-active {% else %} header-nav-nested-list-inactive {% endif %}">
+                        <li class="header-nav-nested-list-item {% if request.resolver_match.view_name == 'globalcovid' %} header-item-active {% endif %}"><a href="{% url 'globalcovid' %}">global</a></li>
+                        <li class="header-nav-nested-list-item {% if request.resolver_match.view_name == 'comparecovid' %} header-item-active {% endif %}"><a href="{% url 'comparecovid' %}">compare</a></li>
+                        <li class="header-nav-nested-list-item {% if request.resolver_match.view_name == 'countrycovid' %} header-item-active {% endif %}"><a href="{% url 'countrycovid' %}">country</a></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         <nav class="header-account">

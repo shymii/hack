@@ -5,14 +5,14 @@ body {
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
-  background-color: #FFFBFC;
+  background-color: #303030;
 }
 body * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: "Raleway", sans-serif;
-  color: #303030;
+  color: #FFFBFC;
 }
 @keyframes hovernav {
   from {
@@ -182,7 +182,7 @@ body .main {
   background-color: #262626;
 }
 body .main * {
-  color: #303030;
+  color: #FFFBFC;
 }
 body .footer {
   flex-basis: 100%;

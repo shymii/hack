@@ -1,14 +1,25 @@
 {% extends 'base.html' %}
+{% load static %}
 
+{% block css %}
+<link rel="stylesheet" href="{% static 'style/css/account_edit.css' %}">
+{% endblock css %}
 {% block content %}
-<form method="POST" action="{% url 'account_edit' %}" autocomplete="off" enctype="multipart/form-data">
-    {% csrf_token %}
-    {% for field in u_form %}
-        <label for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}
-    {% endfor %}
-    {% for field in p_form %}
-        <label for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}
-    {% endfor %}
+<h1>Edytuj swój profil</h1>
+<form method="POST" action="{% url 'account_edit' %}" autocomplete="off">
+    <div class="form-fields">
+        {% csrf_token %}
+        {% for field in u_form %}
+        <div class="form-div">
+            {{ field }} <label for="{{ field.id_for_label }}"><span>{{ field.label }}</span></label>
+        </div>
+        {% endfor %}
+        {% for field in p_form %}
+        <div class="form-div">
+            {{ field }} <label for="{{ field.id_for_label }}"><span>{{ field.label }}</span></label>
+        </div>
+        {% endfor %}
+    </div>
     <input type="submit" value="edytuj">
 </form>
 {% endblock content %}

@@ -5,7 +5,7 @@ body {
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
-  background-color: #FFFBFC;
+  background-color: #f0f0f0;
 }
 body * {
   padding: 0;
@@ -179,7 +179,7 @@ body .header .header-item-active > a::after {
 body .main {
   flex-basis: 85%;
   height: 90vh;
-  background-color: #262626;
+  background-color: #FFFBFC;
 }
 body .main * {
   color: #303030;
