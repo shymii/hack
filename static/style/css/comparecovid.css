@@ -1,3 +1,9 @@
+.main #cipsko {
+  width: 100%;
+}
+.main #cipsko canvas {
+  width: 100%;
+}
 .main * {
   color: #535657;
 }
