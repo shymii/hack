@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, User
 from django.contrib.auth import login, logout
 
 from django.contrib.auth.decorators import login_required
-from .decorators import unauthenticated_user, is_admin
+from .decorators import unauthenticated_user, is_admin, is_not_session
 
 from .forms import CreateUserForm, LoginUserForm, ModifyUserForm, ModifyUserDataForm, SurveyForm
 from .models import user_profile, user_survey
@@ -43,6 +43,7 @@ def create_json(request):
     return JsonResponse({'survey_results' : survey_results})
 
 @unauthenticated_user
+@is_not_session
 def register_view(request):
     form = CreateUserForm(request.POST)
     if request.method == 'POST':
@@ -59,6 +60,7 @@ def register_view(request):
     return render(request, template, context)
 
 @unauthenticated_user
+@is_not_session
 def login_view(request):
     if request.method == 'POST':
         form = LoginUserForm(data = request.POST)
@@ -84,6 +86,7 @@ def logout_view(request):
     return redirect('homepage')
 
 @login_required(login_url = 'login')
+@is_not_session
 def account_view(request):
     surveys = user_survey.objects.filter(user = request.user.user_profile).order_by('-survey_date')
     survey_result = create_json(request)
@@ -92,6 +95,7 @@ def account_view(request):
     return render(request, template, context)
 
 @login_required(login_url = 'login')
+@is_not_session
 def account_edit(request):
     if request.method == 'POST':
         u_form = ModifyUserForm(request.POST, instance = request.user)
@@ -111,6 +115,7 @@ def account_edit(request):
         return render(request, template, context)
 
 @login_required(login_url = 'login')
+@is_not_session
 def account_survey(request):
     this_user = request.user.user_profile
     today = date.today()
@@ -141,8 +146,3 @@ def browse_mode(request, url):
     else:
         request.session['browse_mode'] = 'dark'
     return redirect(url)
-
-def browse_mode_check(request):
-    if not request.session['browse_mode']:
-        request.session['browse_mode'] = 'dark'
-    return request
