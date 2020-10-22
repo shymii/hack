@@ -205,6 +205,21 @@ body {
             color: $color;
         }
 
+        h1{
+            margin: 5vw 0 0 10vw;
+            padding-bottom: 1vw;
+            position: relative;
+            &::after{
+                content: " ";
+                position: absolute;
+                width: 10vw;
+                right: 60vw;
+                bottom: 0;
+                border-radius: .5em;
+                border-bottom: 5px solid $purple;
+            }
+        }
+        
         @keyframes alert_push {
             0%{
                 transform: translateX(100%);

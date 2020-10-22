@@ -1,17 +1,3 @@
-.main h1 {
-  margin: 5vw 0 0 10vw;
-  padding-bottom: 1vw;
-  position: relative;
-}
-.main h1::after {
-  content: " ";
-  position: absolute;
-  width: 10vw;
-  right: 60vw;
-  bottom: 0;
-  border-radius: 0.5em;
-  border-bottom: 5px solid #6573e0;
-}
 .main form {
   margin: 4vw 0 0 17vw;
   position: relative;
