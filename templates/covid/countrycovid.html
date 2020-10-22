@@ -7,7 +7,8 @@
 
 {% block content %}
 <h2>Statystyki dla jednego kraju</h2>
-<label for="c3">Wybierz kraj, dla którego chcesz zobaczyć statystyki: </label> <br>
+<section class="choose">
+  <label for="country">Wybierz kraj, dla którego chcesz zobaczyć statystyki: </label> <br>
 <select name="country" id="country">
     <option value="">None</option>
     <option value="AF">Afghanistan</option>
@@ -260,10 +261,23 @@
     <option value="ZM">Zambia</option>
     <option value="ZW">Zimbabwe</option>
   </select> <br>
-  <button onclick="masno();">Wyświetl</button> <br>
+  <button onclick="masno();">Wyświetl</button>
+</section>
+
   <section class="globalCharts">
     <section  id="cipsko">
       <canvas id="myChart"></canvas>
+    </section>
+    <section class="singlestats">
+      <p id="allCases">
+
+      </p>
+      <p id="todayCases">
+
+      </p>
+      <p id="activeCases">
+
+      </p>
     </section>
     <h2>Prognozy na następne dwa tygodnie: </h2>
     <section class="smallchart" id="pred">

@@ -37,6 +37,20 @@
   margin-bottom: 2em;
   flex-basis: 75%;
 }
+.main .globalCharts .singlestats {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+}
+.main .globalCharts .singlestats #allCases, .main .globalCharts .singlestats #todayCases, .main .globalCharts .singlestats #activeCases {
+  color: #303030;
+  text-align: center;
+  font-size: 1.5em;
+  display: block;
+  flex-basis: 30%;
+}
 .main .globalCharts .desc {
   flex-basis: 20%;
   padding: 0.5em;

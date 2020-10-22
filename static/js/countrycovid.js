@@ -1,3 +1,9 @@
+function commaSeparateNumber(val){
+    while (/(\d+)(\d{3})/.test(val.toString())){
+    val = val.toString().replace(/(\d+)(\d{3})/, '$1'+','+'$2');
+    }
+    return val;
+}
 function masno(){
     let country = document.getElementById("country").value;
     fetch(`https://covid19-api.org/api/timeline/${country}`)
@@ -8,6 +14,7 @@ function masno(){
             var deaths = []
             var recovered = []
             var daily = []
+            var active = []
             let n = 0;
             console.log(data);
             data.forEach(element => {
@@ -23,17 +30,24 @@ function masno(){
                 recovered.unshift(data[n].recovered)
                 n++;
             });
+            let k = n;
+            k--;
             for (n ; n > 0 ; n--) {
                 let val = cases[n + 1] - cases[n];
+                let wal = cases[n] - recovered[n];
                 if (val < 0) {
                     val = -(val);
                 }
+                active.unshift(wal);
                 daily.unshift(val);
             }
             daily.unshift(0);
             daily.unshift(0);
             document.getElementById("cipsko").innerHTML = '&nbsp;';
             document.getElementById("cipsko").innerHTML = '<canvas id="myChart"></canvas>';
+            document.getElementById("allCases").innerHTML = `Liczba wszystkich przypadków: ${commaSeparateNumber(cases[k])}`;
+            document.getElementById("todayCases").innerHTML = `Liczba dzisiejszych przypadków: ${commaSeparateNumber(daily[k])}`;
+            document.getElementById("activeCases").innerHTML = `Liczba aktywnych przypadków: ${commaSeparateNumber(active[k - 1])}`;
             var myChart = document.getElementById("myChart").getContext('2d')
 
             var chart = new Chart(myChart, {
@@ -45,6 +59,13 @@ function masno(){
                             label: "Potwierdzone przypadki",
                             data: cases,
                             backgroundColor: '#CE0217',
+                            minBarLength: 100
+                        },
+
+                        {
+                            label: "Aktywne przypadki",
+                            data: active,
+                            backgroundColor: '#FFC34D',
                             minBarLength: 100
                         },
 
@@ -103,6 +124,7 @@ function masno(){
             };
             idkidk.shift();
             daily.shift();
+            daily.reverse();
             document.getElementById("pred").innerHTML = '&nbsp;';
             document.getElementById("pred").innerHTML = '<canvas id="predChart"></canvas>';
             document.getElementById("dailypred").innerHTML = '&nbsp;';
