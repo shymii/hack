@@ -8,7 +8,7 @@ from PIL import Image
 
 # Create your models here.
 GENDER_CHOICES = [
-    ('nieznana', 'nieznana'),
+    ('nieokreślona', 'nieokreślona'),
     ('mężczyzna', 'mężczyzna'),
     ('kobieta', 'kobieta')
 ]
@@ -20,7 +20,7 @@ def get_upload_path(instance, filename):
 
 class user_profile(models.Model):
     user = models.OneToOneField(User, on_delete = models.CASCADE, blank = True, editable = False, primary_key = True)
-    sex = models.CharField(null = True, blank = True, max_length = 10, choices = GENDER_CHOICES)
+    sex = models.CharField(null = True, blank = True, max_length = 15, choices = GENDER_CHOICES)
     city = models.CharField(max_length = 40, blank = True, null = True)
     birth_date = models.DateField(null = True, blank = True)
     image = models.ImageField(upload_to = get_upload_path, default = 'profile_image/default.png', storage = OverwriteStorage())

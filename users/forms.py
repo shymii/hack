@@ -52,7 +52,7 @@ class ModifyUserForm(forms.ModelForm):
         self.fields['email'].widget = forms.TextInput(attrs={'placeholder': ' '})
 
 GENDER_CHOICES = [
-    ('nieznana', 'nieznana'),
+    ('nieokreślona', 'nieokreślona'),
     ('mężczyzna', 'mężczyzna'),
     ('kobieta', 'kobieta')
 ]
