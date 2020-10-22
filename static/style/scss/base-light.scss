@@ -62,7 +62,11 @@ body {
         .header-nav {
             margin-top: 5vh;
             flex-basis: 25vh;
+            >img{
+                width: 70%;
+            }
             p {
+                margin-top: 3vw;
                 text-align: left;
                 padding: .8em;
                 letter-spacing: .15em;
@@ -195,8 +199,81 @@ body {
         flex-basis: 85%;
         height: 90vh;
         background-color: $bgcolor2;
+        position: relative;
+        overflow-x: hidden;
         *{
             color: $color;
+        }
+
+        @keyframes alert_push {
+            0%{
+                transform: translateX(100%);
+            }
+            40%{
+                transform: translateX(-10%);
+            }
+            80%{
+                transform: translateX(0%);
+            }
+            100%{
+                transform: translateX(-1%);
+            }
+        }
+
+        @keyframes alert_hide {
+            0%{
+                transform: translateX(-1%);
+            }
+            40%{
+                transform: translateX(0%);
+            }
+            80%{
+                transform: translateX(-10%);
+            }
+            100%{
+                transform: translateX(100%);
+            }
+        }
+
+        .alert{
+            width: 15vw;
+            height: 3vw;
+            border-radius: .5em;
+            position: absolute;
+            bottom: 1vw;
+            right: 1vw;
+            display: grid;
+            grid-template-columns: 8fr 1fr;
+            align-items: center;
+            overflow: hidden;
+            animation: alert_push 1s ease-in;
+            &.alert-success{
+                background-color: #009122;
+                border-left: .5vw solid #44bd60;
+                border-right: .5vw solid #44bd60;
+            }
+            &.alert-error{
+                background-color: #990000;
+                border-left: .5vw solid #c93434;
+                border-right: .5vw solid #c93434;
+            }
+            &.alert-warning{
+                background-color: #d6ba04;
+                border-left: .5vw solid #fff300;
+                border-right: .5vw solid #fff300;
+            }
+            .alert-message{
+                text-align: center;
+            }
+            .alert-close{
+                text-align: center;
+                font-size: 200%;
+                cursor: pointer;
+            }
+            &.alert-hide{
+                animation: alert_hide 1s ease-in;
+                transform: translateX(120%);
+            }
         }
     }
 

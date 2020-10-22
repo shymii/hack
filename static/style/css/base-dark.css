@@ -56,7 +56,11 @@ body .header .header-nav {
   margin-top: 5vh;
   flex-basis: 25vh;
 }
+body .header .header-nav > img {
+  width: 70%;
+}
 body .header .header-nav p {
+  margin-top: 3vw;
   text-align: left;
   padding: 0.8em;
   letter-spacing: 0.15em;

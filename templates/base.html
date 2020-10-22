@@ -16,7 +16,13 @@
 </head>
 <body>
     <header class="header">
+        
         <nav class="header-nav">
+            {% if request.session.browse_mode == 'dark' %}
+            <img src='{% static "img/logo-light.png" %}' alt="">
+            {% else %}
+            <img src='{% static "img/logo-dark.png" %}' alt="">
+            {% endif %}
             <p>health</p>
             <ul class="header-nav-list">
                 <li class="header-nav-list-item {% if request.resolver_match.view_name == 'mental_health_view' %} header-item-active {% endif %}"><a href="{% url 'mental_health_view' %}">mental health</a></li>
