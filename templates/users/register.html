@@ -14,17 +14,19 @@
     <div class="form-fields">
         {% csrf_token %}
         {% for field in form %}
+        {% if field != form.captcha %}
         <div class="form-div">
             {{ field }}<label for="{{ field.id_for_label }}"><span>{{ field.label }}</span></label>
-            {% if field.help_text %}
-                <span>{{ field.help_text }}</span>
-            {% endif %}
             {% for error in field.errors %}
                 <span>{{ error }}</span>
             {% endfor %}
         </div>
+        {% endif %}
         {% endfor %}
     </div>
-    <input type="submit" value="register">
+    <div class="form-right">
+        {{ form.captcha }}
+        <input type="submit" value="register">
+    </div>
 </form>
 {% endblock content %}

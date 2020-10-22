@@ -91,6 +91,13 @@
                 }
             }
         }
+        .form-right{
+            .g-recaptcha{
+                transform: scale(0.95);
+                margin-left: -.5vw;
+                margin-bottom: 1vw
+            }
+        }
         input[type="submit"]{
             background-color: $purple;
             border: none;

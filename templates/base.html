@@ -51,9 +51,9 @@
                     </ul>
                 </li>
                 {% endif %}
-                <li class="header-account-list-item"><a href="#">idk</a></li>
             </ul>
         </nav>
+        <a href="{% url 'browse_mode' request.resolver_match.view_name %}">change browse mode, currently: {{ request.session.browse_mode }}</a>
     </header>
     <main class="main">
         {% block content %}
@@ -69,10 +69,6 @@
             </div>
         {% endfor %}
     </main>
-    <footer class="footer">
-        <p>henlo we do some ye ye u know in the footer lul</p>
-        <a href="{% url 'browse_mode' request.resolver_match.view_name %}">change browse mode, currently: {{ request.session.browse_mode }}</a>
-    </footer>
     <script>
         const alertClose = document.querySelectorAll(".alert-close");
         const alerts = document.querySelectorAll(".alert");

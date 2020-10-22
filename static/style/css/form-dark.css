@@ -85,6 +85,11 @@
 .main form .form-fields .form-div input:not(:placeholder-shown) + label, .main form .form-fields .form-div select:valid + label {
   transform: translateY(-50%);
 }
+.main form .form-right .g-recaptcha {
+  transform: scale(0.95);
+  margin-left: -0.5vw;
+  margin-bottom: 1vw;
+}
 .main form input[type=submit] {
   background-color: #6573e0;
   border: none;

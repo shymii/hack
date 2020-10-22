@@ -197,7 +197,7 @@ body {
 
     .main {
         flex-basis: 85%;
-        height: 90vh;
+        height: 100vh;
         background-color: $bgcolor2;
         position: relative;
         overflow-x: hidden;
@@ -274,14 +274,6 @@ body {
                 animation: alert_hide 1s ease-in;
                 transform: translateX(120%);
             }
-        }
-    }
-
-    .footer {
-        flex-basis: 100%;
-        height: 10vh;
-        p {
-            padding: 2em;
         }
     }
 }
