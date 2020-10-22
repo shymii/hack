@@ -85,7 +85,32 @@
 .main form .form-fields .form-div input:not(:placeholder-shown) + label, .main form .form-fields .form-div select:valid + label {
   transform: translateY(-50%);
 }
-.main form .form-right .g-recaptcha {
+.main form .form-image {
+  width: 13vw;
+  height: 13vw;
+  margin-left: 1vw;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 3px solid #6573e0;
+  margin-bottom: 1vw;
+  position: relative;
+}
+.main form .form-image img {
+  height: 100%;
+  width: 100%;
+}
+.main form .form-image input {
+  position: absolute;
+  bottom: 0;
+  left: -18%;
+  padding: 1vw;
+  color: #303030;
+  background-color: #FFFBFC;
+}
+.main form .form-image input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.main form .g-recaptcha {
   transform: scale(0.95);
   margin-left: -0.5vw;
   margin-bottom: 1vw;

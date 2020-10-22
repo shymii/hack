@@ -63,7 +63,8 @@ class ModifyUserDataForm(forms.ModelForm):
         model = user_profile
         fields = ['birth_date', 'sex', 'city', 'image']
         widgets = {
-            'birth_date': forms.DateInput(format = ('%Y-%m-%d'), attrs = {'type': 'date'})
+            'birth_date': forms.DateInput(format = ('%Y-%m-%d'), attrs = {'type': 'date'}),
+            'image': forms.FileInput()
         }
 
     def __init__(self, *args, **kwargs):

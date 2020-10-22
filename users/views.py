@@ -111,7 +111,7 @@ def account_edit(request):
         u_form = ModifyUserForm(instance = request.user)
         p_form = ModifyUserDataForm(instance = request.user.user_profile)
         template = 'users/account_edit.html'
-        context = {'u_form': u_form, 'p_form': p_form}
+        context = {'u_form': u_form, 'p_form': p_form, 'form_user': request.user.user_profile}
         return render(request, template, context)
 
 @login_required(login_url = 'login')

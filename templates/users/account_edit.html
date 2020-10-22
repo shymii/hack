@@ -14,16 +14,24 @@
     <div class="form-fields">
         {% csrf_token %}
         {% for field in u_form %}
-        <div class="form-div">
-            {{ field }} <label for="{{ field.id_for_label }}"><span>{{ field.label }}</span></label>
-        </div>
+            <div class="form-div">
+                {{ field }} <label for="{{ field.id_for_label }}"><span>{{ field.label }}</span></label>
+            </div>
         {% endfor %}
         {% for field in p_form %}
-        <div class="form-div">
-            {{ field }} <label for="{{ field.id_for_label }}"><span>{{ field.label }}</span></label>
-        </div>
+            {% if field != p_form.image %}
+                <div class="form-div">
+                    {{ field }} <label for="{{ field.id_for_label }}"><span>{{ field.label }}</span></label>
+                </div>
+            {% endif %}
         {% endfor %}
     </div>
-    <input type="submit" value="edytuj">
+    <div class="form-right">
+        <div class="form-image">
+            <img src="{{ form_user.image.url }}" alt="">
+            {{ p_form.image }}
+        </div>
+        <input type="submit" value="edytuj">
+    </div>
 </form>
 {% endblock content %}

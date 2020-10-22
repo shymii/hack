@@ -91,12 +91,35 @@
                 }
             }
         }
-        .form-right{
-            .g-recaptcha{
-                transform: scale(0.95);
-                margin-left: -.5vw;
-                margin-bottom: 1vw
+        .form-image{
+            width: 13vw;
+            height: 13vw;
+            margin-left: 1vw;
+            overflow: hidden;
+            border-radius: 50%;
+            border: 3px solid $purple;
+            margin-bottom: 1vw;
+            position: relative;
+            img{
+                height: 100%;
+                width: 100%;
             }
+            input{
+                position: absolute;
+                bottom: 0;
+                left: -18%;
+                padding: 1vw;
+                color: $color;
+                background-color: $bgcolor2;
+                &::-webkit-file-upload-button{
+                    visibility: hidden;
+                }
+            }
+        }
+        .g-recaptcha{
+            transform: scale(0.95);
+            margin-left: -.5vw;
+            margin-bottom: 1vw
         }
         input[type="submit"]{
             background-color: $purple;
