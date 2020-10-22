@@ -22,9 +22,9 @@ class CreateUserForm(UserCreationForm):
         self.fields['email'].label = 'Adres e-mail'
         self.fields['email'].widget = forms.TextInput(attrs={'placeholder': ' '})
         self.fields['password1'].label = 'Hasło'
-        self.fields['password1'].widget = forms.TextInput(attrs={'placeholder': ' '})
+        self.fields['password1'].widget = forms.PasswordInput(attrs={'placeholder': ' '})
         self.fields['password2'].label = 'Potwierdź hasło'
-        self.fields['password2'].widget = forms.TextInput(attrs={'placeholder': ' '})
+        self.fields['password2'].widget = forms.PasswordInput(attrs={'placeholder': ' '})
         self.fields['captcha'].label = ''
         self.error_messages['password_mismatch'] = 'Hasła muszą być takie same!'
 
@@ -37,7 +37,7 @@ class LoginUserForm(AuthenticationForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['username'].widget = forms.TextInput(attrs={'placeholder': ' '})
-        self.fields['password'].widget = forms.TextInput(attrs={'placeholder': ' '})
+        self.fields['password'].widget = forms.PasswordInput(attrs={'placeholder': ' '})
         self.fields['captcha'].label = ''
 
 class ModifyUserForm(forms.ModelForm):
