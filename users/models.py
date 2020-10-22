@@ -4,6 +4,7 @@ from django.db.models.signals import pre_save
 
 import os
 from .storage import OverwriteStorage
+from PIL import Image
 
 # Create your models here.
 GENDER_CHOICES = [
@@ -34,6 +35,14 @@ class user_profile(models.Model):
 
     class Meta:
         verbose_name_plural = 'Dodatkowe informacje o użytkownikach'
+
+    def save(self, *args, **kwargs):
+        super(user_profile, self).save(*args, **kwargs)
+        imag = Image.open(self.image.path)
+        if imag.width > 512 or imag.height > 512:
+            output_size = (512, 512)
+            imag.thumbnail(output_size)
+            imag.save(self.image.path)
 
 class user_survey(models.Model):
     user = models.ForeignKey(user_profile, on_delete = models.CASCADE, editable = False)
