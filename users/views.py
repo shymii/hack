@@ -141,3 +141,8 @@ def browse_mode(request, url):
     else:
         request.session['browse_mode'] = 'dark'
     return redirect(url)
+
+def browse_mode_check(request):
+    if not request.session['browse_mode']:
+        request.session['browse_mode'] = 'dark'
+    return request
