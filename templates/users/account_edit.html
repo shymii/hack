@@ -10,7 +10,7 @@
 {% endblock css %}
 {% block content %}
 <h1>Edytuj swój profil</h1>
-<form method="POST" action="{% url 'account_edit' %}" autocomplete="off">
+<form method="POST" action="{% url 'account_edit' %}" autocomplete="off" enctype="multipart/form-data">
     <div class="form-fields">
         {% csrf_token %}
         {% for field in u_form %}
