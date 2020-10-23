@@ -44,7 +44,7 @@ document.querySelector('.sub').addEventListener('click', function (e) {
           datasets: [{
             label: "Potwierdzone przypadki",
             data: c1Whole.cases,
-            backgroundColor: '#8b0000',
+            backgroundColor: '#CE0217',
             minBarLength: 100
           }, {
             label: "Liczba zgonów",
@@ -88,7 +88,7 @@ document.querySelector('.sub').addEventListener('click', function (e) {
             datasets: [{
               label: "Potwierdzone przypadki",
               data: c2Whole.cases,
-              backgroundColor: '#8b0000',
+              backgroundColor: '#CE0217',
               minBarLength: 100
             }, {
               label: "Liczba zgonów",

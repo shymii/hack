@@ -96,8 +96,6 @@ countrybtn.addEventListener("click", (e) => {
                     ]
                 },
                 options:{
-                    responsive: false,
-                    maintainAspectRatio: false
                 }
             })
         });

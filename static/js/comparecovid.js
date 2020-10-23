@@ -42,7 +42,7 @@ document.querySelector('.sub').addEventListener('click', (e) => {
                             {
                                 label: "Potwierdzone przypadki",
                                 data: c1Whole.cases,
-                                backgroundColor: '#8b0000',
+                                backgroundColor: '#CE0217',
                                 minBarLength: 100
                             },
 
@@ -92,7 +92,7 @@ document.querySelector('.sub').addEventListener('click', (e) => {
                                     {
                                         label: "Potwierdzone przypadki",
                                         data: c2Whole.cases,
-                                        backgroundColor: '#8b0000',
+                                        backgroundColor: '#CE0217',
                                         minBarLength: 100
                                     },
 
