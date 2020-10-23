@@ -1,1 +1,37 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+{% if request.session.browse_mode == 'dark' %}
+    <link rel="stylesheet" href='{% static "style/css/globalcovid-dark.css" %}'> 
+{% else %}
+    <link rel="stylesheet" href='{% static "style/css/globalcovid-light.css" %}'>
+{% endif %}
+{% endblock css %}
+
+{% block content %}
+    <h1>Zdrowie Psychiczne</h1>
+    <section class="global-stats">
+        <section class="global-stats-section">
+            <div class="global-stats-chart">
+                <canvas id="myChart"></canvas>
+            </div>
+            <p class="global-stats-desc">
+                Śmierć z powodu zdrowia psychicznego i zaburzeń związanych z używaniem substancj
+            </p>
+        </section>
+        <section class="global-stats-section">
+            <div class="global-stats-chart">
+                <canvas id="mySecondChart"></canvas>
+            </div>
+            <p class="global-stats-desc">
+                Liczba osób (zróżnicowana ze względu na płeć) z zaburzeniami zdrowia psychicznego lub używania substancji
+            </p>
+        </section>
+    </section>
+{% endblock content %}
+ 
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+<script src="{% static "js/mental.js" %}"></script>
+{% endblock scripts %}
