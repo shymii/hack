@@ -3,13 +3,12 @@ document.querySelector('.sub').addEventListener('click', () => {
     let c2 = document.querySelector('#c2').value;
     
     if(c1 && c2){
-        document.querySelector('#cipsko').innerHTML = '';
-        document.querySelector('#cipsko').innerHTML = '<canvas id="myChart1"></canvas><canvas id="myChart2"></canvas>';
+        document.querySelector('#chart-box').innerHTML = '';
+        document.querySelector('#chart-box').innerHTML = '<section id="first-chart"><canvas id="myChart1"></canvas></section><section id="second-chart"><canvas id="myChart2"></canvas></section>';
         let requestOptions = {
             method: 'GET',
             redirect: 'follow'
         };
-        let n = 0;
         fetch(`https://covid19-api.org/api/timeline/${c1}`, requestOptions)
             .then(response => response.json())
             .then(result => {
@@ -20,7 +19,6 @@ document.querySelector('.sub').addEventListener('click', () => {
                     recovered: []
                 };
                 result.forEach(res => {
-                    if(n % 10 == 0 || n + 1 == result.length){
                         c1Whole.cases.unshift(res.cases);
                         c1Whole.deaths.unshift(res.deaths);
                         c1Whole.recovered.unshift(res.recovered);
@@ -29,10 +27,6 @@ document.querySelector('.sub').addEventListener('click', () => {
                         for(let i = 5; i < 10; i++){
                             c1Whole.update[0] +=  res.last_update[i];
                         }
-                        n++;
-                    } else {
-                        n++;
-                    }
                 });
                 var myChart1 = document.getElementById("myChart1")
                 var chart1 = new Chart(myChart1, {
@@ -66,7 +60,6 @@ document.querySelector('.sub').addEventListener('click', () => {
 
                     }
                 });
-                let y = 0;
                 fetch(`https://covid19-api.org/api/timeline/${c2}`, requestOptions)
                     .then(response => response.json())
                     .then(result => {
@@ -77,7 +70,6 @@ document.querySelector('.sub').addEventListener('click', () => {
                             recovered: []
                         };
                         result.forEach(res => {
-                            if(y % 10 == 0 || y + 1 == result.length){
                                 c2Whole.cases.unshift(res.cases);
                                 c2Whole.deaths.unshift(res.deaths);
                                 c2Whole.recovered.unshift(res.recovered);
@@ -86,10 +78,6 @@ document.querySelector('.sub').addEventListener('click', () => {
                                 for(let i = 5; i < 10; i++){
                                     c2Whole.update[0] +=  res.last_update[i];
                                 }
-                                y++;
-                            } else {
-                                y++;
-                            }
                         });
                         var myChart2 = document.getElementById("myChart2")
                         var chart2 = new Chart(myChart2, {
@@ -128,5 +116,5 @@ document.querySelector('.sub').addEventListener('click', () => {
                     .catch(error => console.log('error', error));
             })
             .catch(error => console.log('error', error));
-    }
+    } 
 })

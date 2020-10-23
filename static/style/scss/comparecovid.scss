@@ -1,8 +1,14 @@
 .main {
-    #cipsko {
-        width: 100%;
-        canvas {
-            width: 100%;
+    #chart-box {
+        margin: auto;
+        width: 80%;
+        display: flex;
+        flex-wrap: wrap;
+        #first-chart {
+            flex-basis: 90%;
+        }
+        #second-chart {
+            flex-basis: 90%;
         }
     }
     * {
