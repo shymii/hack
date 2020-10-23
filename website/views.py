@@ -4,6 +4,7 @@ from tweepy import OAuthHandler
 from tweepy import API
 from tweepy import Cursor
 import re
+from datetime import datetime
 
 from . import twitter_credentials
 
@@ -33,10 +34,11 @@ def homepage(request):
         tweets[i]['screen_name'] = tweet.user.screen_name
         tweets[i]['profile_image'] = tweet.user.profile_image_url
         tweets[i]['text'] = tweet.full_text
+        tweets[i]['tweet_date'] = tweet.created_at
         temp_rep_id = tweet.in_reply_to_status_id
         temp_string = tweet.full_text
         i += 1
-        
+
     context = {'tweets' : tweets}   
     template = 'homepage/homepage.html'
     return render(request, template, context)

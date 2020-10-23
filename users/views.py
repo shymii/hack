@@ -14,7 +14,6 @@ from datetime import date
 from django.http import JsonResponse
 
 # Create your views here.
-@is_admin
 def create_json(request):
     surveys = user_survey.objects.filter(user = request.user.user_profile).order_by('survey_date')
     survey_results = {
