@@ -1,11 +1,11 @@
-.main section {
+.main > section:first-of-type {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   align-content: flex-start;
   margin-top: 4vw;
 }
-.main section a {
+.main > section:first-of-type a {
   text-align: center;
   height: 30%;
   background-color: #303030;
@@ -16,19 +16,19 @@
   text-decoration: none;
   position: relative;
 }
-.main section a article {
+.main > section:first-of-type a article {
   margin-top: 10%;
   height: 80%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.main section a article h4 {
+.main > section:first-of-type a article h4 {
   text-align: left;
-  font-weight: 100;
+  font-weight: 400;
   font-size: 1.3em;
 }
-.main section a::after {
+.main > section:first-of-type a::after {
   content: " ";
   position: absolute;
   width: 80%;
@@ -36,4 +36,67 @@
   left: 10%;
   border-radius: 0.5em;
   border: 3px solid #6573e0;
+}
+.main .covid-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.main .covid-content .tweets {
+  width: 80%;
+  margin: auto;
+  margin-top: 4vw;
+  display: grid;
+  grid-gap: 1vw;
+}
+.main .covid-content .tweets .tweet-single {
+  padding: 1vw;
+  border-radius: 0.5em;
+  background-color: #303030;
+  position: relative;
+}
+.main .covid-content .tweets .tweet-single .tweet-user {
+  display: flex;
+  align-items: center;
+}
+.main .covid-content .tweets .tweet-single .tweet-user img {
+  border-radius: 50%;
+}
+.main .covid-content .tweets .tweet-single .tweet-user p {
+  margin-left: 1vw;
+}
+.main .covid-content .tweets .tweet-single .tweet-user p a {
+  text-decoration: none;
+}
+.main .covid-content .tweets .tweet-single .tweet-content {
+  margin-top: 1vw;
+  padding-bottom: 1.5vw;
+}
+.main .covid-content .tweets .tweet-single .tweet-content p {
+  font-weight: 300;
+}
+.main .covid-content .tweets .tweet-single .tweet-content a {
+  position: absolute;
+  bottom: 0.5vw;
+  right: 0.5vw;
+}
+.main .covid-content .tweets .tweet-single .tweet-content a img {
+  width: 1.25vw;
+}
+.main .covid-content .tweets .tweet-single .tweet-content a img:hover {
+  filter: invert(48%) sepia(8%) saturate(7179%) hue-rotate(205deg) brightness(93%) contrast(89%);
+}
+.main .covid-content .tweets .tweet-single .tweet-content span {
+  position: absolute;
+  bottom: 0.5vw;
+  left: 1vw;
+  font-size: 0.7em;
+}
+.main .covid-content .tweets .tweet-single .tweet-content span::after {
+  content: " ";
+  position: absolute;
+  width: 9vw;
+  right: -1vw;
+  bottom: 1vw;
+  border-radius: 0.5em;
+  border-top: 1px solid #6573e0;
 }
