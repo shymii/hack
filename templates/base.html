@@ -59,7 +59,7 @@
             </ul>
         </nav>
         <div class="theme-switcher">
-            <span>zmień motyw:</span>
+            <span>zmień motyw</span>
             <input type="checkbox" onclick="location.href = '{% url 'browse_mode' request.resolver_match.view_name %}'" {% if request.session.browse_mode == 'dark' %} checked {% endif %}>
         </div>
     </header>

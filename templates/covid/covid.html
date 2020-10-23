@@ -28,20 +28,27 @@
         </article>
     </a>
 </section>
-<section>
-{% for tweet in tweets %}
-    <article>
-        <section>
-            <img src="{{ tweet.profile_image }}">
-            <p><a href="https://twitter.com/{{ tweet.screen_name }}">{{ tweet.name }}</a></p>
-            <p>{{ tweet.tweet_date }}</p>
-        </section>
-        <section>
-            <p>{{ tweet.text }}</p>
-            <a href="https://twitter.com/MZ_GOV_PL/status/{{ tweet.tweet_id }}">link do tweeta</a>
-        </section>
-    </article>
-{% endfor %}
+<section class="covid-content">
+    <section>
+
+    </section>
+    <section class="tweets">
+    <h2>Popularne na twitterze</h2>
+    {% for tweet in tweets %}
+        <article class="tweet-single">
+            <section class="tweet-user">
+                <img src="{{ tweet.profile_image }}">
+                <p><a href="https://twitter.com/{{ tweet.screen_name }}">{{ tweet.name }}</a></p>
+                
+            </section>
+            <section class="tweet-content">
+                <p>{{ tweet.text }}</p>
+                <a href="https://twitter.com/MZ_GOV_PL/status/{{ tweet.tweet_id }}"><img src="{% static 'img/twitter.svg' %}" alt="link do tweeta"></a>
+                <span>{{ tweet.tweet_date }}</span>
+            </section>
+        </article>
+    {% endfor %}
+    </section>
 </section>
 {% endblock content %}
 
