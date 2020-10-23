@@ -25,6 +25,14 @@
         </div>
         {% endfor %}
     </div>
-    <input type="submit" value="Login">
+    <input type="submit" value="login">
 </form>
 {% endblock content %}
+{% block scripts %}
+{% if request.session.browse_mode == 'dark' %}
+<script>
+    const captcha = document.querySelectorAll(".g-recaptcha")[0];
+    captcha.dataset.theme = 'dark';
+</script>
+{% endif %}
+{% endblock scripts %}

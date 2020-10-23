@@ -6,7 +6,7 @@ from captcha.widgets import ReCaptchaV2Checkbox
 from .models import user_profile, user_survey
 
 class CreateUserForm(UserCreationForm):
-    captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox(api_params={'hl': 'pl'}, attrs={'data-theme': 'dark'}))
+    captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox(api_params={'hl': 'pl'}))
     class Meta:
         model = User
         fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2', 'captcha']
@@ -29,7 +29,7 @@ class CreateUserForm(UserCreationForm):
         self.error_messages['password_mismatch'] = 'Hasła muszą być takie same!'
 
 class LoginUserForm(AuthenticationForm):
-    captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox(api_params={'hl': 'pl'}, attrs={'data-theme': 'dark'}))
+    captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox(api_params={'hl': 'pl'}))
     class Meta:
         model = User
         fields = ['username', 'password', 'captcha']

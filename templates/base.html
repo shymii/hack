@@ -63,26 +63,16 @@
                 <span class="alert-message">
                     {{ message }}
                 </span>
-                <span class="alert-close">
-                    ×
-                </span>
             </div>
         {% endfor %}
     </main>
     <script>
-        const alertClose = document.querySelectorAll(".alert-close");
         const alerts = document.querySelectorAll(".alert");
         alerts.forEach(alert => {
-                setTimeout(function(){ alert.classList.add("alert-hide"); }, 3000);
-                })
-        alertClose.forEach(element => {
-            element.addEventListener("click", function() {
-                alerts.forEach(alert => {
-                    if(alert.contains(element)){
-                        alert.classList.add("alert-hide");
-                    }
-                })
+            alert.addEventListener("click", function() {
+                alert.classList.add("alert-hide");
             })
+            setTimeout(function(){ alert.classList.add("alert-hide"); }, 3000);
         })
         
     </script>

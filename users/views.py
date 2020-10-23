@@ -66,7 +66,7 @@ def login_view(request):
         form = LoginUserForm(data = request.POST)
         if form.is_valid():
             user = form.get_user()
-            request.session.setdefault('browse_mode', 'dark')
+            request.session.setdefault('browse_mode', 'light')
             # request.session['browse_mode'] = 'dark'
             login(request, user)
             messages.success(request, 'Zalogowano jako %s' % user)

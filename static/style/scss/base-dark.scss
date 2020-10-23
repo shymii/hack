@@ -258,7 +258,7 @@ body {
             bottom: 1vw;
             right: 1vw;
             display: grid;
-            grid-template-columns: 8fr 1fr;
+            justify-content: center;
             align-items: center;
             overflow: hidden;
             animation: alert_push 1s ease-in;
@@ -279,11 +279,7 @@ body {
             }
             .alert-message{
                 text-align: center;
-            }
-            .alert-close{
-                text-align: center;
-                font-size: 200%;
-                cursor: pointer;
+                margin: auto;
             }
             &.alert-hide{
                 animation: alert_hide 1s ease-in;
