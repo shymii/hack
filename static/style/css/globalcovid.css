@@ -4,7 +4,7 @@
 .main h2 {
   text-align: center;
   font-size: 4em;
-  color: #FFFBFC;
+  color: #303030;
   margin-bottom: 0.5em;
 }
 .main .globalCharts {
@@ -13,15 +13,16 @@
   display: flex;
   flex-wrap: wrap;
 }
-.main .globalCharts .myChart {
+.main .globalCharts #myChart {
   flex-basis: 100%;
+  width: 100%;
 }
 .main .globalCharts #casesRes {
   display: block;
   flex-basis: 100%;
   text-align: center;
   font-size: 3em;
-  color: #FFFBFC;
+  color: #303030;
   padding-bottom: 0.5em;
   padding-top: 0.5em;
 }
@@ -29,6 +30,9 @@
   margin-top: 2em;
   margin-bottom: 2em;
   flex-basis: 75%;
+}
+.main .globalCharts .smallchart #dailyChart, .main .globalCharts .smallchart #deathChart, .main .globalCharts .smallchart #activeChart {
+  width: 100vh;
 }
 .main .globalCharts .desc {
   flex-basis: 20%;
@@ -38,7 +42,7 @@
 .main .globalCharts .desc p {
   text-align: center;
   font-size: 2em;
-  color: #FFFBFC;
+  color: #303030;
   display: block;
   padding-bottom: 1em;
 }

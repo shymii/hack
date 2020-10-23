@@ -5,6 +5,7 @@ function commaSeparateNumber(val){
     return val;
 }
 function masno(){
+    document.getElementById("show").style.display = "block";
     let country = document.getElementById("country").value;
     fetch(`https://covid19-api.org/api/timeline/${country}`)
             .then(res => res.json())
@@ -91,7 +92,10 @@ function masno(){
                         }
                     ]
                 },
-                options:{}
+                options:{
+                    responsive: false,
+                    maintainAspectRatio: false
+                }
             })
         });
 
@@ -144,7 +148,10 @@ function masno(){
                         }
                     ]
                 },
-                options:{}
+                options:{
+                    responsive: false,
+                    maintainAspectRatio: false
+                }
             });
             var dpredCh = new Chart(dailypredChart, {
                 type:'line',
@@ -159,7 +166,10 @@ function masno(){
                         }
                     ]
                 },
-                options:{}
+                options:{
+                    responsive: false,
+                    maintainAspectRatio: false
+                }
             });
         });
 }
