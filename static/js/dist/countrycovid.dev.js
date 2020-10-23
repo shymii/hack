@@ -155,10 +155,7 @@ countrybtn.addEventListener("click", function (e) {
           minBarLength: 100
         }]
       },
-      options: {
-        responsive: false,
-        maintainAspectRatio: false
-      }
+      options: {}
     });
     var dpredCh = new Chart(dailypredChart, {
       type: 'line',
@@ -171,10 +168,7 @@ countrybtn.addEventListener("click", function (e) {
           minBarLength: 100
         }]
       },
-      options: {
-        responsive: false,
-        maintainAspectRatio: false
-      }
+      options: {}
     });
   });
 });

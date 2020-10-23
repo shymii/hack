@@ -9,7 +9,7 @@ document.querySelector('.sub').addEventListener('click', (e) => {
         let p = document.querySelector('.msg');
         p.classList.remove('visible');
         document.querySelector('#chart-box').innerHTML = '';
-        document.querySelector('#chart-box').innerHTML = `<section class="global-stats-section" id="first-chart"><canvas class="global-stats-chart" id="myChart1"></canvas><p class="global-stats-desc">${c1input.options[c1input.selectedIndex].text}</p></section><section class="global-stats-section" id="second-chart"><canvas class="global-stats-chart" id="myChart2"></canvas><p class="global-stats-desc">${c2input.options[c2input.selectedIndex].text}</p></section>`;
+        document.querySelector('#chart-box').innerHTML = `<section class="global-stats-section" id="first-chart"><div class="global-stats-chart"><canvas id="myChart1"></canvas></div><p class="global-stats-desc">${c1input.options[c1input.selectedIndex].text}</p></section><section class="global-stats-section" id="second-chart"><div class="global-stats-chart"><canvas id="myChart2"></canvas></div><p class="global-stats-desc">${c2input.options[c2input.selectedIndex].text}</p></section>`;
         let requestOptions = {
             method: 'GET',
             redirect: 'follow'
@@ -62,8 +62,6 @@ document.querySelector('.sub').addEventListener('click', (e) => {
                         ]
                     },
                     options: {
-                        responsive: false,
-                        maintainAspectRatio: false
                     }
                 });
                 fetch(`https://covid19-api.org/api/timeline/${c2}`, requestOptions)
@@ -114,8 +112,6 @@ document.querySelector('.sub').addEventListener('click', (e) => {
                                 ]
                             },
                             options: {
-                                responsive: false,
-                                maintainAspectRatio: false
                             }
                         });
                         

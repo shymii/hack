@@ -152,8 +152,6 @@ countrybtn.addEventListener("click", (e) => {
                     ]
                 },
                 options:{
-                    responsive: false,
-                    maintainAspectRatio: false
                 }
             });
             var dpredCh = new Chart(dailypredChart, {
@@ -170,8 +168,6 @@ countrybtn.addEventListener("click", (e) => {
                     ]
                 },
                 options:{
-                    responsive: false,
-                    maintainAspectRatio: false
                 }
             });
         });

@@ -32,6 +32,9 @@
   margin: auto;
   padding: 0.5vw;
 }
+.main .global-stats .global-stats-section .global-stats-chart canvas {
+  width: 100%;
+}
 .main .global-stats .global-stats-section .global-stats-desc {
   display: block;
   text-align: left;
