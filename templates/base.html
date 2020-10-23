@@ -18,11 +18,13 @@
     <header class="header">
         
         <nav class="header-nav">
-            {% if request.session.browse_mode == 'dark' %}
-            <img src='{% static "img/logo-light.png" %}' alt="">
-            {% else %}
-            <img src='{% static "img/logo-dark.png" %}' alt="">
-            {% endif %}
+            <a href="{% url 'homepage' %}">
+                {% if request.session.browse_mode == 'dark' %}
+                <img src='{% static "img/logo-light.png" %}' alt="">
+                {% else %}
+                <img src='{% static "img/logo-dark.png" %}' alt="">
+                {% endif %}
+            </a>
             <p>zdrowie</p>
             <ul class="header-nav-list">
                 <li class="header-nav-list-item {% if request.resolver_match.view_name == 'mental_health_view' %} header-item-active {% endif %}"><a href="{% url 'mental_health_view' %}">zdrowie psychiczne</a></li>
@@ -47,6 +49,9 @@
                     <ul class="header-account-nested-list {% if request.resolver_match.view_name == 'account_edit' or request.resolver_match.view_name == 'account_survey' %} header-account-nested-list-active {% else %} header-account-nested-list-inactive {% endif %}">
                         <li class="header-account-nested-list-item {% if request.resolver_match.view_name == 'account_edit' %} header-item-active {% endif %}"><a href="{% url 'account_edit' %}">edytuj profil</a></li>
                         <li class="header-account-nested-list-item {% if request.resolver_match.view_name == 'account_survey' %} header-item-active {% endif %}"><a href="{% url 'account_survey' %}">dzienna ankieta</a></li>
+                        {% if user.is_staff %}
+                        <li class="header-account-nested-list-item"><a href="{% url 'admin:index' %}">admin</a></li>
+                        {% endif %}
                     </ul>
                 </li>
                 <li class="header-account-list-item logout"><a href="{% url 'logout' %}">wyloguj</a></li>

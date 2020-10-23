@@ -62,8 +62,10 @@ body {
         .header-nav {
             margin-top: 5vh;
             flex-basis: 25vh;
-            >img{
-                width: 70%;
+            a{
+                >img{
+                    width: 70%;
+                }
             }
             p {
                 margin-top: 3vw;
@@ -264,6 +266,7 @@ body {
             align-items: center;
             overflow: hidden;
             animation: alert_push 1s ease-in;
+            z-index: 999;
             &.alert-success{
                 background-color: #1ddb49;
                 border-left: .5vw solid #1a9636;

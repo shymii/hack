@@ -10,18 +10,10 @@
 {% endblock css %}
 
 {% block content %}
+<h1>Zdrowie fizyczne</h1>
 <form method="" autocomplete="off">
     <div class="form-fields">
-        {% if gender == 'kobieta' %}
-        <input type="radio" name="gender" value="mezczyzna" id="male"><label for="male">mężczyzna</label>
-        <input type="radio" name="gender" value="kobieta" id="female" checked><label for="female">kobieta</label>
-        {% elif gender == 'mężczyzna' %}
-        <input type="radio" name="gender" value="mezczyzna" id="male" checked><label for="male">mężczyzna</label>
-        <input type="radio" name="gender" value="kobieta" id="female"><label for="female">kobieta</label>
-        {% else %}
-        <input type="radio" name="gender" value="mezczyzna" id="male"><label for="male">mężczyzna</label>
-        <input type="radio" name="gender" value="kobieta" id="female"><label for="female">kobieta</label>
-        {% endif %}
+        
         <div class="form-div">
             {% if survey_result.weight %}
             <input type="text" placeholder=" " id="weight" value="{{ survey_result.weight | floatformat:'-2' }}"><label for="weight"><span>Waga</span></label>
@@ -52,7 +44,19 @@
                 <option value="1.8">praca fizyczna, trening 5 razy w tygodniu</option>
                 <option value="2.0">ciężka praca fizyczna, codzienny trening</option>
             </select>
-            <label for="life-style">Styl życia</label>
+            <label for="life-style"><span>Styl życia</span></label>
+        </div>
+        <div class="form-div-radio">
+            {% if gender == 'kobieta' %}
+            <input type="radio" name="gender" value="mezczyzna" id="male"><label for="male">mężczyzna</label>
+            <input type="radio" name="gender" value="kobieta" id="female" checked><label for="female">kobieta</label>
+            {% elif gender == 'mężczyzna' %}
+            <input type="radio" name="gender" value="mezczyzna" id="male" checked><label for="male">mężczyzna</label>
+            <input type="radio" name="gender" value="kobieta" id="female"><label for="female">kobieta</label>
+            {% else %}
+            <input type="radio" name="gender" value="mezczyzna" id="male"><label for="male">mężczyzna</label>
+            <input type="radio" name="gender" value="kobieta" id="female"><label for="female">kobieta</label>
+            {% endif %}
         </div>
         <div class="form-div">
             <select id="somatype">
@@ -61,15 +65,16 @@
                 <option value="Mezomorfik">Mezomorfik</option>
                 <option value="Endomorfik">Endomorfik</option>
             </select>
-            <label for="somatype">Somatyp</label>
+            <label for="somatype"><span>Somatotyp</span></label>
         </div>
-        <input type="radio" name="purpose" value="masa">
-        <input type="radio" name="purpose" value="redukcja">
+        <div class="form-div-radio form-div-radio-last">
+            <input type="radio" name="purpose" value="masa" id="masa"><label for="masa">masa</label>
+            <input type="radio" name="purpose" value="redukcja" id="redukcja"><label for="redukcja">redukcja</label>
+        </div>
     </div>
     <div class="form-right">
         <input type="button" value="oblicz" id="btn">
     </div>
-
 </form>
 {% endblock content %}
 

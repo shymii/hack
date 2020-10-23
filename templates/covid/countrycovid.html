@@ -9,7 +9,12 @@
 {% else %}
 <link rel="stylesheet" href="{% static 'style/css/form-light.css' %}">
 {% endif %}
-<link rel="stylesheet" href="{% static 'style/css/countrycovid.css' %}">
+{% if request.session.browse_mode == 'dark' %}
+    <link rel="stylesheet" href='{% static "style/css/globalcovid-dark.css" %}'> 
+{% else %}
+    <link rel="stylesheet" href='{% static "style/css/globalcovid-light.css" %}'>
+{% endif %}
+<!-- <link rel="stylesheet" href="{% static 'style/css/countrycovid.css' %}"> -->
 {% endblock css %}
 
 {% block content %}
@@ -272,45 +277,29 @@
       <label for="country"><span>wybierz kraj</span></label>
     </div>
   </div>
-  <button id="countrybtn">wyświetl</button>
+  <div class="form-right">
+    <button id="countrybtn">wyświetl</button>
+  </div>
 </form>
-<section id="show">
-  <section class="globalCharts">
-    <section  id="cipsko">
-      <canvas id="myChart"></canvas>
-    </section>
-    <section class="singlestats">
-      <p id="allCases">
-
-      </p>
-      <p id="todayCases">
-
-      </p>
-      <p id="activeCases">
-
-      </p>
-    </section>
-    <h2>Prognozy na następne dwa tygodnie: </h2>
-    <section class="smallchart" id="pred">
-      <canvas id="predChart"></canvas>
-    </section>
-    <section class="desc">
-        <p>Prognoza wszystkich zarażeń</p>
-        <p id="predRes">
-
-        </p>
-    </section>
-    <section class="desc">
-      <p>Prognoza dziennych zarażeń</p>
-      <p id="dpredRes">
-
-      </p>
-    </section>
-    <section class="smallchart" id="dailypred">
-      <canvas id="dpredChart"></canvas>
-    </section>
+<section id="show" class="global-stats">
+  <section class="global-stats-section" id="cipsko">
+    <canvas class="global-stats-chart" style="grid-area: big;" id="myChart"></canvas>
+    <p class="global-stats-desc" id="allCases"></p>
+    <p class="global-stats-desc" id="todayCases"></p>
+    <p class="global-stats-desc" id="activeCases"></p>
+  </section>
+  <section class="global-stats-section" id="pred">
+    <canvas class="global-stats-chart" id="predChart"></canvas>
+    <p class="global-stats-desc">Prognoza wszystkich zarażeń</p>
+    <p class="global-stats-desc" id="predRes"></p>
+  </section>
+  <section class="global-stats-section" id="dailypred">
+    <canvas class="global-stats-chart" id="dpredChart"></canvas>
+    <p class="global-stats-desc">Prognoza dziennych zarażeń</p>
+    <p class="global-stats-desc" id="dpredRes"></p>
   </section>
 </section>
+
 {% endblock content %}
 
 {% block scripts %}

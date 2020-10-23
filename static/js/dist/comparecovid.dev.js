@@ -2,14 +2,16 @@
 
 document.querySelector('.sub').addEventListener('click', function (e) {
   e.preventDefault();
-  var c1 = document.querySelector('#c1').value;
-  var c2 = document.querySelector('#c2').value;
+  var c1input = document.querySelector('#c1');
+  var c2input = document.querySelector('#c2');
+  var c1 = c1input.value;
+  var c2 = c2input.value;
 
   if (c1 && c2) {
     var p = document.querySelector('.msg');
     p.classList.remove('visible');
     document.querySelector('#chart-box').innerHTML = '';
-    document.querySelector('#chart-box').innerHTML = '<section id="first-chart"><canvas id="myChart1"></canvas></section><section id="second-chart"><canvas id="myChart2"></canvas></section>';
+    document.querySelector('#chart-box').innerHTML = "<section class=\"global-stats-section\" id=\"first-chart\"><canvas class=\"global-stats-chart\" id=\"myChart1\"></canvas><p class=\"global-stats-desc\">".concat(c1input.options[c1input.selectedIndex].text, "</p></section><section class=\"global-stats-section\" id=\"second-chart\"><canvas class=\"global-stats-chart\" id=\"myChart2\"></canvas><p class=\"global-stats-desc\">").concat(c2input.options[c2input.selectedIndex].text, "</p></section>");
     var requestOptions = {
       method: 'GET',
       redirect: 'follow'
@@ -56,7 +58,10 @@ document.querySelector('.sub').addEventListener('click', function (e) {
             minBarLength: 100
           }]
         },
-        options: {}
+        options: {
+          responsive: false,
+          maintainAspectRatio: false
+        }
       });
       fetch("https://covid19-api.org/api/timeline/".concat(c2), requestOptions).then(function (response) {
         return response.json();
@@ -100,7 +105,10 @@ document.querySelector('.sub').addEventListener('click', function (e) {
               minBarLength: 100
             }]
           },
-          options: {}
+          options: {
+            responsive: false,
+            maintainAspectRatio: false
+          }
         });
       })["catch"](function (error) {
         return console.log('error', error);

@@ -5,9 +5,10 @@ function commaSeparateNumber(val){
     }
     return val;
 }
+document.getElementById("show").style.display = "none";
 countrybtn.addEventListener("click", (e) => {
     e.preventDefault();
-    document.getElementById("show").style.display = "block";
+    document.getElementById("show").style.display = "grid";
     let country = document.getElementById("country").value;
     fetch(`https://covid19-api.org/api/timeline/${country}`)
             .then(res => res.json())

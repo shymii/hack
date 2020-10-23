@@ -2,11 +2,13 @@
 {% load static %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'style/css/comparecovid.css' %}">
+<!-- <link rel="stylesheet" href="{% static 'style/css/comparecovid.css' %}"> -->
 {% if request.session.browse_mode == 'dark' %}
 <link rel="stylesheet" href="{% static 'style/css/form-dark.css' %}">
+<link rel="stylesheet" href='{% static "style/css/globalcovid-dark.css" %}'> 
 {% else %}
 <link rel="stylesheet" href="{% static 'style/css/form-light.css' %}">
+<link rel="stylesheet" href='{% static "style/css/globalcovid-light.css" %}'> 
 {% endif %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 {% endblock css %}
@@ -526,7 +528,9 @@
       <label for="c2"><span>drugi kraj</span></label>
     </div>
   </div>
-  <button class="sub">porównaj</button><br><br>
+  <div class="form-right">
+    <button class="sub">porównaj</button>
+  </div>
 </form>
 
 <div class=" alert-error msg">
@@ -536,14 +540,15 @@
 </div>
 
 
-<section id="chart-box">
-  <section id="first-chart">
-    <canvas id="myChart1"></canvas>
+<section class="global-stats" id="chart-box">
+  <section class="global-stats-section" id="first-chart">
+    <canvas class="global-stats-chart" id="myChart1"></canvas>
   </section>
-  <section id="second-chart">
-    <canvas id="myChart2"></canvas>
+  <section class="global-stats-section" id="second-chart">
+    <canvas class="global-stats-chart" id="myChart2"></canvas>
   </section>
 </section>
+
 
 {% endblock content %}
 

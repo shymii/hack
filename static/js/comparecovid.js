@@ -1,13 +1,15 @@
 document.querySelector('.sub').addEventListener('click', (e) => {
     e.preventDefault();
-    let c1 = document.querySelector('#c1').value;
-    let c2 = document.querySelector('#c2').value;
+    let c1input = document.querySelector('#c1');
+    let c2input = document.querySelector('#c2');
+    let c1 = c1input.value;
+    let c2 = c2input.value;
     
     if(c1 && c2){
         let p = document.querySelector('.msg');
         p.classList.remove('visible');
         document.querySelector('#chart-box').innerHTML = '';
-        document.querySelector('#chart-box').innerHTML = '<section id="first-chart"><canvas id="myChart1"></canvas></section><section id="second-chart"><canvas id="myChart2"></canvas></section>';
+        document.querySelector('#chart-box').innerHTML = `<section class="global-stats-section" id="first-chart"><canvas class="global-stats-chart" id="myChart1"></canvas><p class="global-stats-desc">${c1input.options[c1input.selectedIndex].text}</p></section><section class="global-stats-section" id="second-chart"><canvas class="global-stats-chart" id="myChart2"></canvas><p class="global-stats-desc">${c2input.options[c2input.selectedIndex].text}</p></section>`;
         let requestOptions = {
             method: 'GET',
             redirect: 'follow'
@@ -60,7 +62,8 @@ document.querySelector('.sub').addEventListener('click', (e) => {
                         ]
                     },
                     options: {
-
+                        responsive: false,
+                        maintainAspectRatio: false
                     }
                 });
                 fetch(`https://covid19-api.org/api/timeline/${c2}`, requestOptions)
@@ -111,7 +114,8 @@ document.querySelector('.sub').addEventListener('click', (e) => {
                                 ]
                             },
                             options: {
-
+                                responsive: false,
+                                maintainAspectRatio: false
                             }
                         });
                         

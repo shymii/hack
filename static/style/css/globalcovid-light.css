@@ -1,5 +1,6 @@
 .main {
-  height: auto !important;
+  height: 100vw;
+  max-height: auto !important;
 }
 .main .global-stats {
   width: 90%;

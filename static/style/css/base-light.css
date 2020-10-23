@@ -56,7 +56,7 @@ body .header .header-nav {
   margin-top: 5vh;
   flex-basis: 25vh;
 }
-body .header .header-nav > img {
+body .header .header-nav a > img {
   width: 70%;
 }
 body .header .header-nav p {
@@ -246,6 +246,7 @@ body .main .alert {
   align-items: center;
   overflow: hidden;
   animation: alert_push 1s ease-in;
+  z-index: 999;
 }
 body .main .alert.alert-success {
   background-color: #1ddb49;

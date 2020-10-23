@@ -1,7 +1,8 @@
 @import "utilities/variables-dark";
 
 .main {
-    height: auto !important; 
+    height: 100vw;
+    max-height: auto !important; 
     .global-stats {
         width: 90%;
         margin: auto;

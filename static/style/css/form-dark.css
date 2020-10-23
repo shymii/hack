@@ -6,6 +6,32 @@
   grid-template-columns: 1fr 1fr;
   align-items: center;
 }
+.main form .form-fields .form-div-radio {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1vw;
+  width: 15vw;
+  margin-bottom: 1vw;
+}
+.main form .form-fields .form-div-radio.form-div-radio-last {
+  margin-bottom: 0;
+}
+.main form .form-fields .form-div-radio input {
+  display: none;
+}
+.main form .form-fields .form-div-radio input:checked + label {
+  border: 1px solid #6573e0;
+}
+.main form .form-fields .form-div-radio label {
+  text-align: center;
+  border: 1px solid #FFFBFC;
+  border-radius: 0.5em;
+  padding: 1vw;
+  cursor: pointer;
+}
+.main form .form-fields .form-div-radio label:hover {
+  border: 1px solid #6573e0;
+}
 .main form .form-fields .form-div {
   height: 3vw;
   width: 15vw;
@@ -104,7 +130,10 @@
   margin-left: -0.5vw;
   margin-bottom: 1vw;
 }
-.main form input[type=submit], .main form button {
+.main form .form-right {
+  margin-bottom: 0.3vw;
+}
+.main form .form-right input[type=submit], .main form .form-right input[type=button], .main form .form-right button {
   background-color: #6573e0;
   border: none;
   outline: none;
@@ -115,6 +144,6 @@
   width: 15vw;
   height: 3vw;
 }
-.main form input[type=submit]:hover, .main form button:hover {
+.main form .form-right input[type=submit]:hover, .main form .form-right input[type=button]:hover, .main form .form-right button:hover {
   border: 1px solid #FFFBFC;
 }

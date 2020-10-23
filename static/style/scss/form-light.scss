@@ -9,6 +9,32 @@
         grid-template-columns: 1fr 1fr;
         align-items: center;
         .form-fields{
+            .form-div-radio{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-gap: 1vw;
+                width: 15vw;
+                margin-bottom: 1vw;
+                &.form-div-radio-last{
+                    margin-bottom: 0;
+                }
+                input{
+                    display: none;
+                    &:checked + label{
+                        border: 1px solid $purple;
+                    }
+                }
+                label{
+                    text-align: center;
+                    border: 1px solid $color;
+                    border-radius: .5em;
+                    padding: 1vw;
+                    cursor: pointer;
+                    &:hover{
+                        border: 1px solid $purple;
+                    }
+                }
+            }
             .form-div{
                 height: 3vw;
                 width: 15vw;
@@ -110,19 +136,22 @@
             margin-left: -.5vw;
             margin-bottom: 1vw
         }
-        input[type="submit"], button{
-            background-color: $purple;
-            border: none;
-            outline: none;
-            padding: 1vw 5vw;
-            cursor: pointer;
-            border-radius: .5em;
-            display: block;
-            width: 15vw;
-            height: 3vw;
-            color: $bgcolor1;
-            &:hover{
-                border: 1px solid $color;
+        .form-right{
+            margin-bottom: .3vw;
+            input[type="submit"], input[type="button"], button{
+                background-color: $purple;
+                border: none;
+                outline: none;
+                padding: 1vw 5vw;
+                cursor: pointer;
+                border-radius: .5em;
+                display: block;
+                width: 15vw;
+                height: 3vw;
+                color: $bgcolor1;
+                &:hover{
+                    border: 1px solid $color;
+                }
             }
         }
     }
