@@ -1,5 +1,18 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-<h3>main cont lul</h3>
+<h1>Aktualności</h1>
+{% for tweet in tweets %}
+    <article>
+        <section>
+            <img src="{{ tweet.profile_image }}">
+            <p><a href="https://twitter.com/{{ tweet.screen_name }}">{{ tweet.name }}</a></p>
+        </section>
+        <section>
+            <p>{{ tweet.text }}</p>
+            <a href="https://twitter.com/MZ_GOV_PL/status/{{ tweet.tweet_id }}">link do tweeta</a>
+        </section>
+    </article>
+{% endfor %}
 {% endblock content %}
