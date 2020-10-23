@@ -1,39 +1,49 @@
 @import "utilities/variables-light";
 
-.tweets{
-    width: 80%;
-    margin: auto;
-    margin-top: 4vw;
+.main{
     display: grid;
-    grid-gap: 1vw;
     grid-template-columns: 1fr 1fr;
-    .tweet-single{
-        padding: 1vw;
-        border-radius: .5em;
-        background-color: $bgcolor1;
-        position: relative;
-        .tweet-user{
-            display: flex;
-            align-items: center;
-            img{
-                border-radius: 50%;
-            }
-            p{
-                margin-left: 1vw;
-                a{
-                    text-decoration: none;
+    grid-template-areas: 
+    "head head"
+    "rest rest";
+    h1{
+        grid-area: head;
+    }
+    .tweets{
+        width: 80%;
+        margin: auto;
+        margin-top: 4vw;
+        display: grid;
+        grid-gap: 1vw;
+        .tweet-single{
+            padding: 1vw;
+            border-radius: .5em;
+            background-color: $bgcolor1;
+            position: relative;
+            .tweet-user{
+                display: flex;
+                align-items: center;
+                img{
+                    border-radius: 50%;
+                }
+                p{
+                    margin-left: 1vw;
+                    a{
+                        text-decoration: none;
+                    }
                 }
             }
-        }
-        .tweet-content{
-            margin-top: 1vw;
-            p{
-                font-weight: 300;
-            }
-            a{
-                position: absolute;
-                bottom: .5vw;
-                right: .5vw
+            .tweet-content{
+                margin-top: 1vw;
+                padding-bottom: 1vw;
+                p{
+                    font-weight: 300;
+                }
+                a{
+                    position: absolute;
+                    bottom: .5vw;
+                    right: .5vw
+                }
             }
         }
     }

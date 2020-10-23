@@ -1,37 +1,45 @@
-.tweets {
+.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "head head" "rest rest";
+}
+.main h1 {
+  grid-area: head;
+}
+.main .tweets {
   width: 80%;
   margin: auto;
   margin-top: 4vw;
   display: grid;
   grid-gap: 1vw;
-  grid-template-columns: 1fr 1fr;
 }
-.tweets .tweet-single {
+.main .tweets .tweet-single {
   padding: 1vw;
   border-radius: 0.5em;
   background-color: #f0f0f0;
   position: relative;
 }
-.tweets .tweet-single .tweet-user {
+.main .tweets .tweet-single .tweet-user {
   display: flex;
   align-items: center;
 }
-.tweets .tweet-single .tweet-user img {
+.main .tweets .tweet-single .tweet-user img {
   border-radius: 50%;
 }
-.tweets .tweet-single .tweet-user p {
+.main .tweets .tweet-single .tweet-user p {
   margin-left: 1vw;
 }
-.tweets .tweet-single .tweet-user p a {
+.main .tweets .tweet-single .tweet-user p a {
   text-decoration: none;
 }
-.tweets .tweet-single .tweet-content {
+.main .tweets .tweet-single .tweet-content {
   margin-top: 1vw;
+  padding-bottom: 1vw;
 }
-.tweets .tweet-single .tweet-content p {
+.main .tweets .tweet-single .tweet-content p {
   font-weight: 300;
 }
-.tweets .tweet-single .tweet-content a {
+.main .tweets .tweet-single .tweet-content a {
   position: absolute;
   bottom: 0.5vw;
   right: 0.5vw;
