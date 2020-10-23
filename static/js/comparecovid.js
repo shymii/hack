@@ -3,6 +3,8 @@ document.querySelector('.sub').addEventListener('click', () => {
     let c2 = document.querySelector('#c2').value;
     
     if(c1 && c2){
+        let p = document.querySelector('.msg');
+        p.classList.remove('visible');
         document.querySelector('#chart-box').innerHTML = '';
         document.querySelector('#chart-box').innerHTML = '<section id="first-chart"><canvas id="myChart1"></canvas></section><section id="second-chart"><canvas id="myChart2"></canvas></section>';
         let requestOptions = {
@@ -116,5 +118,11 @@ document.querySelector('.sub').addEventListener('click', () => {
                     .catch(error => console.log('error', error));
             })
             .catch(error => console.log('error', error));
-    } 
+    } else {
+        let p = document.querySelector('.msg');
+        p.classList.add('visible')
+        setTimeout(() => {
+            p.classList.remove('visible');
+        }, 2500);
+    }
 })

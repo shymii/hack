@@ -4,6 +4,7 @@
         width: 80%;
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
         #first-chart {
             flex-basis: 90%;
         }
@@ -13,5 +14,20 @@
     }
     * {
         color: #535657;
+    }
+    .msg {
+        display: none;
+        opacity: 0;
+        width: 30%;
+        margin-left: 10%;
+        background-color: #c93434;
+        border: .1vw solid #990000;
+        padding: .5em;
+        border-radius: 1em;
+    }
+    .visible {
+        display: block;
+        opacity: 1;
+        transition: all 1s;
     }
 }
