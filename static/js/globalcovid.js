@@ -1,6 +1,6 @@
 function commaSeparateNumber(val){
     while (/(\d+)(\d{3})/.test(val.toString())){
-    val = val.toString().replace(/(\d+)(\d{3})/, '$1'+','+'$2');
+    val = val.toString().replace(/(\d+)(\d{3})/, '$1'+' '+'$2');
     }
     return val;
 }
@@ -42,7 +42,7 @@ fetch(`https://covid19-api.org/api/timeline`)
             daily.unshift(val);
             active.unshift(wal);
         }
-        document.getElementById("activeRes").innerHTML = `Aktywnych przypadków jest: ${commaSeparateNumber(active[k - 1])}`;
+        document.getElementById("activeRes").innerHTML = `Liczba aktywnych przypadków: ${commaSeparateNumber(active[k - 1])}`;
         var myChart = document.getElementById("myChart").getContext('2d');
         var dailyChart = document.getElementById("dailyChart").getContext('2d');
         var deathChart = document.getElementById("deathChart").getContext('2d');

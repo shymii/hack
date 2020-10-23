@@ -2,50 +2,52 @@
 {% load static %}
 
 {% block css %}
-<link rel="stylesheet" href='{% static "style/css/globalcovid.css" %}'>
+{% if request.session.browse_mode == 'dark' %}
+    <link rel="stylesheet" href='{% static "style/css/globalcovid-dark.css" %}'> 
+{% else %}
+    <link rel="stylesheet" href='{% static "style/css/globalcovid-light.css" %}'>
+{% endif %}
 {% endblock css %}
 
 {% block content %}
     <h1>Globalne statystyki COVID-19</h1>
-    <section class="globalCharts">
-        <canvas id="myChart"></canvas>
-        <p id="casesRes">
-
-        </p>
-        <section class="smallchart">
-            <canvas id="dailyChart"></canvas>
+    <section class="global-stats">
+        <section class="global-stats-section">
+            <canvas class="global-stats-chart" id="myChart"></canvas>
+            <p class="global-stats-desc" id="casesRes"></p>
         </section>
-        <section class="desc">
-            <p>Wykres dziennych przypadków</p>
-            <p id="dailyRes">
-
-            </p>
+        <section class="global-stats-section">
+            <canvas class="global-stats-chart" id="dailyChart"></canvas>
+            <p class="global-stats-desc" id="dailyRes"></p>
         </section>
-        <section class="desc">
-            <p id="deathRes">
-
-            </p>
-            <p id="recoveredRes">
-
-            </p>
+        <section class="global-stats-section">
+            <canvas class="global-stats-chart" id="deathChart"></canvas>
+            <p class="global-stats-desc" id="deathRes"></p>
+            <p class="global-stats-desc" id="recoveredRes"></p>
         </section>
-        <section class="smallchart">
-            <canvas id="deathChart"></canvas>
+        <section class="global-stats-section">
+            <canvas class="global-stats-chart" id="activeChart"></canvas>
+            <p class="global-stats-desc" id="activeRes"></p>
         </section>
-        <section class="smallchart">
-            <canvas id="activeChart"></canvas>
-        </section>
-        <section class="desc">
-            <p>Aktywne przypadki</p>
-            <p id="activeRes">
-
-            </p>
     </section>
 
  
 {% endblock content %}
  
 {% block scripts %}
+<script>
+    const statsSections = document.querySelectorAll(".global-stats-section");
+    statsSections.forEach(element => {
+        element.addEventListener("click", function() {
+            statsSections.forEach(el =>{
+                if(el != element){
+                    el.classList.remove("global-stats-section-full");
+                }
+            })
+            element.classList.toggle("global-stats-section-full");
+        });
+    });
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 <script src="{% static "js/globalcovid.js" %}"></script>
 {% endblock scripts %}

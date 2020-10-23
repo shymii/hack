@@ -1,5 +1,7 @@
 "use strict";
 
+var countrybtn = document.querySelector("#countrybtn");
+
 function commaSeparateNumber(val) {
   while (/(\d+)(\d{3})/.test(val.toString())) {
     val = val.toString().replace(/(\d+)(\d{3})/, '$1' + ',' + '$2');
@@ -8,7 +10,8 @@ function commaSeparateNumber(val) {
   return val;
 }
 
-function masno() {
+countrybtn.addEventListener("click", function (e) {
+  e.preventDefault();
   document.getElementById("show").style.display = "block";
   var country = document.getElementById("country").value;
   fetch("https://covid19-api.org/api/timeline/".concat(country)).then(function (res) {
@@ -173,4 +176,4 @@ function masno() {
       }
     });
   });
-}
+});

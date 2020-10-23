@@ -1,0 +1,48 @@
+.main {
+  height: auto !important;
+}
+.main .global-stats {
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "big big" "rest rest";
+  grid-gap: 2vw;
+  margin-top: 4vw;
+}
+.main .global-stats .global-stats-section {
+  width: 100%;
+  padding: 1vw;
+  border-radius: 0.5em;
+  background-color: #f0f0f0;
+  margin: 1vw 0.25vw;
+  position: relative;
+}
+.main .global-stats .global-stats-section.global-stats-section-full {
+  grid-area: big;
+}
+.main .global-stats .global-stats-section.global-stats-section-full .global-stats-chart {
+  width: 80%;
+  margin: auto;
+  padding: 0.5vw;
+}
+.main .global-stats .global-stats-section .global-stats-chart {
+  width: 90%;
+  margin: auto;
+  padding: 0.5vw;
+}
+.main .global-stats .global-stats-section .global-stats-desc {
+  display: block;
+  text-align: left;
+  font-size: 1.3em;
+  padding: 0.5vw;
+}
+.main .global-stats .global-stats-section::after {
+  content: " ";
+  position: absolute;
+  width: 80%;
+  bottom: -1.5px;
+  left: 10%;
+  border-radius: 0.5em;
+  border: 3px solid #6573e0;
+}

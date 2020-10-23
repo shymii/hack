@@ -2,18 +2,6 @@
   height: auto;
 }
 
-.main * {
-  color: #303030;
-}
-.main h2 {
-  text-align: center;
-  font-size: 4em;
-  color: #303030;
-  margin-bottom: 0.5em;
-}
-.main input, .main select, .main button, .main option {
-  color: #222;
-}
 .main #show {
   display: none;
 }
@@ -34,7 +22,6 @@
   flex-basis: 100%;
   text-align: center;
   font-size: 3em;
-  color: #303030;
   padding-bottom: 0.5em;
   padding-top: 0.5em;
 }
@@ -57,7 +44,6 @@
   justify-content: space-evenly;
 }
 .main #show .globalCharts .singlestats #allCases, .main #show .globalCharts .singlestats #todayCases, .main #show .globalCharts .singlestats #activeCases {
-  color: #303030;
   text-align: center;
   font-size: 1.5em;
   display: block;
@@ -71,7 +57,6 @@
 .main #show .globalCharts .desc p {
   text-align: center;
   font-size: 2em;
-  color: #303030;
   display: block;
   padding-bottom: 1em;
 }
