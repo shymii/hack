@@ -1,0 +1,46 @@
+.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "head head" "rest rest";
+}
+.main h1 {
+  grid-area: head;
+}
+.main .tweets {
+  width: 80%;
+  margin: auto;
+  margin-top: 4vw;
+  display: grid;
+  grid-gap: 1vw;
+}
+.main .tweets .tweet-single {
+  padding: 1vw;
+  border-radius: 0.5em;
+  background-color: #303030;
+  position: relative;
+}
+.main .tweets .tweet-single .tweet-user {
+  display: flex;
+  align-items: center;
+}
+.main .tweets .tweet-single .tweet-user img {
+  border-radius: 50%;
+}
+.main .tweets .tweet-single .tweet-user p {
+  margin-left: 1vw;
+}
+.main .tweets .tweet-single .tweet-user p a {
+  text-decoration: none;
+}
+.main .tweets .tweet-single .tweet-content {
+  margin-top: 1vw;
+  padding-bottom: 1vw;
+}
+.main .tweets .tweet-single .tweet-content p {
+  font-weight: 300;
+}
+.main .tweets .tweet-single .tweet-content a {
+  position: absolute;
+  bottom: 0.5vw;
+  right: 0.5vw;
+}

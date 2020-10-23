@@ -1,19 +1,32 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block css %}
+{% if request.session.browse_mode == 'dark' %}
+<link rel="stylesheet" href="{% static 'style/css/homepage-dark.css' %}">
+{% else %}
+<link rel="stylesheet" href="{% static 'style/css/homepage-light.css' %}">
+{% endif %}
+
+{% endblock css %}
+
 {% block content %}
 <h1>Aktualności</h1>
-{% for tweet in tweets %}
-    <article>
-        <section>
-            <img src="{{ tweet.profile_image }}">
-            <p><a href="https://twitter.com/{{ tweet.screen_name }}">{{ tweet.name }}</a></p>
-            <p>{{ tweet.tweet_date }}</p>
-        </section>
-        <section>
-            <p>{{ tweet.text }}</p>
-            <a href="https://twitter.com/MZ_GOV_PL/status/{{ tweet.tweet_id }}">link do tweeta</a>
-        </section>
-    </article>
-{% endfor %}
+<section>
+    
+</section>
+<section class="tweets">
+    {% for tweet in tweets %}
+        <article class="tweet-single">
+            <section class="tweet-user">
+                <a href="https://twitter.com/{{ tweet.screen_name }}"><img src="{{ tweet.profile_image }}"></a>
+                <p><a href="https://twitter.com/{{ tweet.screen_name }}">{{ tweet.name }}</a></p>
+            </section>
+            <section class="tweet-content">
+                <p>{{ tweet.text }}</p>
+                <a href="https://twitter.com/MZ_GOV_PL/status/{{ tweet.tweet_id }}">link do tweeta</a>
+            </section>
+        </article>
+    {% endfor %}
+</section>
 {% endblock content %}

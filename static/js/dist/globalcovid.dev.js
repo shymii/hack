@@ -68,10 +68,7 @@ fetch("https://covid19-api.org/api/timeline").then(function (res) {
         minBarLength: 100
       }]
     },
-    options: {
-      responsive: false,
-      maintainAspectRatio: false
-    }
+    options: {}
   });
   var dailyCh = new Chart(dailyChart, {
     type: 'line',
@@ -84,10 +81,7 @@ fetch("https://covid19-api.org/api/timeline").then(function (res) {
         minBarLength: 100
       }]
     },
-    options: {
-      responsive: false,
-      maintainAspectRatio: false
-    }
+    options: {}
   });
   var deathCh = new Chart(deathChart, {
     type: 'line',
@@ -105,10 +99,7 @@ fetch("https://covid19-api.org/api/timeline").then(function (res) {
         minBarLength: 100
       }]
     },
-    options: {
-      responsive: false,
-      maintainAspectRatio: false
-    }
+    options: {}
   });
   var activeCh = new Chart(activeChart, {
     type: 'line',
@@ -121,9 +112,6 @@ fetch("https://covid19-api.org/api/timeline").then(function (res) {
         minBarLength: 100
       }]
     },
-    options: {
-      responsive: false,
-      maintainAspectRatio: false
-    }
+    options: {}
   });
 });

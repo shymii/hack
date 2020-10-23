@@ -11,7 +11,7 @@ document.querySelector('.sub').addEventListener('click', function (e) {
     var p = document.querySelector('.msg');
     p.classList.remove('visible');
     document.querySelector('#chart-box').innerHTML = '';
-    document.querySelector('#chart-box').innerHTML = "<section class=\"global-stats-section\" id=\"first-chart\"><canvas class=\"global-stats-chart\" id=\"myChart1\"></canvas><p class=\"global-stats-desc\">".concat(c1input.options[c1input.selectedIndex].text, "</p></section><section class=\"global-stats-section\" id=\"second-chart\"><canvas class=\"global-stats-chart\" id=\"myChart2\"></canvas><p class=\"global-stats-desc\">").concat(c2input.options[c2input.selectedIndex].text, "</p></section>");
+    document.querySelector('#chart-box').innerHTML = "<section class=\"global-stats-section\" id=\"first-chart\"><div class=\"global-stats-chart\"><canvas id=\"myChart1\"></canvas></div><p class=\"global-stats-desc\">".concat(c1input.options[c1input.selectedIndex].text, "</p></section><section class=\"global-stats-section\" id=\"second-chart\"><div class=\"global-stats-chart\"><canvas id=\"myChart2\"></canvas></div><p class=\"global-stats-desc\">").concat(c2input.options[c2input.selectedIndex].text, "</p></section>");
     var requestOptions = {
       method: 'GET',
       redirect: 'follow'
@@ -44,7 +44,7 @@ document.querySelector('.sub').addEventListener('click', function (e) {
           datasets: [{
             label: "Potwierdzone przypadki",
             data: c1Whole.cases,
-            backgroundColor: '#8b0000',
+            backgroundColor: '#CE0217',
             minBarLength: 100
           }, {
             label: "Liczba zgonów",
@@ -58,10 +58,7 @@ document.querySelector('.sub').addEventListener('click', function (e) {
             minBarLength: 100
           }]
         },
-        options: {
-          responsive: false,
-          maintainAspectRatio: false
-        }
+        options: {}
       });
       fetch("https://covid19-api.org/api/timeline/".concat(c2), requestOptions).then(function (response) {
         return response.json();
@@ -91,7 +88,7 @@ document.querySelector('.sub').addEventListener('click', function (e) {
             datasets: [{
               label: "Potwierdzone przypadki",
               data: c2Whole.cases,
-              backgroundColor: '#8b0000',
+              backgroundColor: '#CE0217',
               minBarLength: 100
             }, {
               label: "Liczba zgonów",
@@ -105,10 +102,7 @@ document.querySelector('.sub').addEventListener('click', function (e) {
               minBarLength: 100
             }]
           },
-          options: {
-            responsive: false,
-            maintainAspectRatio: false
-          }
+          options: {}
         });
       })["catch"](function (error) {
         return console.log('error', error);
