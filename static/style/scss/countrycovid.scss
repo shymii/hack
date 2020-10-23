@@ -14,52 +14,64 @@
     input, select, button, option {
         color: #222;
     }
-    .globalCharts {
-        width: 80%;
-        margin: auto;
-        display: flex;
-        flex-wrap: wrap;
-        #cipsko {
-            flex-basis: 100%;
-        }
-        #casesRes {
-            display: block;
-            flex-basis: 100%;
-            text-align: center;
-            font-size: 3em;
-            color: #303030; 
-            padding-bottom: 0.5em;
-            padding-top: 0.5em;
-        }
-        .smallchart {
-            margin-top: 2em;
-            margin-bottom: 2em;
-            flex-basis: 75%;
-        }
-        .singlestats {
-            margin-top: 1em;
-            margin-bottom: 1em;
+    #show{
+        display: none;
+        .globalCharts {
+            width: 80%;
+            margin: auto;
             display: flex;
-            flex-wrap: nowrap;
-            justify-content: space-evenly;
-            #allCases, #todayCases, #activeCases {
-                color: #303030;
-                text-align: center;
-                font-size: 1.5em;
-                display: block;
-                flex-basis: 30%;
+            flex-wrap: wrap;
+            #cipsko {
+                flex-basis: 100%;
+                #myChart {
+                    width: 100%;
+                }
             }
-        }
-        .desc {
-            flex-basis: 20%;
-            padding: 0.5em;
-            padding-top: 8em;
-            p {
-                text-align: center;
-                font-size: 2em;
-                color: #303030; 
+            #casesRes {
                 display: block;
-                padding-bottom: 1em;
+                flex-basis: 100%;
+                text-align: center;
+                font-size: 3em;
+                color: #303030; 
+                padding-bottom: 0.5em;
+                padding-top: 0.5em;
+            }
+            .smallchart {
+                margin-top: 2em;
+                margin-bottom: 2em;
+                flex-basis: 75%;
+                #predChart {
+                    width: 100%;
+                }
+                #dpredChart {
+                    width: 100%;
+                }
+            }
+            .singlestats {
+                margin-top: 1em;
+                margin-bottom: 1em;
+                display: flex;
+                flex-wrap: nowrap;
+                justify-content: space-evenly;
+                #allCases, #todayCases, #activeCases {
+                    color: #303030;
+                    text-align: center;
+                    font-size: 1.5em;
+                    display: block;
+                    flex-basis: 30%;
+                }
+            }
+            .desc {
+                flex-basis: 20%;
+                padding: 0.5em;
+                padding-top: 8em;
+                p {
+                    text-align: center;
+                    font-size: 2em;
+                    color: #303030; 
+                    display: block;
+                    padding-bottom: 1em;
+                }
             }
         }
     }

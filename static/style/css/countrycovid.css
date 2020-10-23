@@ -14,16 +14,22 @@
 .main input, .main select, .main button, .main option {
   color: #222;
 }
-.main .globalCharts {
+.main #show {
+  display: none;
+}
+.main #show .globalCharts {
   width: 80%;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
 }
-.main .globalCharts #cipsko {
+.main #show .globalCharts #cipsko {
   flex-basis: 100%;
 }
-.main .globalCharts #casesRes {
+.main #show .globalCharts #cipsko #myChart {
+  width: 100%;
+}
+.main #show .globalCharts #casesRes {
   display: block;
   flex-basis: 100%;
   text-align: center;
@@ -32,31 +38,37 @@
   padding-bottom: 0.5em;
   padding-top: 0.5em;
 }
-.main .globalCharts .smallchart {
+.main #show .globalCharts .smallchart {
   margin-top: 2em;
   margin-bottom: 2em;
   flex-basis: 75%;
 }
-.main .globalCharts .singlestats {
+.main #show .globalCharts .smallchart #predChart {
+  width: 100%;
+}
+.main #show .globalCharts .smallchart #dpredChart {
+  width: 100%;
+}
+.main #show .globalCharts .singlestats {
   margin-top: 1em;
   margin-bottom: 1em;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-evenly;
 }
-.main .globalCharts .singlestats #allCases, .main .globalCharts .singlestats #todayCases, .main .globalCharts .singlestats #activeCases {
+.main #show .globalCharts .singlestats #allCases, .main #show .globalCharts .singlestats #todayCases, .main #show .globalCharts .singlestats #activeCases {
   color: #303030;
   text-align: center;
   font-size: 1.5em;
   display: block;
   flex-basis: 30%;
 }
-.main .globalCharts .desc {
+.main #show .globalCharts .desc {
   flex-basis: 20%;
   padding: 0.5em;
   padding-top: 8em;
 }
-.main .globalCharts .desc p {
+.main #show .globalCharts .desc p {
   text-align: center;
   font-size: 2em;
   color: #303030;
