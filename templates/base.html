@@ -58,7 +58,10 @@
                 {% endif %}
             </ul>
         </nav>
-        <a href="{% url 'browse_mode' request.resolver_match.view_name %}">change browse mode, currently: {{ request.session.browse_mode }}</a>
+        <div class="theme-switcher">
+            <span>zmień motyw:</span>
+            <input type="checkbox" onclick="location.href = '{% url 'browse_mode' request.resolver_match.view_name %}'" {% if request.session.browse_mode == 'dark' %} checked {% endif %}>
+        </div>
     </header>
     <main class="main">
         {% block content %}

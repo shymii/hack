@@ -13,7 +13,7 @@
 {% block content %}
 <h1>Aktualności</h1>
 <section>
-    
+
 </section>
 <section class="tweets">
     {% for tweet in tweets %}
@@ -21,10 +21,12 @@
             <section class="tweet-user">
                 <a href="https://twitter.com/{{ tweet.screen_name }}"><img src="{{ tweet.profile_image }}"></a>
                 <p><a href="https://twitter.com/{{ tweet.screen_name }}">{{ tweet.name }}</a></p>
+                
             </section>
             <section class="tweet-content">
                 <p>{{ tweet.text }}</p>
-                <a href="https://twitter.com/MZ_GOV_PL/status/{{ tweet.tweet_id }}">link do tweeta</a>
+                <a href="https://twitter.com/MZ_GOV_PL/status/{{ tweet.tweet_id }}"><img src="{% static 'img/twitter.svg' %}" alt="link do tweeta"></a>
+                <span>{{ tweet.tweet_date }}</span>
             </section>
         </article>
     {% endfor %}

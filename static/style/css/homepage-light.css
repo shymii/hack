@@ -34,7 +34,7 @@
 }
 .main .tweets .tweet-single .tweet-content {
   margin-top: 1vw;
-  padding-bottom: 1vw;
+  padding-bottom: 1.5vw;
 }
 .main .tweets .tweet-single .tweet-content p {
   font-weight: 300;
@@ -43,4 +43,26 @@
   position: absolute;
   bottom: 0.5vw;
   right: 0.5vw;
+}
+.main .tweets .tweet-single .tweet-content a img {
+  width: 1.25vw;
+  filter: invert(70%);
+}
+.main .tweets .tweet-single .tweet-content a img:hover {
+  filter: invert(48%) sepia(8%) saturate(7179%) hue-rotate(205deg) brightness(93%) contrast(89%);
+}
+.main .tweets .tweet-single .tweet-content span {
+  position: absolute;
+  bottom: 0.5vw;
+  left: 1vw;
+  font-size: 0.7em;
+}
+.main .tweets .tweet-single .tweet-content span::after {
+  content: " ";
+  position: absolute;
+  width: 9vw;
+  right: -1vw;
+  bottom: 1vw;
+  border-radius: 0.5em;
+  border-top: 1px solid #6573e0;
 }
