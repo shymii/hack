@@ -86,6 +86,7 @@ body {
                         .header-nav-nested-list-item{
                             font-size: 90%;
                             text-align: right;
+                            font-weight: 100;
                         }
                     }
                     &:hover .header-nav-nested-list-inactive{
@@ -134,6 +135,9 @@ body {
                     margin-left: 10%;
                     margin-bottom: .4em;
                     overflow: hidden;
+                    &.logout a{
+                        color: #8a0e0e;
+                    }
                     .header-account-nested-list{
                         list-style: none;
                         transition-duration: .5s;
@@ -141,9 +145,7 @@ body {
                         .header-account-nested-list-item{
                             font-size: 90%;
                             text-align: right;
-                        }
-                        .logout a{
-                            color: #8a0e0e;
+                            font-weight: 100;
                         }
                     }
                     &:hover .header-account-nested-list-inactive{

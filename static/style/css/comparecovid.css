@@ -27,5 +27,4 @@
 .main .visible {
   display: block;
   opacity: 1;
-  transition: all 1s;
 }

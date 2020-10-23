@@ -23,33 +23,33 @@
             {% else %}
             <img src='{% static "img/logo-dark.png" %}' alt="">
             {% endif %}
-            <p>health</p>
+            <p>zdrowie</p>
             <ul class="header-nav-list">
-                <li class="header-nav-list-item {% if request.resolver_match.view_name == 'mental_health_view' %} header-item-active {% endif %}"><a href="{% url 'mental_health_view' %}">mental health</a></li>
-                <li class="header-nav-list-item {% if request.resolver_match.view_name == 'physical_health_view' %} header-item-active {% endif %}"><a href="{% url 'physical_health_view' %}">physical health</a></li>
+                <li class="header-nav-list-item {% if request.resolver_match.view_name == 'mental_health_view' %} header-item-active {% endif %}"><a href="{% url 'mental_health_view' %}">zdrowie psychiczne</a></li>
+                <li class="header-nav-list-item {% if request.resolver_match.view_name == 'physical_health_view' %} header-item-active {% endif %}"><a href="{% url 'physical_health_view' %}">zdrowie fizyczne</a></li>
                 <li class="header-nav-list-item {% if request.resolver_match.view_name == 'covid' %} header-item-active {% endif %}"><a href="{% url 'covid' %}">COVID-19</a>
                     <ul class="header-nav-nested-list {% if request.resolver_match.view_name == 'globalcovid' or request.resolver_match.view_name == 'comparecovid' or request.resolver_match.view_name == 'countrycovid' %} header-nav-nested-list-active {% else %} header-nav-nested-list-inactive {% endif %}">
-                        <li class="header-nav-nested-list-item {% if request.resolver_match.view_name == 'globalcovid' %} header-item-active {% endif %}"><a href="{% url 'globalcovid' %}">global</a></li>
-                        <li class="header-nav-nested-list-item {% if request.resolver_match.view_name == 'comparecovid' %} header-item-active {% endif %}"><a href="{% url 'comparecovid' %}">compare</a></li>
-                        <li class="header-nav-nested-list-item {% if request.resolver_match.view_name == 'countrycovid' %} header-item-active {% endif %}"><a href="{% url 'countrycovid' %}">country</a></li>
+                        <li class="header-nav-nested-list-item {% if request.resolver_match.view_name == 'globalcovid' %} header-item-active {% endif %}"><a href="{% url 'globalcovid' %}">globalne statystyki</a></li>
+                        <li class="header-nav-nested-list-item {% if request.resolver_match.view_name == 'comparecovid' %} header-item-active {% endif %}"><a href="{% url 'comparecovid' %}">porównaj statystyki</a></li>
+                        <li class="header-nav-nested-list-item {% if request.resolver_match.view_name == 'countrycovid' %} header-item-active {% endif %}"><a href="{% url 'countrycovid' %}">statystyki jednego kraju</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
         <nav class="header-account">
-            <p>account</p>
+            <p>profil</p>
             <ul class="header-account-list">
                 {% if not user.is_authenticated %}
-                <li class="header-account-list-item {% if request.resolver_match.view_name == 'login' %} header-item-active {% endif %}"><a href="{% url 'login' %}">login</a></li>
-                <li class="header-account-list-item {% if request.resolver_match.view_name == 'register' %} header-item-active {% endif %}"><a href="{% url 'register' %}">register</a></li>
+                <li class="header-account-list-item {% if request.resolver_match.view_name == 'login' %} header-item-active {% endif %}"><a href="{% url 'login' %}">zaloguj</a></li>
+                <li class="header-account-list-item {% if request.resolver_match.view_name == 'register' %} header-item-active {% endif %}"><a href="{% url 'register' %}">zarejestruj</a></li>
                 {% else %}
-                <li class="header-account-list-item {% if request.resolver_match.view_name == 'account' %} header-item-active {% endif %}"><a href="{% url 'account' %}">profile</a>
+                <li class="header-account-list-item {% if request.resolver_match.view_name == 'account' %} header-item-active {% endif %}"><a href="{% url 'account' %}">ogólne</a>
                     <ul class="header-account-nested-list {% if request.resolver_match.view_name == 'account_edit' or request.resolver_match.view_name == 'account_survey' %} header-account-nested-list-active {% else %} header-account-nested-list-inactive {% endif %}">
-                        <li class="header-account-nested-list-item {% if request.resolver_match.view_name == 'account_edit' %} header-item-active {% endif %}"><a href="{% url 'account_edit' %}">edit</a></li>
-                        <li class="header-account-nested-list-item {% if request.resolver_match.view_name == 'account_survey' %} header-item-active {% endif %}"><a href="{% url 'account_survey' %}">survey</a></li>
-                        <li class="header-account-nested-list-item logout"><a href="{% url 'logout' %}">logout</a></li>
+                        <li class="header-account-nested-list-item {% if request.resolver_match.view_name == 'account_edit' %} header-item-active {% endif %}"><a href="{% url 'account_edit' %}">edytuj profil</a></li>
+                        <li class="header-account-nested-list-item {% if request.resolver_match.view_name == 'account_survey' %} header-item-active {% endif %}"><a href="{% url 'account_survey' %}">dzienna ankieta</a></li>
                     </ul>
                 </li>
+                <li class="header-account-list-item logout"><a href="{% url 'logout' %}">wyloguj</a></li>
                 {% endif %}
             </ul>
         </nav>

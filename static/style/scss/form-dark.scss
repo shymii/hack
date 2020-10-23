@@ -43,8 +43,11 @@
                     border: none;
                     transition-duration: border .5s;
                     option{
-                        border:none;
+                        color: $color;
+                        background-color: $bgcolor1;
+                        border: none;
                         outline: none;
+                        padding: 1vw;
                     }
                 }
                 label{
@@ -107,7 +110,7 @@
             margin-left: -.5vw;
             margin-bottom: 1vw
         }
-        input[type="submit"]{
+        input[type="submit"], button{
             background-color: $purple;
             border: none;
             outline: none;

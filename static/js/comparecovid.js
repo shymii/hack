@@ -1,4 +1,5 @@
-document.querySelector('.sub').addEventListener('click', () => {
+document.querySelector('.sub').addEventListener('click', (e) => {
+    e.preventDefault();
     let c1 = document.querySelector('#c1').value;
     let c2 = document.querySelector('#c2').value;
     
@@ -120,9 +121,14 @@ document.querySelector('.sub').addEventListener('click', () => {
             .catch(error => console.log('error', error));
     } else {
         let p = document.querySelector('.msg');
-        p.classList.add('visible')
+        p.classList.add('alert');
+        p.classList.add('visible');
         setTimeout(() => {
-            p.classList.remove('visible');
-        }, 2500);
+            p.classList.add('alert-hide');
+            setTimeout(() => {
+                p.classList.remove('alert');
+                p.classList.remove('visible');
+            }, 1000)
+        }, 3000);
     }
 })

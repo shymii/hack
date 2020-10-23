@@ -83,6 +83,7 @@ body .header .header-nav .header-nav-list .header-nav-list-item .header-nav-nest
 body .header .header-nav .header-nav-list .header-nav-list-item .header-nav-nested-list .header-nav-nested-list-item {
   font-size: 90%;
   text-align: right;
+  font-weight: 100;
 }
 body .header .header-nav .header-nav-list .header-nav-list-item:hover .header-nav-nested-list-inactive {
   animation: dropdown 0.5s ease-in;
@@ -127,6 +128,9 @@ body .header .header-account .header-account-list .header-account-list-item {
   margin-bottom: 0.4em;
   overflow: hidden;
 }
+body .header .header-account .header-account-list .header-account-list-item.logout a {
+  color: #8a0e0e;
+}
 body .header .header-account .header-account-list .header-account-list-item .header-account-nested-list {
   list-style: none;
   transition-duration: 0.5s;
@@ -135,9 +139,7 @@ body .header .header-account .header-account-list .header-account-list-item .hea
 body .header .header-account .header-account-list .header-account-list-item .header-account-nested-list .header-account-nested-list-item {
   font-size: 90%;
   text-align: right;
-}
-body .header .header-account .header-account-list .header-account-list-item .header-account-nested-list .logout a {
-  color: #8a0e0e;
+  font-weight: 100;
 }
 body .header .header-account .header-account-list .header-account-list-item:hover .header-account-nested-list-inactive {
   animation: dropdown 0.5s ease-in;
