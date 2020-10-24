@@ -46,8 +46,9 @@
                 <li class="header-account-list-item {% if request.resolver_match.view_name == 'register' %} header-item-active {% endif %}"><a href="{% url 'register' %}">zarejestruj</a></li>
                 {% else %}
                 <li class="header-account-list-item {% if request.resolver_match.view_name == 'account' %} header-item-active {% endif %}"><a href="{% url 'account' %}">ogólne</a>
-                    <ul class="header-account-nested-list {% if request.resolver_match.view_name == 'account_edit' or request.resolver_match.view_name == 'account_survey' %} header-account-nested-list-active {% else %} header-account-nested-list-inactive {% endif %}">
+                    <ul class="header-account-nested-list {% if request.resolver_match.view_name == 'account_edit' or request.resolver_match.view_name == 'account_survey' or request.resolver_match.view_name == 'account_compare' %} header-account-nested-list-active {% else %} header-account-nested-list-inactive {% endif %}">
                         <li class="header-account-nested-list-item {% if request.resolver_match.view_name == 'account_edit' %} header-item-active {% endif %}"><a href="{% url 'account_edit' %}">edytuj profil</a></li>
+                        <li class="header-account-nested-list-item {% if request.resolver_match.view_name == 'account_compare' %} header-item-active {% endif %}"><a href="{% url 'account_compare' %}">porównaj postępy</a></li>
                         <li class="header-account-nested-list-item {% if request.resolver_match.view_name == 'account_survey' %} header-item-active {% endif %}"><a href="{% url 'account_survey' %}">dzienna ankieta</a></li>
                         {% if user.is_staff %}
                         <li class="header-account-nested-list-item"><a href="{% url 'admin:index' %}">admin</a></li>
@@ -74,16 +75,7 @@
             </div>
         {% endfor %}
     </main>
-    <script>
-        const alerts = document.querySelectorAll(".alert");
-        alerts.forEach(alert => {
-            alert.addEventListener("click", function() {
-                alert.classList.add("alert-hide");
-            })
-            setTimeout(function(){ alert.classList.add("alert-hide"); }, 3000);
-        })
-        
-    </script>
+    <script src="{% static 'js/alerts.js' %}"></script>
     {% block scripts %}
     {% endblock scripts %}
 </body>

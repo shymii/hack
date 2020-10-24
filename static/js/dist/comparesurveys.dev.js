@@ -48,7 +48,7 @@ fetch('../sendjson').then(function (res) {
         backgroundColor: gradient,
         minBarLength: 100,
         borderWidth: 5,
-        borderColor: gradient
+        borderColor: '#fff'
       }]
     },
     options: {

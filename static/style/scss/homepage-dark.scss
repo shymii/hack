@@ -2,6 +2,7 @@
 
 .main{
     display: grid;
+    display: -ms-grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 
     "head head"
@@ -14,6 +15,7 @@
         margin: auto;
         margin-top: 4vw;
         display: grid;
+        display: -ms-grid;
         grid-gap: 1vw;
         .tweet-single{
             padding: 1vw;
@@ -22,6 +24,7 @@
             position: relative;
             .tweet-user{
                 display: flex;
+                display: -ms-flexbox;
                 align-items: center;
                 img{
                     border-radius: 50%;
@@ -56,8 +59,32 @@
                             filter: invert(48%) sepia(8%) saturate(7179%) hue-rotate(205deg) brightness(93%) contrast(89%);
                         }
                     }
+                    &:hover + .see-more{
+                        transform: scaleY(1);
+                    }
                 }
-                span{
+                .see-more{
+                    transform: scaleY(0);
+                    transition: transform .2s ease-in;
+                    position: absolute;
+                    bottom: 2.5vw;
+                    right: -2vw;
+                    border-radius: .5em;
+                    background-color: $bgcolor2;
+                    border: 1px solid $color;
+                    padding: .5vw;
+                    font-size: .8em;
+                    &::after{
+                        content: ' ';
+                        position: absolute;
+                        bottom: -.25vw;
+                        right: 3vw;
+                        width: 1vw;
+                        border-bottom: 4px solid $purple;
+                        border-radius: .5em;
+                    }
+                }
+                .tweet-date{
                     position: absolute;
                     bottom: .5vw;
                     left: 1vw;

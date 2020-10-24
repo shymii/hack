@@ -41,6 +41,39 @@ def create_json(request):
         survey_results['date'].append(str(result.survey_date))
     return JsonResponse({'survey_results' : survey_results})
 
+def create_json_compare(request):
+    users = user_profile.objects.filter(city__iexact = request.user.user_profile.city)
+    surveys = []
+    survey_results = {}        
+    for user in users:
+        surveys.append(user_survey.objects.filter(user = user).order_by('-survey_date').values())
+        survey_results[user.user.username] = {
+            'weight' : [],
+            'height' : [],
+            'chest' : [],
+            'bicep' : [],
+            'thigh' : [],
+            'waist' : [],
+            'hips' : [],
+            'arms' : [],
+            'stress' : [],
+            'date': []
+        }
+    for user in users:
+        for result in surveys:
+            for survey in result:
+                survey_results[user.user.username]['weight'].append(float(survey['weight']))
+                survey_results[user.user.username]['height'].append(int(survey['height']))
+                survey_results[user.user.username]['chest'].append(float(survey['chest']))
+                survey_results[user.user.username]['bicep'].append(float(survey['bicep']))
+                survey_results[user.user.username]['thigh'].append(float(survey['thigh']))
+                survey_results[user.user.username]['waist'].append(float(survey['waist']))
+                survey_results[user.user.username]['hips'].append(float(survey['hips']))
+                survey_results[user.user.username]['arms'].append(float(survey['arms']))
+                survey_results[user.user.username]['stress'].append(str(survey['stress']))
+                survey_results[user.user.username]['date'].append(str(survey['survey_date']))
+    return JsonResponse({'survey_results' : survey_results})
+
 @unauthenticated_user
 @is_not_session
 def register_view(request):
@@ -91,6 +124,22 @@ def account_view(request):
     survey_result = create_json(request)
     context = {'surveys': surveys}
     template = 'users/account.html'
+    return render(request, template, context)
+
+@login_required(login_url = 'login')
+@is_not_session
+def account_compare(request):
+    survey = user_survey.objects.filter(user = request.user.user_profile).order_by('-survey_date')
+    users = user_profile.objects.filter(city__iexact = request.user.user_profile.city)
+    surveys = [len(users)]
+    # i=0
+    # for user in users:
+    #     surveys[i] = user_survey.objects.filter(user = user).order_by('-survey_date')
+    #     i+=1
+    create_json(request)
+    create_json_compare(request)
+    context = {'u_surveys': survey, 'c_surveys': surveys}
+    template = 'users/account_compare.html'
     return render(request, template, context)
 
 @login_required(login_url = 'login')
