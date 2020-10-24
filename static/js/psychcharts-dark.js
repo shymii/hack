@@ -29,37 +29,37 @@ var Pchart = new Chart(myPsychChart, {
             {
                 label: "Afryka,",
                 data: africaOb,
-                backgroundColor: 'rgba(255, 99, 132, 0.4)',
+                backgroundColor: 'rgba(255, 99, 132, 0.6)',
                 minBarLength: 100
             },
             {
                 label: "Azja",
                 data: asiaOb,
-                backgroundColor: 'rgba(54, 162, 235, 0.4)',
+                backgroundColor: 'rgba(54, 162, 235, 0.6)',
                 minBarLength: 100
             },
             {
                 label: "Australia",
                 data: australiaOb,
-                backgroundColor: 'rgba(255, 206, 86, 0.4)',
+                backgroundColor: 'rgba(255, 206, 86, 0.6)',
                 minBarLength: 100
             },
             {
                 label: "Ameryka Południowa",
                 data: southamericaOb,
-                backgroundColor: 'rgba(75, 192, 192, 0.4)',
+                backgroundColor: 'rgba(75, 192, 192, 0.6)',
                 minBarLength: 100
             },
             {
                 label: "Ameryka Północna",
                 data: northamericaOb,
-                backgroundColor: 'rgba(153, 102, 255, 0.4)',
+                backgroundColor: 'rgba(153, 102, 255, 0.6)',
                 minBarLength: 100
             },
             {
                 label: "Europa",
                 data: europeOb,
-                backgroundColor: 'rgba(255, 159, 64, 0.4)',
+                backgroundColor: 'rgba(255, 159, 64, 0.6)',
                 minBarLength: 100
             },
         ]
@@ -75,12 +75,12 @@ var myBarChart = new Chart(barChart, {
             label: 'liczba kcal',
             data: [africaCal, asiaCal, southamericaCal, northamericaCal, australiaCal, europeCal],
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                'rgba(255, 99, 132, 0.6)',
+                'rgba(54, 162, 235, 0.6)',
+                'rgba(255, 206, 86, 0.6)',
+                'rgba(75, 192, 192, 0.6)',
+                'rgba(153, 102, 255, 0.6)',
+                'rgba(255, 159, 64, 0.6)'
             ],
             borderColor: [
                 'rgba(255, 99, 132, 1)',

@@ -59,7 +59,7 @@ fetch(`https://covid19-api.org/api/timeline`)
                     {
                         label: "Potwierdzone przypadki",
                         data: cases,
-                        backgroundColor: '#CE0217',
+                        backgroundColor: 'rgba(206, 2, 23, 0.6)',
                         minBarLength: 100
                     }
                 ]
@@ -75,7 +75,7 @@ fetch(`https://covid19-api.org/api/timeline`)
                     {
                         label: "Dzienne przypadki",
                         data: daily,
-                        backgroundColor: '#3585CA',
+                        backgroundColor: 'rgba(53, 133, 202, 0.6)',
                         minBarLength: 100
                     }
                 ]
@@ -91,14 +91,14 @@ fetch(`https://covid19-api.org/api/timeline`)
                     {
                         label: "Ozdrowione przypadki",
                         data: recovered,
-                        backgroundColor: '#32cd32',
+                        backgroundColor: 'rgba(50, 205, 50, 0.6)',
                         minBarLength: 100
                     },
 
                     {
                         label: "Śmierci",
                         data: deaths,
-                        backgroundColor: '#696969',
+                        backgroundColor: 'rgba(105, 105, 105, 0.6)',
                         minBarLength: 100
                     }
                 ]
@@ -114,7 +114,7 @@ fetch(`https://covid19-api.org/api/timeline`)
                     {
                         label: "Aktywne przypadki",
                         data: active,
-                        backgroundColor: '#FFC34D',
+                        backgroundColor: 'rgba(255, 195, 77, 0.6)',
                         minBarLength: 100
                     }
                 ]

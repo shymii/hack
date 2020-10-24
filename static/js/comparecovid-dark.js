@@ -44,21 +44,21 @@ document.querySelector('.sub').addEventListener('click', (e) => {
                             {
                                 label: "Potwierdzone przypadki",
                                 data: c1Whole.cases,
-                                backgroundColor: '#CE0217',
+                                backgroundColor: 'rgba(206, 2, 23, 0.6)',
                                 minBarLength: 100
                             },
 
                             {
                                 label: "Liczba zgonów",
                                 data: c1Whole.deaths,
-                                backgroundColor: '#696969',
+                                backgroundColor: 'rgba(105, 105, 105, 0.6)',
                                 minBarLength: 100
                             },
                             
                             {
                                 label: "Wyleczone przypadki",
                                 data: c1Whole.recovered,
-                                backgroundColor: '#32cd32',
+                                backgroundColor: 'rgba(50, 205, 50, 0.6)',
                                 minBarLength: 100
                             }
                         ]
@@ -95,21 +95,21 @@ document.querySelector('.sub').addEventListener('click', (e) => {
                                     {
                                         label: "Potwierdzone przypadki",
                                         data: c2Whole.cases,
-                                        backgroundColor: '#CE0217',
+                                        backgroundColor: 'rgba(206, 2, 23, 0.6)',
                                         minBarLength: 100
                                     },
 
                                     {
                                         label: "Liczba zgonów",
                                         data: c2Whole.deaths,
-                                        backgroundColor: '#696969',
+                                        backgroundColor: 'rgba(105, 105, 105, 0.6)',
                                         minBarLength: 100
                                     },
                                     
                                     {
                                         label: "Wyleczone przypadki",
                                         data: c2Whole.recovered,
-                                        backgroundColor: '#32cd32',
+                                        backgroundColor: 'rgba(50, 205, 50, 0.6)',
                                         minBarLength: 100
                                     }
                                 ]
