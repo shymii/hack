@@ -51,7 +51,7 @@ fetch('../sendjson')
                             backgroundColor: gradient,
                             minBarLength: 100,
                             borderWidth: 5,
-                            borderColor: gradient
+                            borderColor: '#fff'
                         }
                     ]
                 },

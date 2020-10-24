@@ -258,7 +258,7 @@ body {
                 content: " ";
                 position: absolute;
                 width: 10vw;
-                right: 60vw;
+                right: 80%;
                 bottom: 0;
                 border-radius: .5em;
                 border-bottom: 5px solid $purple;
@@ -331,6 +331,22 @@ body {
             &.alert-hide{
                 animation: alert_hide 1s ease-in;
                 transform: translateX(120%);
+            }
+        }
+    }
+}
+
+@media (max-width: 1450px){
+    body{
+        .header{
+            display: none;
+        }
+        .main{
+            flex-basis: 100%;
+            h1{
+                &::after{
+                    right: 75%;
+                }
             }
         }
     }

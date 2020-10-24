@@ -1,16 +1,25 @@
 .main {
   display: grid;
+  display: -ms-grid;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "head head" "rest rest";
 }
 .main h1 {
   grid-area: head;
 }
+.main .homepage-left {
+  margin-top: 4vw;
+  justify-self: center;
+}
+.main .homepage-left img {
+  width: 100%;
+}
 .main .tweets {
   width: 80%;
   margin: auto;
   margin-top: 4vw;
   display: grid;
+  display: -ms-grid;
   grid-gap: 1vw;
 }
 .main .tweets .tweet-single {
@@ -21,6 +30,7 @@
 }
 .main .tweets .tweet-single .tweet-user {
   display: flex;
+  display: -ms-flexbox;
   align-items: center;
 }
 .main .tweets .tweet-single .tweet-user img {
@@ -57,13 +67,37 @@
 .main .tweets .tweet-single .tweet-content a img:hover {
   filter: invert(48%) sepia(8%) saturate(7179%) hue-rotate(205deg) brightness(93%) contrast(89%);
 }
-.main .tweets .tweet-single .tweet-content span {
+.main .tweets .tweet-single .tweet-content a:hover + .see-more {
+  transform: scaleY(1);
+}
+.main .tweets .tweet-single .tweet-content .see-more {
+  transform: scaleY(0);
+  transition: transform 0.2s ease-in;
+  position: absolute;
+  bottom: 2.5vw;
+  right: -2vw;
+  border-radius: 0.5em;
+  background-color: #262626;
+  border: 1px solid #FFFBFC;
+  padding: 0.5vw;
+  font-size: 0.8em;
+}
+.main .tweets .tweet-single .tweet-content .see-more::after {
+  content: " ";
+  position: absolute;
+  bottom: -0.25vw;
+  right: 3vw;
+  width: 1vw;
+  border-bottom: 4px solid #6573e0;
+  border-radius: 0.5em;
+}
+.main .tweets .tweet-single .tweet-content .tweet-date {
   position: absolute;
   bottom: 0.5vw;
   left: 1vw;
   font-size: 0.7em;
 }
-.main .tweets .tweet-single .tweet-content span::after {
+.main .tweets .tweet-single .tweet-content .tweet-date::after {
   content: " ";
   position: absolute;
   width: 9vw;
