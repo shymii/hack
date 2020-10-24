@@ -45,7 +45,7 @@ class user_profile(models.Model):
             imag.save(self.image.path)
 
 class user_survey(models.Model):
-    user = models.ForeignKey(user_profile, on_delete = models.CASCADE, editable = False)
+    user = models.ForeignKey(user_profile, on_delete = models.CASCADE, editable = False, related_name="surveys")
     weight = models.DecimalField(max_digits = 5, decimal_places = 2)
     height = models.DecimalField(max_digits = 3, decimal_places = 0)
     chest = models.DecimalField(max_digits = 5, decimal_places = 2)

@@ -2,24 +2,90 @@
 {% load static %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'style/css/account.css' %}">
+{% if request.session.browse_mode == 'dark' %}
+<link rel="stylesheet" href="{% static 'style/css/account-dark.css' %}">
+{% else %}
+<link rel="stylesheet" href="{% static 'style/css/account-light.css' %}">
+{% endif %}
 {% endblock css %}
 
 {% block content %}
-<p>Zalogowano jako {{ user }}</p>
-<p>{{ user.email }}</p>
-<p>{{ user.first_name }}</p>
-<p>{{ user.last_name }}</p>
-{% if user.user_profile.sex %}
-    <p>{{ user.user_profile.sex }}</p>
-{% endif %}
-
-{% if surveys %}
-<section class="charts">
-    <canvas id="chartHeight"></canvas>
-    <canvas id="chartWeight"></canvas>
-    <canvas id="chartChest"></canvas>
+<h1>Twoje konto</h1>
+<section class="user-info">
+    <section class="user-overview">
+        <img src="{{ user.user_profile.image.url }}" alt="zdjęcie użytkownika {{ user.username }}">
+        <h3>{{ user.username }}</h3>
+    </section>
+    <section class="user-data">
+        <p><span>Imię</span> {{ user.first_name }}</p>
+        <p><span>Nazwisko</span> {{ user.last_name }}</p>
+        <p><span>Data urodzenia</span> {{ user.user_profile.birth_date | date }}</p>
+        <p><span>Płeć</span> {{ user.user_profile.sex }}</p>
+        <p><span>Miasto</span> {{ user.user_profile.city }}</p>
+        <p><span>Adres email</span> {{ user.email }}</p>
+        <p><span>Ilość wykonanych ankiet</span> {{ user.user_profile.surveys.count }}</p>
+        <a href="{% url 'account_edit' %}">edytuj</a>
+    </section>
 </section>
+{% if surveys %}
+<section class="charts-section">
+    <h2>Twoje postępy</h2>
+    <section class="chart-section">
+        <div class="chart-section-chart">
+            <canvas id="chartHeight"></canvas>
+        </div>
+        <p class="chart-section-desc">wzrost [cm]</p>
+    </section>
+    <section class="chart-section">
+        <div class="chart-section-chart">
+            <canvas id="chartWeight"></canvas>
+        </div>
+        <p class="chart-section-desc">waga [kg]</p>
+    </section>
+    <section class="chart-section">
+        <div class="chart-section-chart">
+            <canvas id="chartChest"></canvas>
+        </div>
+        <p class="chart-section-desc">klatka [cm]</p>
+    </section>
+    <section class="chart-section">
+        <div class="chart-section-chart">
+            <canvas id="chartBicep"></canvas>
+        </div>
+        <p class="chart-section-desc">biceps [cm]</p>
+    </section>
+    <section class="chart-section">
+        <div class="chart-section-chart">
+            <canvas id="chartThigh"></canvas>
+        </div>
+        <p class="chart-section-desc">udo [cm]</p>
+    </section>
+    <section class="chart-section">
+        <div class="chart-section-chart">
+            <canvas id="chartWaist"></canvas>
+        </div>
+        <p class="chart-section-desc">talia [cm]</p>
+    </section>
+    <section class="chart-section">
+        <div class="chart-section-chart">
+            <canvas id="chartHips"></canvas>
+        </div>
+        <p class="chart-section-desc">biodra [cm]</p>
+    </section>
+    <section class="chart-section">
+        <div class="chart-section-chart">
+            <canvas id="chartArms"></canvas>
+        </div>
+        <p class="chart-section-desc">barki [cm]</p>
+    </section>
+    <section class="chart-section">
+        <div class="chart-section-chart">
+            <canvas id="chartStress"></canvas>
+        </div>
+        <p class="chart-section-desc">stres</p>
+    </section>
+</section>
+
 {% else %}
     <p>Nie posiadasz jeszcze wypełnionej ankiety!</p>
 {% endif %}

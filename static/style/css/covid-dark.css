@@ -77,7 +77,7 @@
 .main .covid-content .tweets .tweet-single .tweet-content a {
   position: absolute;
   bottom: 0.5vw;
-  right: 0.5vw;
+  right: 1vw;
 }
 .main .covid-content .tweets .tweet-single .tweet-content a img {
   width: 1.25vw;

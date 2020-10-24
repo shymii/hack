@@ -1,9 +1,0 @@
-.charts {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.charts canvas {
-  height: 200px;
-  display: inline;
-}

@@ -1,0 +1,97 @@
+.main > section {
+  width: 80%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "head head" "rest rest";
+  grid-gap: 1vw;
+  justify-content: center;
+  margin: auto;
+  margin-top: 4vw;
+}
+.main > section h2 {
+  grid-area: head;
+}
+.main .user-overview {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 90%;
+  border-radius: 0.5em;
+  padding: 1vw;
+}
+.main .user-overview img {
+  border-radius: 50%;
+  border: 5px solid #6573e0;
+  width: 12vw;
+}
+.main .user-overview h3 {
+  margin-top: 0.5vw;
+  font-weight: 400;
+}
+.main .user-data {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  justify-self: start;
+  position: relative;
+}
+.main .user-data > a {
+  position: absolute;
+  top: -0.5vw;
+  right: -1vw;
+  text-decoration: none;
+}
+.main .user-data > a:hover {
+  color: #6573e0;
+}
+.main .user-data p {
+  position: relative;
+  background-color: #f0f0f0;
+  border-radius: 0.5em;
+  width: 20vw;
+  height: 3vw;
+  padding: 1vw;
+  margin-top: 0.5vw;
+  text-align: center;
+}
+.main .user-data p span {
+  text-transform: lowercase;
+  position: absolute;
+  left: 0.5vw;
+  top: -0.5vw;
+  font-size: 0.8em;
+}
+.main .charts-section .chart-section {
+  width: 100%;
+  padding: 1vw;
+  border-radius: 0.5em;
+  background-color: #f0f0f0;
+  margin: 1vw 0.25vw;
+  position: relative;
+}
+.main .charts-section .chart-section .chart-section-chart {
+  width: 90%;
+  margin: auto;
+  padding: 0.5vw;
+}
+.main .charts-section .chart-section .chart-section-chart canvas {
+  width: 100%;
+}
+.main .charts-section .chart-section .chart-section-desc {
+  display: block;
+  text-align: left;
+  font-size: 1.3em;
+  padding: 0.5vw;
+}
+.main .charts-section .chart-section::after {
+  content: " ";
+  position: absolute;
+  width: 80%;
+  bottom: -1.5px;
+  left: 10%;
+  border-radius: 0.5em;
+  border: 3px solid #6573e0;
+}

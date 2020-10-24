@@ -1,0 +1,106 @@
+@import "utilities/variables-dark";
+
+.main{
+    >section{
+        width: 80%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+        "head head"
+        "rest rest";
+        grid-gap: 1vw;
+        justify-content: center;
+        margin: auto;
+        margin-top: 4vw;
+        h2{
+            grid-area: head;
+        }
+    }
+    .user-overview{
+        justify-self: end;
+        display: flex;
+        align-items: center;
+        justify-content: center;;
+        flex-direction: column;
+        width: 90%;
+        border-radius: .5em;
+        padding: 1vw;
+        img{
+            border-radius: 50%;
+            border: 5px solid $purple;
+            width: 12vw;
+        }
+        h3{
+            margin-top: .5vw;
+            font-weight: 400;
+        }
+    }
+    .user-data{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        justify-self: start;
+        position: relative;
+        >a{
+            position: absolute;
+            top: -.5vw;
+            right: -1vw;
+            text-decoration: none;
+            &:hover{
+                color: $purple;
+            }
+        }
+        p{
+            position: relative;
+            background-color: $bgcolor1;
+            border-radius: .5em;
+            width: 20vw;
+            height: 3vw;
+            padding: 1vw;
+            margin-top: .5vw;
+            text-align: center;
+            span{
+                text-transform: lowercase;
+                position: absolute;
+                left: .5vw;
+                top: -.5vw;
+                font-size: .8em;
+            }
+        }
+        
+    }
+    .charts-section{
+        .chart-section {
+            width: 100%;
+            padding: 1vw;
+            border-radius: .5em;
+            background-color: $bgcolor1;
+            margin: 1vw .25vw;
+            position: relative;
+            .chart-section-chart{
+                canvas{
+                    width: 100%;
+                }
+                width: 90%;
+                margin: auto;
+                padding: .5vw;
+            }
+            .chart-section-desc {
+                display: block;
+                text-align: left;
+                font-size: 1.3em;
+                padding: .5vw;
+            }
+            &::after{
+                content: ' ';
+                position: absolute;
+                width: 80%;
+                bottom: -1.5px;
+                left: 10%;
+                border-radius: .5em;
+                border: 3px solid $purple;
+            }  
+        }
+    }
+}
