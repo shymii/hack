@@ -2,7 +2,6 @@
 {% load static %}
 
 {% block css %}
-<!-- <link rel="stylesheet" href="{% static 'style/css/comparecovid.css' %}"> -->
 {% if request.session.browse_mode == 'dark' %}
 <link rel="stylesheet" href="{% static 'style/css/form-dark.css' %}">
 <link rel="stylesheet" href='{% static "style/css/globalcovid-dark.css" %}'>
@@ -557,5 +556,9 @@
 {% endblock content %}
 
 {% block scripts %}
-<script src="{% static 'js/comparecovid.js' %}"></script>
+{% if request.session.browse_mode == 'dark' %}
+<script src="{% static 'js/comparecovid-dark.js' %}"></script>
+{% else %}
+<script src="{% static 'js/comparecovid-light.js' %}"></script>
+{% endif %}
 {% endblock scripts %}

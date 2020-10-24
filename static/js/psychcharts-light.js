@@ -1,3 +1,7 @@
+Chart.defaults.global.defaultFontColor = "#303030";
+Chart.defaults.global.defaultFontFamily = "'Work Sans', sans-serif";
+
+
 let labels = ["1990", "1995","2000", "2005", "2010", "2015"];
 
 let africaOb = [64.59, 70.22, 87.21, 85.58, 82.71, 79.38];
