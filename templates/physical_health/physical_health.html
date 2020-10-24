@@ -86,12 +86,10 @@
         <input type="button" value="oblicz" id="btn">
     </div>
 </form>
-{% if user.user_profile.city %}
-<input type="text" id="search" value="{{ user.user_profile.city }}">
-{% else %}
 <input type="text" id="search">
-{% endif %}
 <div id="map"></div>
+<p id="xdd"></p>
+<div id="output"></div>
 <br>
 <div class="dChart">
     <canvas id="myPsychChart"></canvas>
