@@ -1,3 +1,7 @@
+Chart.defaults.global.defaultFontColor = "#FFFBFC";
+Chart.defaults.global.defaultFontFamily = "'Work Sans', sans-serif";
+
+
 const countrybtn = document.querySelector("#countrybtn");
 function commaSeparateNumber(val){
     while (/(\d+)(\d{3})/.test(val.toString())){

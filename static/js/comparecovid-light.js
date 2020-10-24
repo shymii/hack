@@ -1,3 +1,7 @@
+Chart.defaults.global.defaultFontColor = "#303030";
+Chart.defaults.global.defaultFontFamily = "'Work Sans', sans-serif";
+
+
 document.querySelector('.sub').addEventListener('click', (e) => {
     e.preventDefault();
     let c1input = document.querySelector('#c1');

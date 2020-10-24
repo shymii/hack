@@ -7,6 +7,7 @@
 {% else %}
     <link rel="stylesheet" href='{% static "style/css/globalcovid-light.css" %}'>
 {% endif %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 {% endblock css %}
 
 {% block content %}
@@ -54,6 +55,10 @@
         });
     });
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-<script src="{% static "js/globalcovid.js" %}"></script>
+
+{% if request.session.browse_mode == 'dark' %}
+<script src="{% static 'js/globalcovid-dark.js' %}"></script>
+{% else %}
+<script src="{% static 'js/globalcovid-light.js' %}"></script>
+{% endif %}
 {% endblock scripts %}
