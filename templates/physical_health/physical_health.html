@@ -89,7 +89,9 @@
 </form>
 <input type="text" id="search">
 <div id="map"></div>
-<p id="xdd"></p>
+<div class="alert-success">
+    <span class="alert-message"></span>
+</div>
 <div id="output"></div>
 <br>
 <div class="dChart">
@@ -108,10 +110,11 @@
 
 {% block scripts %}
 <script src="{% static 'js/caloricdemand.js' %}"></script>
-<script src="{% static 'js/map.js' %}"></script>
 {% if request.session.browse_mode == 'dark' %}
 <script src="{% static 'js/psychcharts-dark.js' %}"></script>
+<script src="{% static 'js/map-dark.js' %}"></script>
 {% else %}
 <script src="{% static 'js/psychcharts-light.js' %}"></script>
+<script src="{% static 'js/map-light.js' %}"></script>
 {% endif %}
 {% endblock scripts %}
