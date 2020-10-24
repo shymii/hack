@@ -7,6 +7,7 @@
 {% else %}
     <link rel="stylesheet" href='{% static "style/css/globalcovid-light.css" %}'>
 {% endif %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 {% endblock css %}
 
 {% block content %}
@@ -211,6 +212,11 @@
 {% endblock content %}
  
 {% block scripts %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-<script src="{% static "js/mental.js" %}"></script>
+
+{% if request.session.browse_mode == 'dark' %}
+<script src="{% static 'js/mental-dark.js' %}"></script>
+{% else %}
+<script src="{% static 'js/mental-light.js' %}"></script>
+{% endif %}
+
 {% endblock scripts %}

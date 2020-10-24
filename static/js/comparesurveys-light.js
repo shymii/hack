@@ -1,3 +1,7 @@
+Chart.defaults.global.defaultFontColor = "#303030";
+Chart.defaults.global.defaultFontFamily = "'Work Sans', sans-serif";
+
+
 fetch('../sendjson')
     .then(res => res.json())
         .then(out => {

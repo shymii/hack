@@ -3,7 +3,6 @@
 
 {% block css %}
 
-<!-- <link rel="stylesheet" href="{% static "style/css/countrycovid.css" %}"> -->
 {% if request.session.browse_mode == 'dark' %}
 <link rel="stylesheet" href="{% static 'style/css/form-dark.css' %}">
 {% else %}
@@ -14,7 +13,7 @@
 {% else %}
     <link rel="stylesheet" href='{% static "style/css/globalcovid-light.css" %}'>
 {% endif %}
-<!-- <link rel="stylesheet" href="{% static 'style/css/countrycovid.css' %}"> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 {% endblock css %}
 
 {% block content %}
@@ -309,6 +308,11 @@
 {% endblock content %}
 
 {% block scripts %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-<script src="{% static "js/countrycovid.js" %}"></script>
+
+{% if request.session.browse_mode == 'dark' %}
+<script src="{% static 'js/countrycovid-dark.js' %}"></script>
+{% else %}
+<script src="{% static 'js/countrycovid-light.js' %}"></script>
+{% endif %}
+
 {% endblock scripts %}

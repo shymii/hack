@@ -3,12 +3,129 @@
 
 {% block css %}
 {% if request.session.browse_mode == 'dark' %}
-<!-- <link rel="stylesheet" href="{% static 'style/css/form-dark.css' %}"> -->
+<link rel="stylesheet" href="{% static 'style/css/account-dark.css' %}">
 {% else %}
-<!-- <link rel="stylesheet" href="{% static 'style/css/form-light.css' %}"> -->
+<link rel="stylesheet" href="{% static 'style/css/account-light.css' %}">
 {% endif %}
 {% endblock css %}
 {% block content %}
 <h1>Porównaj swoje statystyki</h1>
-
+<section class="charts-section">
+    <h2>Osoby z Twojego miasta</h2>
+    <section class="chart-section">
+        <div class="chart-section-chart">
+            <canvas id="chartHeight"></canvas>
+        </div>
+        <p class="chart-section-desc">wzrost [cm]</p>
+    </section>
+    <section class="chart-section">
+        <div class="chart-section-chart">
+            <canvas id="chartWeight"></canvas>
+        </div>
+        <p class="chart-section-desc">waga [kg]</p>
+    </section>
+    <section class="chart-section">
+        <div class="chart-section-chart">
+            <canvas id="chartChest"></canvas>
+        </div>
+        <p class="chart-section-desc">klatka [cm]</p>
+    </section>
+    <section class="chart-section">
+        <div class="chart-section-chart">
+            <canvas id="chartBicep"></canvas>
+        </div>
+        <p class="chart-section-desc">biceps [cm]</p>
+    </section>
+    <section class="chart-section">
+        <div class="chart-section-chart">
+            <canvas id="chartThigh"></canvas>
+        </div>
+        <p class="chart-section-desc">udo [cm]</p>
+    </section>
+    <section class="chart-section">
+        <div class="chart-section-chart">
+            <canvas id="chartWaist"></canvas>
+        </div>
+        <p class="chart-section-desc">talia [cm]</p>
+    </section>
+    <section class="chart-section">
+        <div class="chart-section-chart">
+            <canvas id="chartHips"></canvas>
+        </div>
+        <p class="chart-section-desc">biodra [cm]</p>
+    </section>
+    <section class="chart-section">
+        <div class="chart-section-chart">
+            <canvas id="chartArms"></canvas>
+        </div>
+        <p class="chart-section-desc">barki [cm]</p>
+    </section>
+    <section class="chart-section">
+        <div class="chart-section-chart">
+            <canvas id="chartStress"></canvas>
+        </div>
+        <p class="chart-section-desc">poziom stresu</p>
+    </section>
+</section>
+<section class="charts-section">
+    <h2>Osoby o Twojej płci</h2>
+    <section class="chart-section">
+        <div class="chart-section-chart">
+            <canvas id="chartHeight"></canvas>
+        </div>
+        <p class="chart-section-desc">wzrost [cm]</p>
+    </section>
+    <section class="chart-section">
+        <div class="chart-section-chart">
+            <canvas id="chartWeight"></canvas>
+        </div>
+        <p class="chart-section-desc">waga [kg]</p>
+    </section>
+    <section class="chart-section">
+        <div class="chart-section-chart">
+            <canvas id="chartChest"></canvas>
+        </div>
+        <p class="chart-section-desc">klatka [cm]</p>
+    </section>
+    <section class="chart-section">
+        <div class="chart-section-chart">
+            <canvas id="chartBicep"></canvas>
+        </div>
+        <p class="chart-section-desc">biceps [cm]</p>
+    </section>
+    <section class="chart-section">
+        <div class="chart-section-chart">
+            <canvas id="chartThigh"></canvas>
+        </div>
+        <p class="chart-section-desc">udo [cm]</p>
+    </section>
+    <section class="chart-section">
+        <div class="chart-section-chart">
+            <canvas id="chartWaist"></canvas>
+        </div>
+        <p class="chart-section-desc">talia [cm]</p>
+    </section>
+    <section class="chart-section">
+        <div class="chart-section-chart">
+            <canvas id="chartHips"></canvas>
+        </div>
+        <p class="chart-section-desc">biodra [cm]</p>
+    </section>
+    <section class="chart-section">
+        <div class="chart-section-chart">
+            <canvas id="chartArms"></canvas>
+        </div>
+        <p class="chart-section-desc">barki [cm]</p>
+    </section>
+    <section class="chart-section">
+        <div class="chart-section-chart">
+            <canvas id="chartStress"></canvas>
+        </div>
+        <p class="chart-section-desc">poziom stresu</p>
+    </section>
+</section>
 {% endblock content %}
+{% block scripts %}
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+<script src={% static "js/compareusersurveys.js" %}></script> -->
+{% endblock scripts %}

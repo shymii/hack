@@ -41,12 +41,14 @@ def create_json(request):
         survey_results['date'].append(str(result.survey_date))
     return JsonResponse({'survey_results' : survey_results})
 
+
 def create_json_compare(request):
     users = user_profile.objects.filter(city__iexact = request.user.user_profile.city)
-    surveys = []
+    surveys = {}
     survey_results = {}        
     for user in users:
-        surveys.append(user_survey.objects.filter(user = user).order_by('-survey_date').values())
+        values = user_survey.objects.filter(user = user).order_by('survey_date').values()
+        surveys[user.user.username] = values
         survey_results[user.user.username] = {
             'weight' : [],
             'height' : [],
@@ -60,18 +62,17 @@ def create_json_compare(request):
             'date': []
         }
     for user in users:
-        for result in surveys:
-            for survey in result:
-                survey_results[user.user.username]['weight'].append(float(survey['weight']))
-                survey_results[user.user.username]['height'].append(int(survey['height']))
-                survey_results[user.user.username]['chest'].append(float(survey['chest']))
-                survey_results[user.user.username]['bicep'].append(float(survey['bicep']))
-                survey_results[user.user.username]['thigh'].append(float(survey['thigh']))
-                survey_results[user.user.username]['waist'].append(float(survey['waist']))
-                survey_results[user.user.username]['hips'].append(float(survey['hips']))
-                survey_results[user.user.username]['arms'].append(float(survey['arms']))
-                survey_results[user.user.username]['stress'].append(str(survey['stress']))
-                survey_results[user.user.username]['date'].append(str(survey['survey_date']))
+        for i in range(len(surveys[user.user.username])):
+            survey_results[user.user.username]['weight'].append(float(surveys[user.user.username][i]['weight']))
+            survey_results[user.user.username]['height'].append(int(surveys[user.user.username][i]['height']))
+            survey_results[user.user.username]['chest'].append(float(surveys[user.user.username][i]['chest']))
+            survey_results[user.user.username]['bicep'].append(float(surveys[user.user.username][i]['bicep']))
+            survey_results[user.user.username]['thigh'].append(float(surveys[user.user.username][i]['thigh']))
+            survey_results[user.user.username]['waist'].append(float(surveys[user.user.username][i]['waist']))
+            survey_results[user.user.username]['hips'].append(float(surveys[user.user.username][i]['hips']))
+            survey_results[user.user.username]['arms'].append(float(surveys[user.user.username][i]['arms']))
+            survey_results[user.user.username]['stress'].append(str(surveys[user.user.username][i]['stress']))
+            survey_results[user.user.username]['date'].append(str(surveys[user.user.username][i]['survey_date']))
     return JsonResponse({'survey_results' : survey_results})
 
 @unauthenticated_user

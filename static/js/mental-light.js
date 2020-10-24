@@ -1,3 +1,7 @@
+Chart.defaults.global.defaultFontColor = "#303030";
+Chart.defaults.global.defaultFontFamily = "'Work Sans', sans-serif";
+
+
 let labels = ["1990", "1995","2000", "2005", "2010", "2015"];
         let africa = [9592, 9495, 14110, 18596, 22194, 26608];
         let asia = [17110, 23845, 28948, 31031, 48634, 60945];
@@ -20,37 +24,37 @@ let labels = ["1990", "1995","2000", "2005", "2010", "2015"];
                     {
                         label: "Afryka",
                         data: africa,
-                        backgroundColor: '#FFEA80',
+                        backgroundColor: 'rgba(255, 234, 128, 0.6)',
                         minBarLength: 100
                     },
                     {
                         label: "Azja",
                         data: asia,
-                        backgroundColor: '#FFAA80',
+                        backgroundColor: 'rgba(255, 170, 128, 0.6)',
                         minBarLength: 100
                     },
                     {
                         label: "Australia",
                         data: australia,
-                        backgroundColor: '#B3B300',
+                        backgroundColor: 'rgba(179, 179, 0, 0.6)',
                         minBarLength: 100
                     },
                     {
                         label: "Ameryka Południowa",
                         data: southamerica,
-                        backgroundColor: '#4DFF88',
+                        backgroundColor: 'rgba(77, 255, 136, 0.6)',
                         minBarLength: 100
                     },
                     {
                         label: "Ameryka Północna",
                         data: northamerica,
-                        backgroundColor: '#E14DFF',
+                        backgroundColor: 'rgba(225, 77, 255, 0.6)',
                         minBarLength: 100
                     },
                     {
                         label: "Europa",
                         data: europe,
-                        backgroundColor: '#4D6AFF',
+                        backgroundColor: 'rgba(77, 106, 255, 0.6)',
                         minBarLength: 100
                     },
                 ]
@@ -66,13 +70,13 @@ let labels = ["1990", "1995","2000", "2005", "2010", "2015"];
                     {
                         label: "Kobiety",
                         data: females,
-                        backgroundColor: '#BB33FF',
+                        backgroundColor: 'rgba(187, 51, 255, 0.6)',
                         minBarLength: 100
                     },
                     {
                         label: "Mężczyźni",
                         data: males,
-                        backgroundColor: '#3355FF',
+                        backgroundColor: 'rgba(51, 85, 255, 0.6)',
                         minBarLength: 100
                     },
                 ]
