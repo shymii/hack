@@ -6,8 +6,6 @@ document.querySelector('.sub').addEventListener('click', (e) => {
     let c2 = c2input.value;
     
     if(c1 && c2){
-        let p = document.querySelector('.msg');
-        p.classList.remove('visible');
         document.querySelector('#chart-box').innerHTML = '';
         document.querySelector('#chart-box').innerHTML = `<section class="global-stats-section" id="first-chart"><div class="global-stats-chart"><canvas id="myChart1"></canvas></div><p class="global-stats-desc">${c1input.options[c1input.selectedIndex].text}</p></section><section class="global-stats-section" id="second-chart"><div class="global-stats-chart"><canvas id="myChart2"></canvas></div><p class="global-stats-desc">${c2input.options[c2input.selectedIndex].text}</p></section>`;
         let requestOptions = {
@@ -120,14 +118,17 @@ document.querySelector('.sub').addEventListener('click', (e) => {
             })
             .catch(error => console.log('error', error));
     } else {
-        let p = document.querySelector('.msg');
-        p.classList.add('alert');
-        p.classList.add('visible');
+        let y = document.querySelector('.huh');
+        y.classList.remove('huh');
+        y.classList.add('alert');
+        y.classList.add('alert-error');
         setTimeout(() => {
-            p.classList.add('alert-hide');
+            y.classList.add('alert-hide');
             setTimeout(() => {
-                p.classList.remove('alert');
-                p.classList.remove('visible');
+                y.classList.remove('alert');
+                y.classList.remove('alert-error');
+                y.classList.remove('alert-hide');
+                y.classList.add('huh');
             }, 1000)
         }, 3000);
     }
