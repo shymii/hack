@@ -43,6 +43,31 @@
     .covid-content{
         display: grid;
         grid-template-columns: 1fr 1fr;
+        .help{
+            width: 80%;
+            margin: auto;
+            margin-top: 4vw;
+            display: grid;
+            grid-gap: 1vw;
+            .help-single {
+                padding: 1vw;
+                border-radius: .5em;
+                background-color: $bgcolor1;
+                position: relative;
+                .help-single-title{
+                    padding: 1vw 0;
+                }
+                .help-single-content{
+                    padding-left: 1vw;
+                    ul{
+                        padding-left: 1vw;
+                    }
+                    p{
+                        margin-bottom: 1vw;
+                    }
+                }
+            }
+        }
         .tweets{
             width: 80%;
             margin: auto;

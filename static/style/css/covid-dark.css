@@ -41,6 +41,31 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+.main .covid-content .help {
+  width: 80%;
+  margin: auto;
+  margin-top: 4vw;
+  display: grid;
+  grid-gap: 1vw;
+}
+.main .covid-content .help .help-single {
+  padding: 1vw;
+  border-radius: 0.5em;
+  background-color: #303030;
+  position: relative;
+}
+.main .covid-content .help .help-single .help-single-title {
+  padding: 1vw 0;
+}
+.main .covid-content .help .help-single .help-single-content {
+  padding-left: 1vw;
+}
+.main .covid-content .help .help-single .help-single-content ul {
+  padding-left: 1vw;
+}
+.main .covid-content .help .help-single .help-single-content p {
+  margin-bottom: 1vw;
+}
 .main .covid-content .tweets {
   width: 80%;
   margin: auto;
