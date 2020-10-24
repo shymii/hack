@@ -40,9 +40,37 @@ fetch('../sendjson')
                 }
             });
 
-            var gradient = myChartWeight.createLinearGradient(0, 0, 0, 400);
-            gradient.addColorStop(0, 'rgba(250,174,50,1)');   
-            gradient.addColorStop(1, 'rgba(250,174,50,0)');
+            var gradient1 = myChartWeight.createLinearGradient(0, 0, 0, 400);
+            gradient1.addColorStop(0, 'rgba(250,174,50,1)');   
+            gradient1.addColorStop(1, 'rgba(250,174,50,0)');
+
+            var gradient2 = myChartHeight.createLinearGradient(0, 0, 0, 400);
+            gradient2.addColorStop(0, 'rgba(150,174,50,1)');   
+            gradient2.addColorStop(1, 'rgba(150,174,50,0)');
+
+            var gradient3 = myChartChest.createLinearGradient(0, 0, 0, 400);
+            gradient3.addColorStop(0, 'rgba(150,74,50,1)');   
+            gradient3.addColorStop(1, 'rgba(150,74,50,0)');
+
+            var gradient4 = myChartBicep.createLinearGradient(0, 0, 0, 400);
+            gradient4.addColorStop(0, 'rgba(10,204,10,1)');   
+            gradient4.addColorStop(1, 'rgba(10,204,10,0)');
+
+            var gradient5 = myChartHips.createLinearGradient(0, 0, 0, 400);
+            gradient5.addColorStop(0, 'rgba(50,174,150,1)');   
+            gradient5.addColorStop(1, 'rgba(50,174,150,0)');
+
+            var gradient6 = myChartThigh.createLinearGradient(0, 0, 0, 400);
+            gradient6.addColorStop(0, 'rgba(50,20,50,1)');   
+            gradient6.addColorStop(1, 'rgba(50,20,50,0)');
+
+            var gradient7 = myChartWaist.createLinearGradient(0, 0, 0, 400);
+            gradient7.addColorStop(0, 'rgba(110,174,60,1)');   
+            gradient7.addColorStop(1, 'rgba(110,174,60,0)');
+
+            var gradient8 = myChartArms.createLinearGradient(0, 0, 0, 400);
+            gradient8.addColorStop(0, 'rgba(120,74,10,1)');   
+            gradient8.addColorStop(1, 'rgba(120,74,10,0)');
 
             var chartWeight = new Chart(myChartWeight, {
                 type:'line',
@@ -52,10 +80,10 @@ fetch('../sendjson')
                         {
                             label: "waga [kg]",
                             data: weight,
-                            backgroundColor: gradient,
+                            backgroundColor: gradient1,
                             minBarLength: 100,
                             borderWidth: 5,
-                            borderColor: '#fff'
+                            borderColor: '#303030'
                         }
                     ]
                 },
@@ -87,12 +115,31 @@ fetch('../sendjson')
                         {
                             label: "wzrost [cm]",
                             data: height,
-                            backgroundColor: '#696969',
-                            minBarLength: 100
+                            backgroundColor: gradient2,
+                            minBarLength: 100,
+                            minBarLength: 100,
+                            borderWidth: 5,
+                            borderColor: '#303030'
                         }
                     ]
                 },
                 options:{
+                    legend: {
+                        display: false
+                    },
+                    scales: {
+                        xAxes: [{
+                            position: 'top',
+                            gridLines: {
+                                drawOnChartArea: false
+                            }
+                        }],
+                        yAxes: [{
+                            gridLines: {
+                                drawOnChartArea: false
+                            }                      
+                        }]
+                    }
                 }
             });
 
@@ -104,12 +151,31 @@ fetch('../sendjson')
                         {
                             label: "klatka [cm]",
                             data: chest,
-                            backgroundColor: '#32cd32',
-                            minBarLength: 100
+                            backgroundColor: gradient3,
+                            minBarLength: 100,
+                            minBarLength: 100,
+                            borderWidth: 5,
+                            borderColor: '#303030'
                         }
                     ]
                 },
                 options:{ 
+                    legend: {
+                        display: false
+                    },
+                    scales: {
+                        xAxes: [{
+                            position: 'top',
+                            gridLines: {
+                                drawOnChartArea: false
+                            }
+                        }],
+                        yAxes: [{
+                            gridLines: {
+                                drawOnChartArea: false
+                            }                      
+                        }]
+                    }
                 }
             });
 
@@ -121,12 +187,31 @@ fetch('../sendjson')
                         {
                             label: "biceps [cm]",
                             data: bicep,
-                            backgroundColor: '#32cd32',
-                            minBarLength: 100
+                            backgroundColor: gradient4,
+                            minBarLength: 100,
+                            minBarLength: 100,
+                            borderWidth: 5,
+                            borderColor: '#303030'
                         }
                     ]
                 },
-                options:{ 
+                options:{
+                    legend: {
+                        display: false
+                    },
+                    scales: {
+                        xAxes: [{
+                            position: 'top',
+                            gridLines: {
+                                drawOnChartArea: false
+                            }
+                        }],
+                        yAxes: [{
+                            gridLines: {
+                                drawOnChartArea: false
+                            }                      
+                        }]
+                    }
                 }
             });
 
@@ -138,12 +223,31 @@ fetch('../sendjson')
                         {
                             label: "biodra [cm]",
                             data: hips,
-                            backgroundColor: '#32cd32',
-                            minBarLength: 100
+                            backgroundColor: gradient5,
+                            minBarLength: 100,
+                            minBarLength: 100,
+                            borderWidth: 5,
+                            borderColor: '#303030'
                         }
                     ]
                 },
-                options:{ 
+                options:{
+                    legend: {
+                        display: false
+                    },
+                    scales: {
+                        xAxes: [{
+                            position: 'top',
+                            gridLines: {
+                                drawOnChartArea: false
+                            }
+                        }],
+                        yAxes: [{
+                            gridLines: {
+                                drawOnChartArea: false
+                            }                      
+                        }]
+                    }
                 }
             });
 
@@ -155,12 +259,31 @@ fetch('../sendjson')
                         {
                             label: "udo [cm]",
                             data: thigh,
-                            backgroundColor: '#32cd32',
-                            minBarLength: 100
+                            backgroundColor: gradient6,
+                            minBarLength: 100,
+                            minBarLength: 100,
+                            borderWidth: 5,
+                            borderColor: '#303030'
                         }
                     ]
                 },
                 options:{ 
+                    legend: {
+                        display: false
+                    },
+                    scales: {
+                        xAxes: [{
+                            position: 'top',
+                            gridLines: {
+                                drawOnChartArea: false
+                            }
+                        }],
+                        yAxes: [{
+                            gridLines: {
+                                drawOnChartArea: false
+                            }                      
+                        }]
+                    }
                 }
             });
 
@@ -172,12 +295,31 @@ fetch('../sendjson')
                         {
                             label: "talia [cm]",
                             data: waist,
-                            backgroundColor: '#32cd32',
-                            minBarLength: 100
+                            backgroundColor: gradient7,
+                            minBarLength: 100,
+                            minBarLength: 100,
+                            borderWidth: 5,
+                            borderColor: '#303030'
                         }
                     ]
                 },
                 options:{ 
+                    legend: {
+                        display: false
+                    },
+                    scales: {
+                        xAxes: [{
+                            position: 'top',
+                            gridLines: {
+                                drawOnChartArea: false
+                            }
+                        }],
+                        yAxes: [{
+                            gridLines: {
+                                drawOnChartArea: false
+                            }                      
+                        }]
+                    }
                 }
             });
 
@@ -189,12 +331,31 @@ fetch('../sendjson')
                         {
                             label: "barki [cm]",
                             data: arms,
-                            backgroundColor: '#32cd32',
-                            minBarLength: 100
+                            backgroundColor: gradient8,
+                            minBarLength: 100,
+                            minBarLength: 100,
+                            borderWidth: 5,
+                            borderColor: '#303030'
                         }
                     ]
                 },
                 options:{ 
+                    legend: {
+                        display: false
+                    },
+                    scales: {
+                        xAxes: [{
+                            position: 'top',
+                            gridLines: {
+                                drawOnChartArea: false
+                            }
+                        }],
+                        yAxes: [{
+                            gridLines: {
+                                drawOnChartArea: false
+                            }                      
+                        }]
+                    }
                 }
             });
 
@@ -206,12 +367,20 @@ fetch('../sendjson')
                         {
                             label: "stres",
                             data: stressTab,
-                            backgroundColor: ['#fff', '#000','#333'],
-                            minBarLength: 100
+                            backgroundColor: [gradient1, gradient4, gradient6],
+                            minBarLength: 100,
+                            minBarLength: 100,
+                            borderWidth: 3,
+                            borderColor: '#303030'
                         }
                     ]
                 },
-                options:{ 
+                options:{
+                    legend: {
+                        position: 'bottom',
+                        display: true,
+                        onClick: null
+                    }
                 }
             });
 
