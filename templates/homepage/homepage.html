@@ -26,6 +26,7 @@
             </section>
             <section class="tweet-content">
                 <p>{{ tweet.text }}</p>
+                <img src="{{ tweet.tweet_image }}" alt="zdjęcie do tweeta">
                 <a href="https://twitter.com/MZ_GOV_PL/status/{{ tweet.tweet_id }}"><img src="{% static 'img/twitter.svg' %}" alt="link do tweeta"></a>
                 <span>{{ tweet.tweet_date }}</span>
             </section>

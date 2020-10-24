@@ -35,6 +35,9 @@ fetch('../sendjson').then(function (res) {
       stressTab[2]++;
     }
   });
+  var gradient = myChartWeight.createLinearGradient(0, 0, 0, 400);
+  gradient.addColorStop(0, 'rgba(250,174,50,1)');
+  gradient.addColorStop(1, 'rgba(250,174,50,0)');
   var chartWeight = new Chart(myChartWeight, {
     type: 'line',
     data: {
@@ -42,11 +45,30 @@ fetch('../sendjson').then(function (res) {
       datasets: [{
         label: "waga [kg]",
         data: weight,
-        backgroundColor: '#8b0000',
-        minBarLength: 100
+        backgroundColor: gradient,
+        minBarLength: 100,
+        borderWidth: 5,
+        borderColor: gradient
       }]
     },
-    options: {}
+    options: {
+      legend: {
+        display: false
+      },
+      scales: {
+        xAxes: [{
+          position: 'top',
+          gridLines: {
+            drawOnChartArea: false
+          }
+        }],
+        yAxes: [{
+          gridLines: {
+            drawOnChartArea: false
+          }
+        }]
+      }
+    }
   });
   var chartHeight = new Chart(myChartHeight, {
     type: 'line',
