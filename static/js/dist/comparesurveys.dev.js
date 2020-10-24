@@ -22,6 +22,19 @@ fetch('../sendjson').then(function (res) {
   var myChartWaist = document.getElementById("chartWaist").getContext('2d');
   var myChartArms = document.getElementById("chartArms").getContext('2d');
   var myChartStress = document.getElementById("chartStress").getContext('2d');
+  var stressTab = [0, 0, 0];
+  var stressLabel = ['niski', 'zrównoważony', 'wysoki'];
+  stress.forEach(function (el) {
+    if (el == 'niski') {
+      console.log(el);
+      stressTab[0]++;
+    } else if (el == 'zrównoważony') {
+      stressTab[1]++;
+      console.log(stressTab[1]);
+    } else if (el == 'wysoki') {
+      stressTab[2]++;
+    }
+  });
   var chartWeight = new Chart(myChartWeight, {
     type: 'line',
     data: {
@@ -127,13 +140,13 @@ fetch('../sendjson').then(function (res) {
     options: {}
   });
   var chartStress = new Chart(myChartStress, {
-    type: 'line',
+    type: 'doughnut',
     data: {
-      labels: date,
+      labels: stressLabel,
       datasets: [{
         label: "stres",
-        data: stress,
-        backgroundColor: '#32cd32',
+        data: stressTab,
+        backgroundColor: ['#fff', '#000', '#333'],
         minBarLength: 100
       }]
     },
