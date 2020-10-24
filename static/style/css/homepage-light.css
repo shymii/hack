@@ -7,6 +7,13 @@
 .main h1 {
   grid-area: head;
 }
+.main .homepage-left {
+  margin-top: 4vw;
+  justify-self: center;
+}
+.main .homepage-left img {
+  width: 100%;
+}
 .main .tweets {
   width: 80%;
   margin: auto;

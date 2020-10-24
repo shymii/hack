@@ -10,6 +10,13 @@
     h1{
         grid-area: head;
     }
+    .homepage-left{
+        margin-top: 4vw;
+        justify-self: center;
+        img{
+            width: 100%;
+        }
+    }
     .tweets{
         width: 80%;
         margin: auto;
