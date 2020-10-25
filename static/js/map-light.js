@@ -171,6 +171,10 @@ var style = [
     }
   ];
 
+const sortByDistDM = (a, b) => {
+  return (a.distance.value - b.distance.value);
+};
+
 const createMarker = (place, ID) => {
     const distance = new google.maps.DistanceMatrixService();
     document.querySelector('#output').innerHTML = '';
@@ -212,9 +216,8 @@ const createMarker = (place, ID) => {
                     infowindow.open(map, marker);
                 });
               });
-
               for (let i = 0; i < origins.length; i++) {
-                  const results = response.rows[i].elements;
+                  results = response.rows[i].elements;
                   for (let j = 0; j < destinations.length; j++) {
                       if (results[j].duration.value < 900) {
                           template_string += `<p><span>${place.name}</span><span>${results[j].distance.text}</span><span>${results[j].duration.text}</span></p>`;

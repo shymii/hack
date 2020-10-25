@@ -43,3 +43,9 @@ def homepage(request):
     context = {'tweets' : tweets}   
     template = 'homepage/homepage.html'
     return render(request, template, context)
+
+def about(request):
+    context = {}
+    template = 'about/about.html';
+
+    return render(request, template, context)

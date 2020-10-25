@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+{% if request.session.browse_mode == 'dark' %}
+{% else %}
+{% endif %}
+{% endblock css %}
+
+{% block content %}
+<h1>O nas</h1>
+<section class="about-section">
+    <img src="">
+    <p class="about-section-content"></p>
+    <a href="mailto:" class="about-email">email</a>
+    <a href="" class="about-github">github</a>
+</section>
+<section class="about-section">
+    <img src="">
+    <p class="about-section-content"></p>
+    <a href="mailto:" class="about-email">email</a>
+    <a href="" class="about-github">github</a>
+</section>
+<section class="about-section">
+    <img src="">
+    <p class="about-section-content"></p>
+    <a href="mailto:" class="about-email">email</a>
+    <a href="" class="about-github">github</a>
+</section>
+<section class="about-section">
+    <img src="">
+    <p class="about-section-content"></p>
+    <a href="mailto:" class="about-email">email</a>
+    <a href="" class="about-github">github</a>
+</section>
+{% endblock content %}
