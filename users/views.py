@@ -139,7 +139,7 @@ def account_compare(request):
     #     i+=1
     create_json(request)
     create_json_compare(request)
-    context = {'u_surveys': survey, 'c_surveys': surveys}
+    context = {'u_surveys': survey, 'c_surveys': surveys, 'user': request.user}
     template = 'users/account_compare.html'
     return render(request, template, context)
 

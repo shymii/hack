@@ -65,6 +65,9 @@ var Pchart = new Chart(myPsychChart, {
         ]
     },
     options:{
+        legend: {
+            onClick: null
+        }
     }
 })
 var myBarChart = new Chart(barChart, {
@@ -94,6 +97,9 @@ var myBarChart = new Chart(barChart, {
         }]
     },
     options: {
+        legend: {
+            display: false
+        },
         scales: {
             yAxes: [{
                 ticks: {
