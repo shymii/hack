@@ -42,20 +42,6 @@
 {% endblock content %}
  
 {% block scripts %}
-<script>
-    const statsSections = document.querySelectorAll(".global-stats-section");
-    statsSections.forEach(element => {
-        element.addEventListener("click", function() {
-            statsSections.forEach(el =>{
-                if(el != element){
-                    el.classList.remove("global-stats-section-full");
-                }
-            })
-            element.classList.toggle("global-stats-section-full");
-        });
-    });
-</script>
-
 {% if request.session.browse_mode == 'dark' %}
 <script src="{% static 'js/globalcovid-dark.js' %}"></script>
 {% else %}

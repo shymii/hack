@@ -198,3 +198,13 @@
 .main form .form-right input[type=submit]:hover, .main form .form-right input[type=button]:hover, .main form .form-right button:hover {
   border: 1px solid #303030;
 }
+.main > p {
+  margin: 1vw 0 0 17vw;
+}
+.main > p a {
+  color: #6573e0;
+  text-decoration: none;
+}
+.main > p a:hover {
+  font-weight: 700;
+}
