@@ -121,8 +121,9 @@
 
 {% if request.session.browse_mode == 'dark' %}
 <script src="{% static 'js/mental-dark.js' %}"></script>
+<script src="{% static 'js/mapmental-dark.js' %}"></script>
 {% else %}
 <script src="{% static 'js/mental-light.js' %}"></script>
+<script src="{% static 'js/mapmental-light.js' %}"></script>
 {% endif %}
-<script src="{% static 'js/mapmental.js' %}"></script>
 {% endblock scripts %}
