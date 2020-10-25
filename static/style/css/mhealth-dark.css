@@ -1,0 +1,64 @@
+.main {
+  height: 100vw;
+  max-height: auto !important;
+}
+.main .mental-health {
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "big rest" "big rest";
+  grid-gap: 2vw;
+  margin-top: 4vw;
+}
+.main .mental-health .mental-health-section {
+  width: 100%;
+  padding: 1vw;
+  border-radius: 0.5em;
+  margin: 1vw 0.25vw;
+  position: relative;
+}
+.main .mental-health .mental-health-section .mental-section-chart {
+  width: 90%;
+  margin: auto;
+  padding: 0.5vw;
+}
+.main .mental-health .mental-health-section .mental-section-chart canvas {
+  width: 100%;
+}
+.main .mental-health .mental-health-section .mental-section-desc {
+  display: block;
+  text-align: left;
+  font-size: 1.3em;
+  padding: 0.5vw;
+}
+.main .mental-health .mental-health-section:first-of-type {
+  background-color: #303030;
+}
+.main .mental-health .mental-health-section:first-of-type::after {
+  content: " ";
+  position: absolute;
+  width: 80%;
+  bottom: -1.5px;
+  left: 10%;
+  border-radius: 0.5em;
+  border: 3px solid #6573e0;
+}
+.main .mental-health .mental-health-section .mental-health-subsection {
+  position: relative;
+  background-color: #303030;
+  padding: 1vw;
+  border-radius: 0.5em;
+}
+.main .mental-health .mental-health-section .mental-health-subsection:first-of-type {
+  margin-bottom: 3vw;
+}
+.main .mental-health .mental-health-section .mental-health-subsection::after {
+  content: " ";
+  position: absolute;
+  width: 80%;
+  bottom: -1.5px;
+  left: 10%;
+  border-radius: 0.5em;
+  border: 3px solid #6573e0;
+}

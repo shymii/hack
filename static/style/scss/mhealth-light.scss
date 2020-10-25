@@ -1,0 +1,68 @@
+@import "utilities/variables-light";
+
+.main {
+    height: 100vw;
+    max-height: auto !important; 
+    .mental-health {
+        width: 90%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+        "big rest"
+        "big rest";
+        grid-gap: 2vw;
+        margin-top: 4vw;
+        .mental-health-section {
+            width: 100%;
+            padding: 1vw;
+            border-radius: .5em;
+            margin: 1vw .25vw;
+            position: relative;
+            .mental-section-chart{
+                canvas{
+                    width: 100%;
+                }
+                width: 90%;
+                margin: auto;
+                padding: .5vw;
+            }
+            .mental-section-desc {
+                display: block;
+                text-align: left;
+                font-size: 1.3em;
+                padding: .5vw;
+            }
+            &:first-of-type{
+                background-color: $bgcolor1;
+                &::after{
+                    content: ' ';
+                    position: absolute;
+                    width: 80%;
+                    bottom: -1.5px;
+                    left: 10%;
+                    border-radius: .5em;
+                    border: 3px solid $purple;
+                }
+            }
+            .mental-health-subsection{
+                position: relative;
+                background-color: $bgcolor1;
+                padding: 1vw;
+                border-radius: .5em;
+                &:first-of-type{
+                    margin-bottom: 3vw;
+                }
+                &::after{
+                    content: ' ';
+                    position: absolute;
+                    width: 80%;
+                    bottom: -1.5px;
+                    left: 10%;
+                    border-radius: .5em;
+                    border: 3px solid $purple;
+                }
+            }
+        }
+    }
+}

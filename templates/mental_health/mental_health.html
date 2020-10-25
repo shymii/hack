@@ -3,184 +3,183 @@
 
 {% block css %}
 {% if request.session.browse_mode == 'dark' %}
-    <link rel="stylesheet" href='{% static "style/css/globalcovid-dark.css" %}'> 
+    <link rel="stylesheet" href='{% static "style/css/mhealth-dark.css" %}'> 
 {% else %}
-    <link rel="stylesheet" href='{% static "style/css/globalcovid-light.css" %}'>
+    <link rel="stylesheet" href='{% static "style/css/mhealth-light.css" %}'>
 {% endif %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 {% endblock css %}
 
 {% block content %}
     <h1>Zdrowie psychiczne</h1>
-    <section class="global-stats">
-        <section class="global-stats-section">
-            <div class="global-stats-chart">
-                <canvas id="myChart"></canvas>
-            </div>
-            <p class="global-stats-desc">
-                Śmierć spowodowana zaburzeniami psychicznymi
-            </p>
-        </section>
-        <section class="global-stats-section">
-            <div class="global-stats-chart">
-                <canvas id="mySecondChart"></canvas>
-            </div>
-            <p class="global-stats-desc">
-                Liczba osób z zaburzeniami psychicznymi ze względu na płeć
-            </p>
-        </section>
-    </section>
-    <section class="global-stats">
-        <section class="global-stats-section">
-            <table border="1">
+    <section class="mental-health">
+        <section class="mental-health-section">
+            <table>
                 <thead>
-                <tr class="row-1 odd">
-                    <th class="column-1">
-                        Zaburzenie
-                    </th>
-                    <th class="column-2">
-                        Udział ludności z zaburzeniami porządku publicznego na świecie (2017)
-                    </th>
-                <th class="column-3">
-                    Liczba osób z zaburzeniami (2017)
-                </th>
-                <th class="column-4">
-                    Udział mężczyzn/kobiet z zaburzeniami (2017)
-                </th>
-                </tr>
+                    <tr>
+                        <th>
+                            Zaburzenie
+                        </th>
+                        <th>
+                            Udział ludności z zaburzeniami porządku publicznego na świecie (2017)
+                        </th>
+                        <th>
+                            Liczba osób z zaburzeniami (2017)
+                        </th>
+                        <th>
+                            Udział mężczyzn/kobiet z zaburzeniami (2017)
+                        </th>
+                    </tr>
                 </thead>
-                <tbody class="row-hover">
-                <tr class="row-2 even">
-                    <td class="column-1">
-                        Każde zaburzenie zdrowia psychicznego
-                    </td>
-                    <td class="column-2">
-                        10.7%
-                    </td>
-                    <td class="column-3">
-                        792 milionów
-                    </td>
-                    <td class="column-4">
-                        9.3% mężczyzn<br>11.9% kobiet
-                    </td>
-                </tr>
-                <tr class="row-3 odd">
-                    <td class="column-1">
-                        Depresja
-                    </td>
-                    <td class="column-2">
-                        3.4%
-                    </td>
-                    <td class="column-3">
-                        264 milionów
-                    </td>
-                    <td class="column-4">
-                        2.7% mężczyzn<br>4.1% kobiet
-                    </td>
-                </tr>
-                <tr class="row-4 even">
-                    <td class="column-1">
-                        Zaburzenia lękowe
-                    </td>
-                    <td class="column-2">
-                        3.8%
-                    </td>
-                    <td class="column-3">
-                        284 milionów
-                    </td>
-                    <td class="column-4">
-                        2.8% mężczyzn<br>4.7% kobiet
-                    </td>
-                </tr>
-                <tr class="row-5 odd">
-                    <td class="column-1">
-                        Zaburzenia dwubiegunowe
-                    </td>
-                    <td class="column-2">
-                        0.6%
-                    </td>
-                    <td class="column-3">
-                        46 milionów
-                    </td>
-                    <td class="column-4">
-                        0.55% mężczyzn<br>0.65% kobiet
-                    </td>
-                </tr>
-                <tr class="row-6 even">
-                    <td class="column-1">
-                        Zaburzenia odżywiania (anoreksja kliniczna &amp; bulimia)
-                    </td>
-                    <td class="column-2">
-                        0.2% <br>
-                    </td>
-                    <td class="column-3">
-                        16 milionów
-                    </td>
-                    <td class="column-4">
-                        0.13% mężczyzn<br>0.29% kobiet
-                    </td>
-                </tr>
-                <tr class="row-7 odd">
-                    <td class="column-1">
-                        Schizofrenia
-                    </td>
-                    <td class="column-2">
-                        0.3%
-                    </td>
-                    <td class="column-3">
-                        20 milionów
-                    </td>
-                    <td class="column-4">
-                        0.26% mężczyzn<br>0.25% kobiet
-                    </td>
-                </tr>
-                <tr class="row-8 even">
-                    <td class="column-1">
-                        Każde zaburzenie psychiczne lub związane z używaniem substancji
-                    </td>
-                    <td class="column-2">
-                        13%
-                    </td>
-                    <td class="column-3">
-                        970 milionów
-                    </td>
-                    <td class="column-4">
-                        12.6% mężczyzn<br>13.3% kobiet
-                    </td>
-                </tr>
-                <tr class="row-9 odd">
-                    <td class="column-1">
-                        Zaburzenia związane z używaniem alkoholu
-                    </td>
-                    <td class="column-2">
-                        1.4%
-                    </td>
-                    <td class="column-3">
-                        107 milionów
-                    </td>
-                    <td class="column-4">
-                        2% mężczyzn<br>0.8% kobiet
-                    </td>
-                </tr>
-                <tr class="row-10 even">
-                    <td class="column-1">
-                        Zaburzenia związane z używaniem narkotyków (z wyłączeniem alkoholu)
-                    </td>
-                    <td class="column-2">
-                        0.9% <br>
-                    </td>
-                    <td class="column-3">
-                        71 milionów
-                    </td>
-                    <td class="column-4">
-                        1.3% mężczyzn<br>0.6% kobiet
-                    </td>
-                </tr>
-                </tbody>
+                    <tbody>
+                        <tr>
+                            <td>
+                                Każde zaburzenie zdrowia psychicznego
+                            </td>
+                            <td>
+                                10.7%
+                            </td>
+                            <td>
+                                792 milionów
+                            </td>
+                            <td>
+                                9.3% mężczyzn<br>11.9% kobiet
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Depresja
+                            </td>
+                            <td>
+                                3.4%
+                            </td>
+                            <td>
+                                264 milionów
+                            </td>
+                            <td>
+                                2.7% mężczyzn<br>4.1% kobiet
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Zaburzenia lękowe
+                            </td>
+                            <td>
+                                3.8%
+                            </td>
+                            <td>
+                                284 milionów
+                            </td>
+                            <td>
+                                2.8% mężczyzn<br>4.7% kobiet
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Zaburzenia dwubiegunowe
+                            </td>
+                            <td>
+                                0.6%
+                            </td>
+                            <td>
+                                46 milionów
+                            </td>
+                            <td>
+                                0.55% mężczyzn<br>0.65% kobiet
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Zaburzenia odżywiania (anoreksja kliniczna &amp; bulimia)
+                            </td>
+                            <td>
+                                0.2% <br>
+                            </td>
+                            <td>
+                                16 milionów
+                            </td>
+                            <td>
+                                0.13% mężczyzn<br>0.29% kobiet
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Schizofrenia
+                            </td>
+                            <td>
+                                0.3%
+                            </td>
+                            <td>
+                                20 milionów
+                            </td>
+                            <td>
+                                0.26% mężczyzn<br>0.25% kobiet
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Każde zaburzenie psychiczne lub związane z używaniem substancji
+                            </td>
+                            <td>
+                                13%
+                            </td>
+                            <td>
+                                970 milionów
+                            </td>
+                            <td>
+                                12.6% mężczyzn<br>13.3% kobiet
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Zaburzenia związane z używaniem alkoholu
+                            </td>
+                            <td>
+                                1.4%
+                            </td>
+                            <td>
+                                107 milionów
+                            </td>
+                            <td>
+                                2% mężczyzn<br>0.8% kobiet
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Zaburzenia związane z używaniem narkotyków (z wyłączeniem alkoholu)
+                            </td>
+                            <td>
+                                0.9% <br>
+                            </td>
+                            <td>
+                                71 milionów
+                            </td>
+                            <td>
+                                1.3% mężczyzn<br>0.6% kobiet
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
                 <p>
                     Żródło danych: <a href="https://ourworldindata.org/mental-health">https://ourworldindata.org/mental-health</a>
                 </p>
+        </section>
+        <section class="mental-health-section">
+            <section class="mental-health-subsection">
+                <div class="mental-section-chart">
+                    <canvas id="myChart"></canvas>
+                </div>
+                <p class="mental-section-desc">
+                    Śmierć spowodowana zaburzeniami psychicznymi
+                </p>
+            </section>
+            <section class="mental-health-subsection">
+                <div class="mental-section-chart">
+                    <canvas id="mySecondChart"></canvas>
+                </div>
+                <p class="mental-section-desc">
+                    Liczba osób z zaburzeniami psychicznymi ze względu na płeć
+                </p>
+            </section>
         </section>
         <section class="global-stats-section">
             <dl>
@@ -212,7 +211,7 @@
 {% endblock content %}
  
 {% block scripts %}
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 {% if request.session.browse_mode == 'dark' %}
 <script src="{% static 'js/mental-dark.js' %}"></script>
 {% else %}
