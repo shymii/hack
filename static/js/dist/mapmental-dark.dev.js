@@ -192,7 +192,7 @@ var callback = function callback(results, status) {
       createMarker(results[i], results[i].place_id);
     }
   } else {
-    output_div.innerHTML = "<p><span>Nie znaleziono poradni psychiatrycznych w twojej okolicy</span></p>";
+    output_div.innerHTML = "<p><span>Nie znaleziono poradni w twojej okolicy</span></p>";
   }
 };
 
