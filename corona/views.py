@@ -8,7 +8,10 @@ from tweepy import Cursor
 import re
 import time
 
+from .decorators import is_not_session
+
 # Create your views here.
+@is_not_session
 def covid_view(request):
     auth = OAuthHandler(twitter_credentials.CONSUMER_KEY, twitter_credentials.CONSUMER_SECRET)
     auth.set_access_token(twitter_credentials.ACCESS_TOKEN, twitter_credentials.ACCESS_TOKEN_SECRET)
@@ -35,16 +38,19 @@ def covid_view(request):
     context = {'tweets' : tweets}
     return render(request, template, context)
 
+@is_not_session
 def global_covid_view(request):
     template = 'covid/globalcovid.html'
     context = {}
     return render(request, template, context)
 
+@is_not_session
 def compare_covid_view(request):
     template = 'covid/comparecovid.html'
     context = {}
     return render(request, template, context)
 
+@is_not_session
 def country_covid_view(request):
     template = 'covid/countrycovid.html'
     context = {}
