@@ -35,7 +35,8 @@ def homepage(request):
         tweets[i]['profile_image'] = tweet.user.profile_image_url
         tweets[i]['text'] = tweet.full_text
         tweets[i]['tweet_date'] = tweet.created_at
-        tweets[i]['tweet_image'] = tweet.entities['media'][0]['media_url']
+        if 'media' in tweet.entities:
+            tweets[i]['tweet_image'] = tweet.entities['media'][0]['media_url']
         temp_rep_id = tweet.in_reply_to_status_id
         temp_string = tweet.full_text
         i += 1
