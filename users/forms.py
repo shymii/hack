@@ -50,6 +50,9 @@ class ModifyUserForm(forms.ModelForm):
         self.fields['first_name'].widget = forms.TextInput(attrs={'placeholder': ' '})
         self.fields['last_name'].widget = forms.TextInput(attrs={'placeholder': ' '})
         self.fields['email'].widget = forms.TextInput(attrs={'placeholder': ' '})
+        self.fields['first_name'].required = True
+        self.fields['last_name'].required = True
+        self.fields['email'].required = True
 
 GENDER_CHOICES = [
     ('nieokreślona', 'nieokreślona'),

@@ -22,7 +22,11 @@
         <p><span>Nazwisko</span> {{ user.last_name }}</p>
         <p><span>Data urodzenia</span> {{ user.user_profile.birth_date | date }}</p>
         <p><span>Płeć</span> {{ user.user_profile.sex }}</p>
+        {% if user.user_profile.city %}
         <p><span>Miasto</span> {{ user.user_profile.city }}</p>
+        {% else %}
+        <p><span>Miasto</span></p>
+        {% endif %}
         <p><span>Adres email</span> {{ user.email }}</p>
         <p><span>Ilość wykonanych ankiet</span> {{ user.user_profile.surveys.count }}</p>
         <a href="{% url 'account_edit' %}">edytuj</a>
