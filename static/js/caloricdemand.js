@@ -118,10 +118,23 @@ btn.addEventListener("click", e => {
         daily_caloric_demand = Math.ceil(daily_caloric_demand);
         p_output.innerHTML = `Twoje dzienne zapotrzebowanie kaloryczne wynosi <span> ${daily_caloric_demand} kcal</span>`;
     }else{
-        alert.classList.add('alert');
-        setTimeout(function(){ alert.classList.add("alert-hide");}, 3000);
-        setTimeout(function(){ alert.classList.remove("alert"); }, 4000);
-        setTimeout(function(){ alert.classList.remove("alert-hide"); }, 4000);
+        let y = document.querySelector('.huh');
+        y.classList.remove('huh');
+        y.classList.add('alert');
+        y.classList.add('alert-error');
+        setTimeout(() => {
+            y.classList.add('alert-hide');
+            setTimeout(() => {
+                y.classList.remove('alert');
+                y.classList.remove('alert-error');
+                y.classList.remove('alert-hide');
+                y.classList.add('huh');
+            }, 1000)
+        }, 3000);
+        // alert.classList.add('alert');
+        // setTimeout(function(){ alert.classList.add("alert-hide");}, 3000);
+        // setTimeout(function(){ alert.classList.remove("alert"); }, 4000);
+        // setTimeout(function(){ alert.classList.remove("alert-hide"); }, 4000);
         p_output.innerHTML = '';
     }
 
