@@ -51,6 +51,7 @@ def homepage(request):
     template = 'homepage/homepage.html'
     return render(request, template, context)
 
+@is_not_session
 def about(request):
     context = {}
     template = 'about/about.html';

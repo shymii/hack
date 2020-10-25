@@ -61,8 +61,8 @@ countrybtn.addEventListener("click", function (e) {
 
       daily.unshift(0);
       daily.unshift(0);
-      document.getElementById("cipsko").innerHTML = '&nbsp;';
-      document.getElementById("cipsko").innerHTML = '<canvas id="myChart"></canvas>';
+      document.getElementById("g-chart").innerHTML = '&nbsp;';
+      document.getElementById("g-chart").innerHTML = '<canvas id="myChart"></canvas>';
       document.getElementById("allCases").innerHTML = "Liczba wszystkich przypadk\xF3w: ".concat(commaSeparateNumber(cases[k]));
       document.getElementById("todayCases").innerHTML = "Liczba dzisiejszych przypadk\xF3w: ".concat(commaSeparateNumber(daily[k]));
       document.getElementById("activeCases").innerHTML = "Liczba aktywnych przypadk\xF3w: ".concat(commaSeparateNumber(active[k - 1]));
