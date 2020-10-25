@@ -124,7 +124,11 @@
 {% endblock content %}
 {% block scripts %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
-<script src={% static "js/compareusersurveys.js" %}></script>
+{% if request.session.browse_mode == 'dark' %}
+<script src={% static "js/compareusersurveys-dark.js" %}></script>
+{% else %}
+<script src={% static "js/compareusersurveys-light.js" %}></script>
+{% endif %}
 <script>
     renderComparision('{{ user.username }}');
     renderComparisionSex('{{ user.username }}');

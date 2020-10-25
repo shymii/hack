@@ -1,11 +1,10 @@
 "use strict";
 
-Chart.defaults.global.defaultFontColor = "#FFFBFC";
-Chart.defaults.global.defaultFontFamily = "'Work Sans', sans-serif";
+Chart.defaults.global.defaultFontColor = "#ccc8c9";
 
 function commaSeparateNumber(val) {
   while (/(\d+)(\d{3})/.test(val.toString())) {
-    val = val.toString().replace(/(\d+)(\d{3})/, '$1' + ',' + '$2');
+    val = val.toString().replace(/(\d+)(\d{3})/, '$1' + ' ' + '$2');
   }
 
   return val;
@@ -60,6 +59,18 @@ fetch("https://covid19-api.org/api/timeline").then(function (res) {
   var dailyChart = document.getElementById("dailyChart").getContext('2d');
   var deathChart = document.getElementById("deathChart").getContext('2d');
   var activeChart = document.getElementById("activeChart").getContext('2d');
+  var rand1, rand2, rand3;
+  var gradient = [];
+
+  for (var i = 0; i <= 4; i++) {
+    rand1 = Math.floor(255 * Math.random());
+    rand2 = Math.floor(255 * Math.random());
+    rand3 = Math.floor(255 * Math.random());
+    gradient[i] = myChart.createLinearGradient(0, 0, 0, 400);
+    gradient[i].addColorStop(0, "rgba(".concat(rand1, ",").concat(rand2, ",").concat(rand3, ",1)"));
+    gradient[i].addColorStop(1, "rgba(".concat(rand1, ",").concat(rand2, ",").concat(rand3, ",0)"));
+  }
+
   var chart = new Chart(myChart, {
     type: 'line',
     data: {
@@ -67,11 +78,27 @@ fetch("https://covid19-api.org/api/timeline").then(function (res) {
       datasets: [{
         label: "Potwierdzone przypadki",
         data: cases,
-        backgroundColor: 'rgba(206, 2, 23, 0.6)',
+        backgroundColor: gradient[1],
         minBarLength: 100
       }]
     },
-    options: {}
+    options: {
+      legend: {
+        onClick: null
+      },
+      scales: {
+        xAxes: [{
+          gridLines: {
+            drawOnChartArea: false
+          }
+        }],
+        yAxes: [{
+          gridLines: {
+            drawOnChartArea: false
+          }
+        }]
+      }
+    }
   });
   var dailyCh = new Chart(dailyChart, {
     type: 'line',
@@ -80,11 +107,27 @@ fetch("https://covid19-api.org/api/timeline").then(function (res) {
       datasets: [{
         label: "Dzienne przypadki",
         data: daily,
-        backgroundColor: 'rgba(53, 133, 202, 0.6)',
+        backgroundColor: gradient[2],
         minBarLength: 100
       }]
     },
-    options: {}
+    options: {
+      legend: {
+        onClick: null
+      },
+      scales: {
+        xAxes: [{
+          gridLines: {
+            drawOnChartArea: false
+          }
+        }],
+        yAxes: [{
+          gridLines: {
+            drawOnChartArea: false
+          }
+        }]
+      }
+    }
   });
   var deathCh = new Chart(deathChart, {
     type: 'line',
@@ -93,16 +136,32 @@ fetch("https://covid19-api.org/api/timeline").then(function (res) {
       datasets: [{
         label: "Ozdrowione przypadki",
         data: recovered,
-        backgroundColor: 'rgba(50, 205, 50, 0.6)',
+        backgroundColor: gradient[3],
         minBarLength: 100
       }, {
         label: "Śmierci",
         data: deaths,
-        backgroundColor: 'rgba(105, 105, 105, 0.6)',
+        backgroundColor: gradient[4],
         minBarLength: 100
       }]
     },
-    options: {}
+    options: {
+      legend: {
+        onClick: null
+      },
+      scales: {
+        xAxes: [{
+          gridLines: {
+            drawOnChartArea: false
+          }
+        }],
+        yAxes: [{
+          gridLines: {
+            drawOnChartArea: false
+          }
+        }]
+      }
+    }
   });
   var activeCh = new Chart(activeChart, {
     type: 'line',
@@ -111,10 +170,26 @@ fetch("https://covid19-api.org/api/timeline").then(function (res) {
       datasets: [{
         label: "Aktywne przypadki",
         data: active,
-        backgroundColor: 'rgba(255, 195, 77, 0.6)',
+        backgroundColor: gradient[0],
         minBarLength: 100
       }]
     },
-    options: {}
+    options: {
+      legend: {
+        onClick: null
+      },
+      scales: {
+        xAxes: [{
+          gridLines: {
+            drawOnChartArea: false
+          }
+        }],
+        yAxes: [{
+          gridLines: {
+            drawOnChartArea: false
+          }
+        }]
+      }
+    }
   });
 });

@@ -1,7 +1,6 @@
 "use strict";
 
-Chart.defaults.global.defaultFontColor = "#FFFBFC";
-Chart.defaults.global.defaultFontFamily = "'Work Sans', sans-serif";
+Chart.defaults.global.defaultFontColor = "#ccc8c9";
 var labels = ["1990", "1995", "2000", "2005", "2010", "2015"];
 var africa = [9592, 9495, 14110, 18596, 22194, 26608];
 var asia = [17110, 23845, 28948, 31031, 48634, 60945];
@@ -49,7 +48,11 @@ var chart = new Chart(myChart, {
       minBarLength: 100
     }]
   },
-  options: {}
+  options: {
+    legend: {
+      onClick: null
+    }
+  }
 });
 var newchart = new Chart(mySecondChart, {
   type: 'line',
@@ -67,5 +70,9 @@ var newchart = new Chart(mySecondChart, {
       minBarLength: 100
     }]
   },
-  options: {}
+  options: {
+    legend: {
+      onClick: null
+    }
+  }
 });

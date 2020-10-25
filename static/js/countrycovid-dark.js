@@ -1,5 +1,4 @@
-Chart.defaults.global.defaultFontColor = "#FFFBFC";
-Chart.defaults.global.defaultFontFamily = "'Work Sans', sans-serif";
+Chart.defaults.global.defaultFontColor = "#ccc8c9";
 
 
 const countrybtn = document.querySelector("#countrybtn");
@@ -58,7 +57,16 @@ countrybtn.addEventListener("click", (e) => {
                 document.getElementById("todayCases").innerHTML = `Liczba dzisiejszych przypadków: ${commaSeparateNumber(daily[k])}`;
                 document.getElementById("activeCases").innerHTML = `Liczba aktywnych przypadków: ${commaSeparateNumber(active[k - 1])}`;
                 let myChart = document.getElementById("myChart").getContext('2d')
-
+                let rand1, rand2, rand3;
+                let gradient = [];
+                for(let i=0; i<=5; i++){
+                        rand1 = Math.floor(255 * Math.random());
+                        rand2 = Math.floor(255 * Math.random());
+                        rand3 = Math.floor(255 * Math.random());
+                        gradient[i] = myChart.createLinearGradient(0, 0, 0, 400);
+                        gradient[i].addColorStop(0, `rgba(${rand1},${rand2},${rand3},1)`);   
+                        gradient[i].addColorStop(1, `rgba(${rand1},${rand2},${rand3},0.3)`);
+                }
                 let chart = new Chart(myChart, {
                     type:'line',
                     data:{
@@ -67,40 +75,55 @@ countrybtn.addEventListener("click", (e) => {
                             {
                                 label: "Potwierdzone przypadki",
                                 data: cases,
-                                backgroundColor: 'rgba(206, 2, 23, 0.6)',
+                                backgroundColor: gradient[1],
                                 minBarLength: 100
                             },
 
                             {
                                 label: "Aktywne przypadki",
                                 data: active,
-                                backgroundColor: 'rgba(255, 195, 77, 0.6)',
+                                backgroundColor: gradient[2],
                                 minBarLength: 100
                             },
 
                             {
                                 label: "Liczba zgonów",
                                 data: deaths,
-                                backgroundColor: 'rgba(105, 105, 105, 0.6)',
+                                backgroundColor: gradient[3],
                                 minBarLength: 100
                             },
                             
                             {
                                 label: "Wyleczone przypadki",
                                 data: recovered,
-                                backgroundColor: 'rgba(50, 205, 50, 0.6)',
+                                backgroundColor: gradient[4],
                                 minBarLength: 100
                             },
 
                             {
                                 label: "Dzienna liczba przypadków",
                                 data: daily,
-                                backgroundColor: 'rgba(53, 133, 202, 0.6)',
+                                backgroundColor: gradient[5],
                                 minBarLength: 100
                             }
                         ]
                     },
                     options:{
+                        legend: {
+                            // onClick: null
+                        },
+                        scales: {
+                            xAxes: [{
+                                gridLines: {
+                                    drawOnChartArea: false
+                                }                      
+                            }],
+                            yAxes: [{
+                                gridLines: {
+                                    drawOnChartArea: false
+                                }                      
+                            }]
+                        }
                     }
                 })
             });
@@ -146,6 +169,15 @@ countrybtn.addEventListener("click", (e) => {
                     document.getElementById("dailypred").innerHTML = '<canvas id="dpredChart"></canvas>';
                     let predChart = document.getElementById("predChart").getContext('2d');
                     let dailypredChart = document.getElementById("dpredChart").getContext('2d');
+                    let gradient = [];
+                    for(let i=0; i<=2; i++){
+                        rand1 = Math.floor(255 * Math.random());
+                        rand2 = Math.floor(255 * Math.random());
+                        rand3 = Math.floor(255 * Math.random());
+                        gradient[i] = predChart.createLinearGradient(0, 0, 0, 400);
+                        gradient[i].addColorStop(0, `rgba(${rand1},${rand2},${rand3},1)`);   
+                        gradient[i].addColorStop(1, `rgba(${rand1},${rand2},${rand3},0)`);
+                    }
                     let pchart = new Chart(predChart, {
                         type:'line',
                         data:{
@@ -154,12 +186,27 @@ countrybtn.addEventListener("click", (e) => {
                                 {
                                     label: "Potwierdzone przypadki",
                                     data: cases,
-                                    backgroundColor: 'rgba(206, 2, 23, 0.6)',
+                                    backgroundColor: gradient[1],
                                     minBarLength: 100
                                 }
                             ]
                         },
                         options:{
+                            legend: {
+                                onClick: null
+                            },
+                            scales: {
+                                xAxes: [{
+                                    gridLines: {
+                                        drawOnChartArea: false
+                                    }                      
+                                }],
+                                yAxes: [{
+                                    gridLines: {
+                                        drawOnChartArea: false
+                                    }                      
+                                }]
+                            }
                         }
                     });
                     let dpredCh = new Chart(dailypredChart, {
@@ -170,12 +217,27 @@ countrybtn.addEventListener("click", (e) => {
                                 {
                                     label: "Dzienne przypadki",
                                     data: daily,
-                                    backgroundColor: 'rgba(53, 133, 202, 0.6)',
+                                    backgroundColor: gradient[2],
                                     minBarLength: 100
                                 }
                             ]
                         },
                         options:{
+                            legend: {
+                                onClick: null
+                            },
+                            scales: {
+                                xAxes: [{
+                                    gridLines: {
+                                        drawOnChartArea: false
+                                    }                      
+                                }],
+                                yAxes: [{
+                                    gridLines: {
+                                        drawOnChartArea: false
+                                    }                      
+                                }]
+                            }
                         }
                     });
                 } else {

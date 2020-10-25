@@ -1,5 +1,4 @@
-Chart.defaults.global.defaultFontColor = "#FFFBFC";
-Chart.defaults.global.defaultFontFamily = "'Work Sans', sans-serif";
+Chart.defaults.global.defaultFontColor = "#ccc8c9";
 
 
 let labels = ["1990", "1995","2000", "2005", "2010", "2015"];
@@ -60,6 +59,9 @@ let labels = ["1990", "1995","2000", "2005", "2010", "2015"];
                 ]
             },
             options:{
+                legend: {
+                    onClick: null
+                }
             }
         })
         var newchart = new Chart(mySecondChart, {
@@ -82,5 +84,8 @@ let labels = ["1990", "1995","2000", "2005", "2010", "2015"];
                 ]
             },
             options:{
+                legend: {
+                    onClick: null
+                }
             }
         })

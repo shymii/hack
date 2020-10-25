@@ -1,7 +1,6 @@
 "use strict";
 
-Chart.defaults.global.defaultFontColor = "#FFFBFC";
-Chart.defaults.global.defaultFontFamily = "'Work Sans', sans-serif";
+Chart.defaults.global.defaultFontColor = "#ccc8c9";
 document.querySelector('.sub').addEventListener('click', function (e) {
   e.preventDefault();
   var c1input = document.querySelector('#c1');
@@ -36,7 +35,19 @@ document.querySelector('.sub').addEventListener('click', function (e) {
           c1Whole.update[0] += res.last_update[i];
         }
       });
-      var myChart1 = document.getElementById("myChart1");
+      var myChart1 = document.getElementById("myChart1").getContext('2d');
+      var rand1, rand2, rand3;
+      var gradient = [];
+
+      for (var i = 0; i <= 6; i++) {
+        rand1 = Math.floor(255 * Math.random());
+        rand2 = Math.floor(255 * Math.random());
+        rand3 = Math.floor(255 * Math.random());
+        gradient[i] = myChart1.createLinearGradient(0, 0, 0, 400);
+        gradient[i].addColorStop(0, "rgba(".concat(rand1, ",").concat(rand2, ",").concat(rand3, ",1)"));
+        gradient[i].addColorStop(1, "rgba(".concat(rand1, ",").concat(rand2, ",").concat(rand3, ",0)"));
+      }
+
       var chart1 = new Chart(myChart1, {
         type: 'line',
         data: {
@@ -44,21 +55,37 @@ document.querySelector('.sub').addEventListener('click', function (e) {
           datasets: [{
             label: "Potwierdzone przypadki",
             data: c1Whole.cases,
-            backgroundColor: 'rgba(206, 2, 23, 0.6)',
+            backgroundColor: gradient[1],
             minBarLength: 100
           }, {
             label: "Liczba zgonów",
             data: c1Whole.deaths,
-            backgroundColor: 'rgba(105, 105, 105, 0.6)',
+            backgroundColor: gradient[2],
             minBarLength: 100
           }, {
             label: "Wyleczone przypadki",
             data: c1Whole.recovered,
-            backgroundColor: 'rgba(50, 205, 50, 0.6)',
+            backgroundColor: gradient[3],
             minBarLength: 100
           }]
         },
-        options: {}
+        options: {
+          legend: {
+            onClick: null
+          },
+          scales: {
+            xAxes: [{
+              gridLines: {
+                drawOnChartArea: false
+              }
+            }],
+            yAxes: [{
+              gridLines: {
+                drawOnChartArea: false
+              }
+            }]
+          }
+        }
       });
       fetch("https://covid19-api.org/api/timeline/".concat(c2), requestOptions).then(function (response) {
         return response.json();
@@ -76,8 +103,8 @@ document.querySelector('.sub').addEventListener('click', function (e) {
           c2Whole.update.unshift(res.last_update.replace("T", " "));
           c2Whole.update[0] = '';
 
-          for (var i = 5; i < 10; i++) {
-            c2Whole.update[0] += res.last_update[i];
+          for (var _i = 5; _i < 10; _i++) {
+            c2Whole.update[0] += res.last_update[_i];
           }
         });
         var myChart2 = document.getElementById("myChart2");
@@ -88,21 +115,37 @@ document.querySelector('.sub').addEventListener('click', function (e) {
             datasets: [{
               label: "Potwierdzone przypadki",
               data: c2Whole.cases,
-              backgroundColor: 'rgba(206, 2, 23, 0.6)',
+              backgroundColor: gradient[4],
               minBarLength: 100
             }, {
               label: "Liczba zgonów",
               data: c2Whole.deaths,
-              backgroundColor: 'rgba(105, 105, 105, 0.6)',
+              backgroundColor: gradient[5],
               minBarLength: 100
             }, {
               label: "Wyleczone przypadki",
               data: c2Whole.recovered,
-              backgroundColor: 'rgba(50, 205, 50, 0.6)',
+              backgroundColor: gradient[6],
               minBarLength: 100
             }]
           },
-          options: {}
+          options: {
+            legend: {
+              onClick: null
+            },
+            scales: {
+              xAxes: [{
+                gridLines: {
+                  drawOnChartArea: false
+                }
+              }],
+              yAxes: [{
+                gridLines: {
+                  drawOnChartArea: false
+                }
+              }]
+            }
+          }
         });
       })["catch"](function (error) {
         return console.log('error', error);

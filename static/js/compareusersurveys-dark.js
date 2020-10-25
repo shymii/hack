@@ -1,3 +1,5 @@
+Chart.defaults.global.defaultFontColor = "#ccc8c9";
+
 function renderComparision(usernameTemplate){
 fetch('../../sendjsoncompare')
     .then(res => res.json())
@@ -737,16 +739,16 @@ fetch('../../sendjsoncompare2')
                 var db = new Date(b).getTime(); 
                 return da < db ? -1 : da > db ? 1 : 0
               });
-            var myChartWeight = document.getElementById("chartWeight2").getContext('2d');
-            var myChartHeight = document.getElementById("chartHeight2").getContext('2d');
-            var myChartChest = document.getElementById("chartChest2").getContext('2d');
-            var myChartBicep = document.getElementById("chartBicep2").getContext('2d');
-            var myChartThigh = document.getElementById("chartThigh2").getContext('2d');
-            var myChartHips= document.getElementById("chartHips2").getContext('2d');
-            var myChartWaist= document.getElementById("chartWaist2").getContext('2d');
-            var myChartArms = document.getElementById("chartArms2").getContext('2d');
+            var myChartWeight2 = document.getElementById("chartWeight2").getContext('2d');
+            var myChartHeight2 = document.getElementById("chartHeight2").getContext('2d');
+            var myChartChest2 = document.getElementById("chartChest2").getContext('2d');
+            var myChartBicep2 = document.getElementById("chartBicep2").getContext('2d');
+            var myChartThigh2 = document.getElementById("chartThigh2").getContext('2d');
+            var myChartHips2 = document.getElementById("chartHips2").getContext('2d');
+            var myChartWaist2 = document.getElementById("chartWaist2").getContext('2d');
+            var myChartArms2 = document.getElementById("chartArms2").getContext('2d');
 
-            var chartWeight2 = new Chart(myChartWeight, {
+            var chartWeight2 = new Chart(myChartWeight2, {
                 type:'line',
                 data:{
                     datasets: []
@@ -785,7 +787,7 @@ fetch('../../sendjsoncompare2')
                 rand1 = Math.floor(255 * Math.random());
                 rand2 = Math.floor(255 * Math.random());
                 rand3 = Math.floor(255 * Math.random());
-                users[i]['gradient'] = myChartWeight.createLinearGradient(0, 0, 0, 400);
+                users[i]['gradient'] = myChartWeight2.createLinearGradient(0, 0, 0, 400);
                 users[i]['gradient'].addColorStop(0, `rgba(${rand1},${rand2},${rand3},1)`);   
                 users[i]['gradient'].addColorStop(1, `rgba(${rand1},${rand2},${rand3},0)`);
                 let temp;
@@ -828,7 +830,7 @@ fetch('../../sendjsoncompare2')
             };
             chartWeight2.update();
 
-            var chartHeight2 = new Chart(myChartHeight, {
+            var chartHeight2 = new Chart(myChartHeight2, {
                 type:'line',
                 data:{
                     datasets: []
@@ -866,7 +868,7 @@ fetch('../../sendjsoncompare2')
                 rand1 = Math.floor(255 * Math.random());
                 rand2 = Math.floor(255 * Math.random());
                 rand3 = Math.floor(255 * Math.random());
-                users[i]['gradient'] = myChartWeight.createLinearGradient(0, 0, 0, 400);
+                users[i]['gradient'] = myChartWeight2.createLinearGradient(0, 0, 0, 400);
                 users[i]['gradient'].addColorStop(0, `rgba(${rand1},${rand2},${rand3},1)`);   
                 users[i]['gradient'].addColorStop(1, `rgba(${rand1},${rand2},${rand3},0)`);
                 let temp;
@@ -909,7 +911,7 @@ fetch('../../sendjsoncompare2')
             };
             chartHeight2.update();
 
-            var chartChest2 = new Chart(myChartChest, {
+            var chartChest2 = new Chart(myChartChest2, {
                 type:'line',
                 data:{
                     datasets: []
@@ -947,7 +949,7 @@ fetch('../../sendjsoncompare2')
                 rand1 = Math.floor(255 * Math.random());
                 rand2 = Math.floor(255 * Math.random());
                 rand3 = Math.floor(255 * Math.random());
-                users[i]['gradient'] = myChartWeight.createLinearGradient(0, 0, 0, 400);
+                users[i]['gradient'] = myChartWeight2.createLinearGradient(0, 0, 0, 400);
                 users[i]['gradient'].addColorStop(0, `rgba(${rand1},${rand2},${rand3},1)`);   
                 users[i]['gradient'].addColorStop(1, `rgba(${rand1},${rand2},${rand3},0)`);
                 let temp;
@@ -990,7 +992,7 @@ fetch('../../sendjsoncompare2')
             };
             chartChest2.update();
 
-            var chartBicep2 = new Chart(myChartBicep, {
+            var chartBicep2 = new Chart(myChartBicep2, {
                 type:'line',
                 data:{
                     datasets: []
@@ -1028,7 +1030,7 @@ fetch('../../sendjsoncompare2')
                 rand1 = Math.floor(255 * Math.random());
                 rand2 = Math.floor(255 * Math.random());
                 rand3 = Math.floor(255 * Math.random());
-                users[i]['gradient'] = myChartWeight.createLinearGradient(0, 0, 0, 400);
+                users[i]['gradient'] = myChartWeight2.createLinearGradient(0, 0, 0, 400);
                 users[i]['gradient'].addColorStop(0, `rgba(${rand1},${rand2},${rand3},1)`);   
                 users[i]['gradient'].addColorStop(1, `rgba(${rand1},${rand2},${rand3},0)`);
                 let temp;
@@ -1071,7 +1073,7 @@ fetch('../../sendjsoncompare2')
             };
             chartBicep2.update();
 
-            var chartHips2 = new Chart(myChartHips, {
+            var chartHips2 = new Chart(myChartHips2, {
                 type:'line',
                 data:{
                     datasets: []
@@ -1109,7 +1111,7 @@ fetch('../../sendjsoncompare2')
                 rand1 = Math.floor(255 * Math.random());
                 rand2 = Math.floor(255 * Math.random());
                 rand3 = Math.floor(255 * Math.random());
-                users[i]['gradient'] = myChartWeight.createLinearGradient(0, 0, 0, 400);
+                users[i]['gradient'] = myChartWeight2.createLinearGradient(0, 0, 0, 400);
                 users[i]['gradient'].addColorStop(0, `rgba(${rand1},${rand2},${rand3},1)`);   
                 users[i]['gradient'].addColorStop(1, `rgba(${rand1},${rand2},${rand3},0)`);
                 let temp;
@@ -1152,7 +1154,7 @@ fetch('../../sendjsoncompare2')
             };
             chartHips2.update();
 
-            var chartThigh2 = new Chart(myChartThigh, {
+            var chartThigh2 = new Chart(myChartThigh2, {
                 type:'line',
                 data:{
                     datasets: []
@@ -1190,7 +1192,7 @@ fetch('../../sendjsoncompare2')
                 rand1 = Math.floor(255 * Math.random());
                 rand2 = Math.floor(255 * Math.random());
                 rand3 = Math.floor(255 * Math.random());
-                users[i]['gradient'] = myChartWeight.createLinearGradient(0, 0, 0, 400);
+                users[i]['gradient'] = myChartWeight2.createLinearGradient(0, 0, 0, 400);
                 users[i]['gradient'].addColorStop(0, `rgba(${rand1},${rand2},${rand3},1)`);   
                 users[i]['gradient'].addColorStop(1, `rgba(${rand1},${rand2},${rand3},0)`);
                 let temp;
@@ -1233,7 +1235,7 @@ fetch('../../sendjsoncompare2')
             };
             chartThigh2.update();
 
-            var chartWaist2 = new Chart(myChartWaist, {
+            var chartWaist2 = new Chart(myChartWaist2, {
                 type:'line',
                 data:{
                     datasets: []
@@ -1271,7 +1273,7 @@ fetch('../../sendjsoncompare2')
                 rand1 = Math.floor(255 * Math.random());
                 rand2 = Math.floor(255 * Math.random());
                 rand3 = Math.floor(255 * Math.random());
-                users[i]['gradient'] = myChartWeight.createLinearGradient(0, 0, 0, 400);
+                users[i]['gradient'] = myChartWeight2.createLinearGradient(0, 0, 0, 400);
                 users[i]['gradient'].addColorStop(0, `rgba(${rand1},${rand2},${rand3},1)`);   
                 users[i]['gradient'].addColorStop(1, `rgba(${rand1},${rand2},${rand3},0)`);
                 let temp;
@@ -1314,7 +1316,7 @@ fetch('../../sendjsoncompare2')
             };
             chartWaist2.update();
 
-            var chartArms2 = new Chart(myChartArms, {
+            var chartArms2 = new Chart(myChartArms2, {
                 type:'line',
                 data:{
                     datasets: []
@@ -1352,7 +1354,7 @@ fetch('../../sendjsoncompare2')
                 rand1 = Math.floor(255 * Math.random());
                 rand2 = Math.floor(255 * Math.random());
                 rand3 = Math.floor(255 * Math.random());
-                users[i]['gradient'] = myChartWeight.createLinearGradient(0, 0, 0, 400);
+                users[i]['gradient'] = myChartWeight2.createLinearGradient(0, 0, 0, 400);
                 users[i]['gradient'].addColorStop(0, `rgba(${rand1},${rand2},${rand3},1)`);   
                 users[i]['gradient'].addColorStop(1, `rgba(${rand1},${rand2},${rand3},0)`);
                 let temp;

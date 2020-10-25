@@ -1,7 +1,6 @@
 "use strict";
 
-Chart.defaults.global.defaultFontColor = "#FFFBFC";
-Chart.defaults.global.defaultFontFamily = "'Work Sans', sans-serif";
+Chart.defaults.global.defaultFontColor = "#ccc8c9";
 var labels = ["1990", "1995", "2000", "2005", "2010", "2015"];
 var africaOb = [64.59, 70.22, 87.21, 85.58, 82.71, 79.38];
 var asiaOb = [47.86, 58.32, 62.24, 67.53, 69.47, 72.52];
@@ -53,7 +52,11 @@ var Pchart = new Chart(myPsychChart, {
       minBarLength: 100
     }]
   },
-  options: {}
+  options: {
+    legend: {
+      onClick: null
+    }
+  }
 });
 var myBarChart = new Chart(barChart, {
   type: 'bar',
@@ -68,6 +71,9 @@ var myBarChart = new Chart(barChart, {
     }]
   },
   options: {
+    legend: {
+      display: false
+    },
     scales: {
       yAxes: [{
         ticks: {
