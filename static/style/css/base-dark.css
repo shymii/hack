@@ -17,6 +17,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   background-color: #303030;
+  overflow: hidden;
 }
 body * {
   padding: 0;

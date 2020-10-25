@@ -4,11 +4,13 @@
     height: 100vw;
     max-height: auto !important;
     .mental-health-int {
-        width: 80%;
+        width: 90%;
         margin: 2vw auto;
         background-color: $bgcolor1;
         padding: 2vw;
         border-radius: .5em;
+        position: relative;
+        font-weight: 300;
         &::after{
             content: ' ';
             position: absolute;
@@ -25,8 +27,8 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-areas: 
-        "big rest"
-        "big rest";
+        "big big"
+        "rest rest";
         grid-gap: 2vw;
         margin-top: 4vw;
         .mental-health-section {
@@ -48,20 +50,9 @@
                 text-align: left;
                 font-size: 1.3em;
                 padding: .5vw;
+                position: relative;
             }
             &:first-of-type{
-                background-color: $bgcolor1;
-                &::after{
-                    content: ' ';
-                    position: absolute;
-                    width: 80%;
-                    bottom: -1.5px;
-                    left: 10%;
-                    border-radius: .5em;
-                    border: 3px solid $purple;
-                }
-            }
-            &:last-of-type{
                 background-color: $bgcolor1;
                 &::after{
                     content: ' ';
@@ -78,6 +69,7 @@
                 p{
                     padding-left: 2vw;
                     padding-bottom: 1vw;
+                    font-weight: 300;
                 }
             }
             .mental-health-subsection{

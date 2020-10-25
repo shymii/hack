@@ -34,6 +34,14 @@
                 border-radius: .5em;
                 border: 3px solid $purple;
             }
+            p{
+                span{
+                    display: block;
+                    margin-bottom: 1vw;
+                    font-weight: 500;
+                }
+                font-weight: 300;
+            }
         }
     }
     .tweets{

@@ -37,7 +37,7 @@
                 left: 10%;
                 border-radius: .5em;
                 border: 3px solid $purple;
-            }  
+            }    
         }
     }
     .covid-content{
@@ -70,9 +70,14 @@
                     padding-left: 1vw;
                     ul{
                         padding-left: 1vw;
+                        font-weight: 300;
+                    }
+                    h4, strong, a{
+                        font-weight: 500;
                     }
                     p{
                         margin-bottom: 1vw;
+                        font-weight: 300;
                     }
                 }
             }

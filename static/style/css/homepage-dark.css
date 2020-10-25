@@ -33,6 +33,14 @@
   border-radius: 0.5em;
   border: 3px solid #6573e0;
 }
+.main .homepage-left .homepage-baner p {
+  font-weight: 300;
+}
+.main .homepage-left .homepage-baner p span {
+  display: block;
+  margin-bottom: 1vw;
+  font-weight: 500;
+}
 .main .tweets {
   width: 80%;
   margin: auto;

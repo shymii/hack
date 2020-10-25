@@ -23,6 +23,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     background-color: $bgcolor1;
+    overflow: hidden;
     
     * {
         padding: 0;

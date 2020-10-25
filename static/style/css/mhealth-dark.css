@@ -3,11 +3,13 @@
   max-height: auto !important;
 }
 .main .mental-health-int {
-  width: 80%;
+  width: 90%;
   margin: 2vw auto;
   background-color: #303030;
   padding: 2vw;
   border-radius: 0.5em;
+  position: relative;
+  font-weight: 300;
 }
 .main .mental-health-int::after {
   content: " ";
@@ -23,7 +25,7 @@
   margin: auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-areas: "big rest" "big rest";
+  grid-template-areas: "big big" "rest rest";
   grid-gap: 2vw;
   margin-top: 4vw;
 }
@@ -47,6 +49,7 @@
   text-align: left;
   font-size: 1.3em;
   padding: 0.5vw;
+  position: relative;
 }
 .main .mental-health .mental-health-section:first-of-type {
   background-color: #303030;
@@ -60,24 +63,13 @@
   border-radius: 0.5em;
   border: 3px solid #6573e0;
 }
-.main .mental-health .mental-health-section:last-of-type {
-  background-color: #303030;
-}
-.main .mental-health .mental-health-section:last-of-type::after {
-  content: " ";
-  position: absolute;
-  width: 80%;
-  bottom: -1.5px;
-  left: 10%;
-  border-radius: 0.5em;
-  border: 3px solid #6573e0;
-}
-.main .mental-health .mental-health-section:last-of-type h3 {
+.main .mental-health .mental-health-section:first-of-type h3 {
   padding: 1vw;
 }
-.main .mental-health .mental-health-section:last-of-type p {
+.main .mental-health .mental-health-section:first-of-type p {
   padding-left: 2vw;
   padding-bottom: 1vw;
+  font-weight: 300;
 }
 .main .mental-health .mental-health-section .mental-health-subsection {
   position: relative;

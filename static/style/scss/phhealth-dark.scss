@@ -163,12 +163,11 @@
             margin: .5vw 0;
         }
         #output{
+            font-weight: 300;
             p{
-                span:first-of-type{
-                    color: $purple;
-                }
                 span{
                     color: $purple;
+                    font-weight: 500;
                 }
             }
         }

@@ -163,11 +163,9 @@
         }
         #output{
             p{
-                span:first-of-type{
-                    color: $purple;
-                }
                 span{
                     color: $purple;
+                    font-weight: 500;
                 }
             }
         }

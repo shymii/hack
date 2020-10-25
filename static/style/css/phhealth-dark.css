@@ -155,9 +155,10 @@
 .main .map-section h3 {
   margin: 0.5vw 0;
 }
-.main .map-section #output p span:first-of-type {
-  color: #6573e0;
+.main .map-section #output {
+  font-weight: 300;
 }
 .main .map-section #output p span {
   color: #6573e0;
+  font-weight: 500;
 }

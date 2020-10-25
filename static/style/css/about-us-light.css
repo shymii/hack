@@ -2,7 +2,7 @@
   width: 80%;
   padding: 2vw;
   border-radius: 0.5em;
-  background-color: #303030;
+  background-color: #f0f0f0;
   margin: 1vw auto;
   position: relative;
   display: grid;
@@ -24,25 +24,17 @@
   overflow: hidden;
   border-radius: 50%;
   margin: auto;
+  border: 1px solid #6573e0;
 }
 .main .about-section figure img {
   width: 100%;
 }
 .main .about-section section {
-  width: 60%;
+  width: 80%;
 }
 .main .about-section section .about-section-name {
   margin-bottom: 1vw;
 }
-.main .about-section:nth-of-type(2), .main .about-section:nth-of-type(4) {
-  grid-template-columns: 3fr 1fr;
-  text-align: right;
-}
-.main .about-section:nth-of-type(2) section, .main .about-section:nth-of-type(4) section {
-  justify-self: right;
-  text-align: right;
-}
-.main .about-section:nth-of-type(2) section p, .main .about-section:nth-of-type(4) section p {
-  text-align: right;
-  margin: 0;
+.main .about-section section .about-section-content {
+  font-weight: 300;
 }

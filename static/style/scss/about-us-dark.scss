@@ -26,26 +26,18 @@
             overflow: hidden;
             border-radius: 50%;
             margin: auto;
+            border: 1px solid $purple;
             img{
                 width: 100%;
             }
         }
         section{
-            width: 60%;
+            width: 80%;
             .about-section-name{
                 margin-bottom: 1vw;
             }
-        }
-        &:nth-of-type(2), &:nth-of-type(4){
-            grid-template-columns: 3fr 1fr;
-            text-align: right;
-            section{
-                justify-self: right;
-                text-align: right;
-                p{
-                    text-align: right;
-                    margin: 0;
-                }
+            .about-section-content{
+                font-weight: 300;
             }
         }
     }

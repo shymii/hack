@@ -71,9 +71,14 @@
 }
 .main .covid-content .help .help-single .help-single-content ul {
   padding-left: 1vw;
+  font-weight: 300;
+}
+.main .covid-content .help .help-single .help-single-content h4, .main .covid-content .help .help-single .help-single-content strong, .main .covid-content .help .help-single .help-single-content a {
+  font-weight: 500;
 }
 .main .covid-content .help .help-single .help-single-content p {
   margin-bottom: 1vw;
+  font-weight: 300;
 }
 .main .covid-content .tweets {
   width: 80%;
