@@ -17,13 +17,13 @@
         <img src="{% static 'img/info1.png' %}" alt="info1">
     </section>
     <section class="homepage-baner">
-        <p>Niskie spożycie omega-3 wiąże się z niższym IQ, depresją, różnymi zaburzeniami psychicznymi, chorobami serca i wieloma innymi poważnymi chorobami.</p>
+        <p id="res1"></p>
     </section>
     <section class="homepage-baner">
         <img src="{% static 'img/info2.png' %}" alt="info2">
     </section>
     <section class="homepage-baner">
-        <p>Jedz dużo owoców i warzyw. Zaleca się spożycie co najmniej 5 porcji różnych owoców i warzyw dziennie. Mogą one być świeże, mrożone, konserwowane lub suszone. Porcja świeżych, konserwowanych lub mrożonych owoców i warzyw wynosi 80 g. Porcja suszonych owoców wynosi 30g.</p>
+        <p id="res2"></p>
     </section>
 </section>
 <section class="tweets">
@@ -47,3 +47,6 @@
     {% endfor %}
 </section>
 {% endblock content %}
+{% block scripts %}
+<script src="{% static 'js/facts.js' %}"></script>
+{% endblock scripts %}
