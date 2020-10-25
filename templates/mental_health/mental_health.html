@@ -7,10 +7,14 @@
 {% else %}
     <link rel="stylesheet" href='{% static "style/css/mhealth-light.css" %}'>
 {% endif %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 {% endblock css %}
 
 {% block content %}
     <h1>Zdrowie psychiczne</h1>
+    <section class="mental-health-int">
+        <p>Zdrowie psychiczne to bardzo ważny aspekt naszego życia. Tutaj znajdziesz kilka podstawowych statystyk dotyczących tej właśnie dziedziny naszego życia. Jeśli interesują cię dokładne statystyki dotyczące na przykład poszczególnych chorób psychicznych znajdziesz je <a href="https://ourworldindata.org/mental-health" target="_blank">pod tym linkiem</a></p>
+    </section>
     <section class="mental-health">
         <section class="mental-health-section">
             <table>
@@ -160,7 +164,7 @@
                     </tbody>
                 </table>
                 <p>
-                    Żródło danych: <a href="https://ourworldindata.org/mental-health">https://ourworldindata.org/mental-health</a>
+                    Żródło danych: <a href="https://ourworldindata.org/mental-health" target="_blank">https://ourworldindata.org/mental-health</a>
                 </p>
         </section>
         <section class="mental-health-section">
@@ -181,37 +185,28 @@
                 </p>
             </section>
         </section>
-        <section class="global-stats-section">
-            <dl>
-                <dt>Telefon zaufania dla osób dorosłych
-                    w kryzysie emocjonalnym</dt>
-                <dd>tel. 116 123</dd>
-                <dt>Telefon Zaufania dla Dzieci i Młodzieży</dt>
-                <dd>tel. 116 111</dd>
-                <dt>Ośrodek Interwencji Kryzysowej
-                    – pomoc psychiatryczno-pedagogiczna</dt>
-                <dd>tel. 22 855 44 32</dd>
-                <dt>Całodobowa bezpłatna infolinia dla dzieci, młodzieży, rodziców i nauczycieli</dt>
-                <dd>tel. 800 080 222</dd>
-                <dt>Dziecięcy Telefon Zaufania
-                    Rzecznika Praw Dziecka</dt>
-                <dd>tel. 800 12 12 12</dd>
-                <dt>Ogólnopolski Telefon Dla Ofiar Przemocy w Rodzinie
-                    „Niebieska Linia”</dt>
-                <dd>tel. 800 120 002</dd>
-                <dt>Ogólnopolski Telefon Zaufania „Uzależnienia behawioralne”</dt>
-                <dd>tel. 801 889 880</dd>
-                <dt>Ogólnopolski Telefon Zaufania
-                    „Narkotyki – Narkomania”</dt>
-                <dd>tel. 801 199 990</dd>
-            </dl>
+        <section class="mental-health-section">
+            <h3>Ważne telefony</h3>
+                <p>Telefon zaufania dla osób dorosłych
+                    w kryzysie emocjonalnym<br><a href="tel:116123">tel. 116 123</a></p>
+                <p>Telefon Zaufania dla Dzieci i Młodzieży<br><a href="tel:116111">tel. 116 111</a></p>
+                <p>Ośrodek Interwencji Kryzysowej
+                    – pomoc psychiatryczno-pedagogiczna<br><a href="tel:228554432">tel. 22 855 44 32</a></p>
+                <p>Całodobowa bezpłatna infolinia dla dzieci, młodzieży, rodziców i nauczycieli<br><a href="tel:800080222">tel. 800 080 222</a></p>
+                <p>Dziecięcy Telefon Zaufania
+                    Rzecznika Praw Dziecka<br><a href="tel:800121212">tel. 800 12 12 12</a></p>
+                <p>Ogólnopolski Telefon Dla Ofiar Przemocy w Rodzinie
+                    „Niebieska Linia”<br><a href="tel:800120002">tel. 800 120 002</a></p>
+                <p>Ogólnopolski Telefon Zaufania „Uzależnienia behawioralne”<br><a href="tel:801889880">tel. 801 889 880</a></p>
+                <p>Ogólnopolski Telefon Zaufania
+                    „Narkotyki – Narkomania”<br><a href="tel:801199990">tel. 801 199 990</a></p>
         </section>
     </section>
 
 {% endblock content %}
  
 {% block scripts %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+
 {% if request.session.browse_mode == 'dark' %}
 <script src="{% static 'js/mental-dark.js' %}"></script>
 {% else %}

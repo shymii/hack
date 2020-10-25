@@ -233,7 +233,7 @@ var style = [
                 service.getDetails(request, (details, status) => {
                     let marker_name = `<p>${details.name}</p>`;
                     let marker_address = `<div>${details.adr_address}</div>`;
-                    let marker_url = `<a href="${details.url}">link do google maps</a>`;
+                    let marker_url = `<a href="${details.url}" target="_blank">link do google maps</a>`;
                     infowindow.setContent([marker_name, marker_address, marker_url].join('\n'));
                     infowindow.open(map, marker);
                 });

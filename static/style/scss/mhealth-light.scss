@@ -2,7 +2,23 @@
 
 .main {
     height: 100vw;
-    max-height: auto !important; 
+    max-height: auto !important;
+    .mental-health-int {
+        width: 80%;
+        margin: 2vw auto;
+        background-color: $bgcolor1;
+        padding: 2vw;
+        border-radius: .5em;
+        &::after{
+            content: ' ';
+            position: absolute;
+            width: 80%;
+            bottom: -1.5px;
+            left: 10%;
+            border-radius: .5em;
+            border: 3px solid $purple;
+        }
+    }
     .mental-health {
         width: 90%;
         margin: auto;
@@ -43,6 +59,25 @@
                     left: 10%;
                     border-radius: .5em;
                     border: 3px solid $purple;
+                }
+            }
+            &:last-of-type{
+                background-color: $bgcolor1;
+                &::after{
+                    content: ' ';
+                    position: absolute;
+                    width: 80%;
+                    bottom: -1.5px;
+                    left: 10%;
+                    border-radius: .5em;
+                    border: 3px solid $purple;
+                }
+                h3 {
+                    padding: 1vw;
+                }
+                p{
+                    padding-left: 2vw;
+                    padding-bottom: 1vw;
                 }
             }
             .mental-health-subsection{
