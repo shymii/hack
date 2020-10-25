@@ -1,3 +1,11 @@
+.main > p {
+  text-align: center;
+  margin-top: 3vw;
+}
+.main > p span {
+  color: #6573e0;
+  font-weight: 700;
+}
 .main > section {
   width: 80%;
   display: grid;

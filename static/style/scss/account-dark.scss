@@ -1,6 +1,14 @@
 @import "utilities/variables-dark";
 
 .main{
+    >p{
+        text-align: center;
+        margin-top: 3vw;
+        span{
+            color: $purple;
+            font-weight: 700;
+        }
+    }
     >section{
         width: 80%;
         display: grid;
