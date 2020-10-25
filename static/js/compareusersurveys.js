@@ -1,3 +1,4 @@
+function renderComparision(usernameTemplate){
 fetch('../../sendjsoncompare')
     .then(res => res.json())
         .then(out => {
@@ -5,7 +6,7 @@ fetch('../../sendjsoncompare')
             let users = [];
             let i = 0;
             for(let key in result){
-                users[i] = ['user','weight','height','chest','bicep','thigh','waist','hips','arms','stress','date']
+                users[i] = ['user','weight','height','chest','bicep','thigh','waist','hips','arms','stress','date', 'gradient'];
                 users[i]['user'] = key;
                 users[i]['weight'] = result[key]['weight'];
                 users[i]['height'] = result[key]['height'];
@@ -19,6 +20,8 @@ fetch('../../sendjsoncompare')
                 users[i]['date'] = result[key]['date'];
                 i++;
             }
+
+            console.log(users[3]['date']);
 
             var dates = [];
             var j = 0;
@@ -43,53 +46,6 @@ fetch('../../sendjsoncompare')
             var myChartHips= document.getElementById("chartHips").getContext('2d');
             var myChartWaist= document.getElementById("chartWaist").getContext('2d');
             var myChartArms = document.getElementById("chartArms").getContext('2d');
-
-            // var stressTab = [0,0,0];
-            // var stressLabel = ['niski', 'zrównoważony', 'wysoki'];
-            // stress.forEach(el =>{
-            //     if(el == 'niski'){
-            //         console.log(el);
-            //         stressTab[0]++; 
-            //     }else if(el == 'zrównoważony'){
-            //         stressTab[1]++;
-            //         console.log(stressTab[1]);
-            //     }else if(el == 'wysoki'){
-            //         stressTab[2]++;
-            //     }
-            // });
-
-            var gradient1 = myChartWeight.createLinearGradient(0, 0, 0, 400);
-            gradient1.addColorStop(0, 'rgba(250,174,50,1)');   
-            gradient1.addColorStop(1, 'rgba(250,174,50,0)');
-
-            var gradient2 = myChartHeight.createLinearGradient(0, 0, 0, 400);
-            gradient2.addColorStop(0, 'rgba(150,174,50,1)');   
-            gradient2.addColorStop(1, 'rgba(150,174,50,0)');
-
-            var gradient3 = myChartChest.createLinearGradient(0, 0, 0, 400);
-            gradient3.addColorStop(0, 'rgba(150,74,50,1)');   
-            gradient3.addColorStop(1, 'rgba(150,74,50,0)');
-
-            var gradient4 = myChartBicep.createLinearGradient(0, 0, 0, 400);
-            gradient4.addColorStop(0, 'rgba(10,204,10,1)');   
-            gradient4.addColorStop(1, 'rgba(10,204,10,0)');
-
-            var gradient5 = myChartHips.createLinearGradient(0, 0, 0, 400);
-            gradient5.addColorStop(0, 'rgba(50,174,150,1)');   
-            gradient5.addColorStop(1, 'rgba(50,174,150,0)');
-
-            var gradient6 = myChartThigh.createLinearGradient(0, 0, 0, 400);
-            gradient6.addColorStop(0, 'rgba(50,20,50,1)');   
-            gradient6.addColorStop(1, 'rgba(50,20,50,0)');
-
-            var gradient7 = myChartWaist.createLinearGradient(0, 0, 0, 400);
-            gradient7.addColorStop(0, 'rgba(110,174,60,1)');   
-            gradient7.addColorStop(1, 'rgba(110,174,60,0)');
-
-            var gradient8 = myChartArms.createLinearGradient(0, 0, 0, 400);
-            gradient8.addColorStop(0, 'rgba(120,74,10,1)');   
-            gradient8.addColorStop(1, 'rgba(120,74,10,0)');
-
 
             var chartWeight = new Chart(myChartWeight, {
                 type:'line',
@@ -125,23 +81,51 @@ fetch('../../sendjsoncompare')
                 }
             });
             chartWeight.data.labels = dates;
+            let rand1, rand2, rand3;
             for(let i=0;i<users.length;i++){
+                rand1 = Math.floor(255 * Math.random());
+                rand2 = Math.floor(255 * Math.random());
+                rand3 = Math.floor(255 * Math.random());
+                users[i]['gradient'] = myChartWeight.createLinearGradient(0, 0, 0, 400);
+                users[i]['gradient'].addColorStop(0, `rgba(${rand1},${rand2},${rand3},1)`);   
+                users[i]['gradient'].addColorStop(1, `rgba(${rand1},${rand2},${rand3},0)`);
                 let temp;
+                let tempDates = users[i]['date'].map(function (i) { return i });
                 for(let j=0;j<dates.length;j++){
-                    if(dates[j] != users[i]['date'][j] && users[i]['date'][j] != undefined){
+                    if(dates[j] != tempDates[j] && tempDates[j] != undefined){
                         temp = users[i]['weight'][j];
                         users[i]['weight'][j] = (users[i]['weight'][j-1]+users[i]['weight'][j])/2;
                         users[i]['weight'][j+1] = temp;
+                        if(tempDates[j+1] == undefined){
+                            tempDates[j+1] = dates[j];
+                        }
+                    }else{
+                        if(j<dates.length-1 && tempDates[j+1] == undefined){
+                            tempDates[j+1] = dates[j+1];
+                            temp = users[i]['weight'][j];
+                            users[i]['weight'][j+1] = temp;
+                        }
                     }
                 }
-                chartWeight.data.datasets.push({
+                if(users[i]['user'] == usernameTemplate){
+                    chartWeight.data.datasets.push({
+                            label: users[i]['user'],
+                            data: users[i]['weight'],
+                            backgroundColor: users[i]['gradient'],
+                            minBarLength: 100,
+                            borderWidth: 5,
+                            borderColor: '#6573e0'
+                    });
+                }else{
+                    chartWeight.data.datasets.push({
                         label: users[i]['user'],
                         data: users[i]['weight'],
-                        backgroundColor: gradient1,
+                        backgroundColor: users[i]['gradient'],
                         minBarLength: 100,
-                        borderWidth: 5,
+                        borderWidth: 2,
                         borderColor: '#fff'
-                   });
+                    });
+                }
             };
             chartWeight.update();
 
@@ -180,22 +164,49 @@ fetch('../../sendjsoncompare')
             });
             chartHeight.data.labels = dates;
             for(let i=0;i<users.length;i++){
+                rand1 = Math.floor(255 * Math.random());
+                rand2 = Math.floor(255 * Math.random());
+                rand3 = Math.floor(255 * Math.random());
+                users[i]['gradient'] = myChartWeight.createLinearGradient(0, 0, 0, 400);
+                users[i]['gradient'].addColorStop(0, `rgba(${rand1},${rand2},${rand3},1)`);   
+                users[i]['gradient'].addColorStop(1, `rgba(${rand1},${rand2},${rand3},0)`);
                 let temp;
+                let tempDates = users[i]['date'].map(function (i) { return i });
                 for(let j=0;j<dates.length;j++){
-                    if(dates[j] != users[i]['date'][j] && users[i]['date'][j] != undefined){
+                    if(dates[j] != tempDates[j] && tempDates[j] != undefined){
                         temp = users[i]['height'][j];
                         users[i]['height'][j] = (users[i]['height'][j-1]+users[i]['height'][j])/2;
                         users[i]['height'][j+1] = temp;
+                        if(tempDates[j+1] == undefined){
+                            tempDates[j+1] = dates[j];
+                        }
+                    }else{
+                        if(j<dates.length-1 && tempDates[j+1] == undefined){
+                            tempDates[j+1] = dates[j+1];
+                            temp = users[i]['height'][j];
+                            users[i]['height'][j+1] = temp;
+                        }
                     }
                 }
-                chartHeight.data.datasets.push({
+                if(users[i]['user'] == usernameTemplate){
+                    chartHeight.data.datasets.push({
+                            label: users[i]['user'],
+                            data: users[i]['height'],
+                            backgroundColor: users[i]['gradient'],
+                            minBarLength: 100,
+                            borderWidth: 5,
+                            borderColor: '#6573e0'
+                    });
+                }else{
+                    chartHeight.data.datasets.push({
                         label: users[i]['user'],
                         data: users[i]['height'],
-                        backgroundColor: gradient2,
+                        backgroundColor: users[i]['gradient'],
                         minBarLength: 100,
-                        borderWidth: 5,
+                        borderWidth: 2,
                         borderColor: '#fff'
-                   });
+                    });
+                }
             };
             chartHeight.update();
 
@@ -234,22 +245,49 @@ fetch('../../sendjsoncompare')
             });
             chartChest.data.labels = dates;
             for(let i=0;i<users.length;i++){
+                rand1 = Math.floor(255 * Math.random());
+                rand2 = Math.floor(255 * Math.random());
+                rand3 = Math.floor(255 * Math.random());
+                users[i]['gradient'] = myChartWeight.createLinearGradient(0, 0, 0, 400);
+                users[i]['gradient'].addColorStop(0, `rgba(${rand1},${rand2},${rand3},1)`);   
+                users[i]['gradient'].addColorStop(1, `rgba(${rand1},${rand2},${rand3},0)`);
                 let temp;
+                let tempDates = users[i]['date'].map(function (i) { return i });
                 for(let j=0;j<dates.length;j++){
-                    if(dates[j] != users[i]['date'][j] && users[i]['date'][j] != undefined){
+                    if(dates[j] != tempDates[j] && tempDates[j] != undefined){
                         temp = users[i]['chest'][j];
                         users[i]['chest'][j] = (users[i]['chest'][j-1]+users[i]['chest'][j])/2;
                         users[i]['chest'][j+1] = temp;
+                        if(tempDates[j+1] == undefined){
+                            tempDates[j+1] = dates[j];
+                        }
+                    }else{
+                        if(j<dates.length-1 && tempDates[j+1] == undefined){
+                            tempDates[j+1] = dates[j+1];
+                            temp = users[i]['chest'][j];
+                            users[i]['chest'][j+1] = temp;
+                        }
                     }
                 }
-                chartChest.data.datasets.push({
+                if(users[i]['user'] == usernameTemplate){
+                    chartChest.data.datasets.push({
+                            label: users[i]['user'],
+                            data: users[i]['chest'],
+                            backgroundColor: users[i]['gradient'],
+                            minBarLength: 100,
+                            borderWidth: 5,
+                            borderColor: '#6573e0'
+                    });
+                }else{
+                    chartChest.data.datasets.push({
                         label: users[i]['user'],
                         data: users[i]['chest'],
-                        backgroundColor: gradient3,
+                        backgroundColor: users[i]['gradient'],
                         minBarLength: 100,
-                        borderWidth: 5,
+                        borderWidth: 2,
                         borderColor: '#fff'
-                   });
+                    });
+                }
             };
             chartChest.update();
 
@@ -288,22 +326,49 @@ fetch('../../sendjsoncompare')
             });
             chartBicep.data.labels = dates;
             for(let i=0;i<users.length;i++){
+                rand1 = Math.floor(255 * Math.random());
+                rand2 = Math.floor(255 * Math.random());
+                rand3 = Math.floor(255 * Math.random());
+                users[i]['gradient'] = myChartWeight.createLinearGradient(0, 0, 0, 400);
+                users[i]['gradient'].addColorStop(0, `rgba(${rand1},${rand2},${rand3},1)`);   
+                users[i]['gradient'].addColorStop(1, `rgba(${rand1},${rand2},${rand3},0)`);
                 let temp;
+                let tempDates = users[i]['date'].map(function (i) { return i });
                 for(let j=0;j<dates.length;j++){
-                    if(dates[j] != users[i]['date'][j] && users[i]['date'][j] != undefined){
+                    if(dates[j] != tempDates[j] && tempDates[j] != undefined){
                         temp = users[i]['bicep'][j];
                         users[i]['bicep'][j] = (users[i]['bicep'][j-1]+users[i]['bicep'][j])/2;
                         users[i]['bicep'][j+1] = temp;
+                        if(tempDates[j+1] == undefined){
+                            tempDates[j+1] = dates[j];
+                        }
+                    }else{
+                        if(j<dates.length-1 && tempDates[j+1] == undefined){
+                            tempDates[j+1] = dates[j+1];
+                            temp = users[i]['bicep'][j];
+                            users[i]['bicep'][j+1] = temp;
+                        }
                     }
                 }
-                chartBicep.data.datasets.push({
+                if(users[i]['user'] == usernameTemplate){
+                    chartBicep.data.datasets.push({
+                            label: users[i]['user'],
+                            data: users[i]['bicep'],
+                            backgroundColor: users[i]['gradient'],
+                            minBarLength: 100,
+                            borderWidth: 5,
+                            borderColor: '#6573e0'
+                    });
+                }else{
+                    chartBicep.data.datasets.push({
                         label: users[i]['user'],
                         data: users[i]['bicep'],
-                        backgroundColor: gradient4,
+                        backgroundColor: users[i]['gradient'],
                         minBarLength: 100,
-                        borderWidth: 5,
+                        borderWidth: 2,
                         borderColor: '#fff'
-                   });
+                    });
+                }
             };
             chartBicep.update();
 
@@ -342,22 +407,49 @@ fetch('../../sendjsoncompare')
             });
             chartHips.data.labels = dates;
             for(let i=0;i<users.length;i++){
+                rand1 = Math.floor(255 * Math.random());
+                rand2 = Math.floor(255 * Math.random());
+                rand3 = Math.floor(255 * Math.random());
+                users[i]['gradient'] = myChartWeight.createLinearGradient(0, 0, 0, 400);
+                users[i]['gradient'].addColorStop(0, `rgba(${rand1},${rand2},${rand3},1)`);   
+                users[i]['gradient'].addColorStop(1, `rgba(${rand1},${rand2},${rand3},0)`);
                 let temp;
+                let tempDates = users[i]['date'].map(function (i) { return i });
                 for(let j=0;j<dates.length;j++){
-                    if(dates[j] != users[i]['date'][j] && users[i]['date'][j] != undefined){
+                    if(dates[j] != tempDates[j] && tempDates[j] != undefined){
                         temp = users[i]['hips'][j];
                         users[i]['hips'][j] = (users[i]['hips'][j-1]+users[i]['hips'][j])/2;
                         users[i]['hips'][j+1] = temp;
+                        if(tempDates[j+1] == undefined){
+                            tempDates[j+1] = dates[j];
+                        }
+                    }else{
+                        if(j<dates.length-1 && tempDates[j+1] == undefined){
+                            tempDates[j+1] = dates[j+1];
+                            temp = users[i]['hips'][j];
+                            users[i]['hips'][j+1] = temp;
+                        }
                     }
                 }
-                chartHips.data.datasets.push({
+                if(users[i]['user'] == usernameTemplate){
+                    chartHips.data.datasets.push({
+                            label: users[i]['user'],
+                            data: users[i]['hips'],
+                            backgroundColor: users[i]['gradient'],
+                            minBarLength: 100,
+                            borderWidth: 5,
+                            borderColor: '#6573e0'
+                    });
+                }else{
+                    chartHips.data.datasets.push({
                         label: users[i]['user'],
                         data: users[i]['hips'],
-                        backgroundColor: gradient5,
+                        backgroundColor: users[i]['gradient'],
                         minBarLength: 100,
-                        borderWidth: 5,
+                        borderWidth: 2,
                         borderColor: '#fff'
-                   });
+                    });
+                }
             };
             chartHips.update();
 
@@ -396,22 +488,49 @@ fetch('../../sendjsoncompare')
             });
             chartThigh.data.labels = dates;
             for(let i=0;i<users.length;i++){
+                rand1 = Math.floor(255 * Math.random());
+                rand2 = Math.floor(255 * Math.random());
+                rand3 = Math.floor(255 * Math.random());
+                users[i]['gradient'] = myChartWeight.createLinearGradient(0, 0, 0, 400);
+                users[i]['gradient'].addColorStop(0, `rgba(${rand1},${rand2},${rand3},1)`);   
+                users[i]['gradient'].addColorStop(1, `rgba(${rand1},${rand2},${rand3},0)`);
                 let temp;
+                let tempDates = users[i]['date'].map(function (i) { return i });
                 for(let j=0;j<dates.length;j++){
-                    if(dates[j] != users[i]['date'][j] && users[i]['date'][j] != undefined){
+                    if(dates[j] != tempDates[j] && tempDates[j] != undefined){
                         temp = users[i]['thigh'][j];
                         users[i]['thigh'][j] = (users[i]['thigh'][j-1]+users[i]['thigh'][j])/2;
                         users[i]['thigh'][j+1] = temp;
+                        if(tempDates[j+1] == undefined){
+                            tempDates[j+1] = dates[j];
+                        }
+                    }else{
+                        if(j<dates.length-1 && tempDates[j+1] == undefined){
+                            tempDates[j+1] = dates[j+1];
+                            temp = users[i]['thigh'][j];
+                            users[i]['thigh'][j+1] = temp;
+                        }
                     }
                 }
-                chartThigh.data.datasets.push({
+                if(users[i]['user'] == usernameTemplate){
+                    chartThigh.data.datasets.push({
+                            label: users[i]['user'],
+                            data: users[i]['thigh'],
+                            backgroundColor: users[i]['gradient'],
+                            minBarLength: 100,
+                            borderWidth: 5,
+                            borderColor: '#6573e0'
+                    });
+                }else{
+                    chartThigh.data.datasets.push({
                         label: users[i]['user'],
                         data: users[i]['thigh'],
-                        backgroundColor: gradient6,
+                        backgroundColor: users[i]['gradient'],
                         minBarLength: 100,
-                        borderWidth: 5,
+                        borderWidth: 2,
                         borderColor: '#fff'
-                   });
+                    });
+                }
             };
             chartThigh.update();
 
@@ -450,22 +569,49 @@ fetch('../../sendjsoncompare')
             });
             chartWaist.data.labels = dates;
             for(let i=0;i<users.length;i++){
+                rand1 = Math.floor(255 * Math.random());
+                rand2 = Math.floor(255 * Math.random());
+                rand3 = Math.floor(255 * Math.random());
+                users[i]['gradient'] = myChartWeight.createLinearGradient(0, 0, 0, 400);
+                users[i]['gradient'].addColorStop(0, `rgba(${rand1},${rand2},${rand3},1)`);   
+                users[i]['gradient'].addColorStop(1, `rgba(${rand1},${rand2},${rand3},0)`);
                 let temp;
+                let tempDates = users[i]['date'].map(function (i) { return i });
                 for(let j=0;j<dates.length;j++){
-                    if(dates[j] != users[i]['date'][j] && users[i]['date'][j] != undefined){
+                    if(dates[j] != tempDates[j] && tempDates[j] != undefined){
                         temp = users[i]['waist'][j];
                         users[i]['waist'][j] = (users[i]['waist'][j-1]+users[i]['waist'][j])/2;
                         users[i]['waist'][j+1] = temp;
+                        if(tempDates[j+1] == undefined){
+                            tempDates[j+1] = dates[j];
+                        }
+                    }else{
+                        if(j<dates.length-1 && tempDates[j+1] == undefined){
+                            tempDates[j+1] = dates[j+1];
+                            temp = users[i]['waist'][j];
+                            users[i]['waist'][j+1] = temp;
+                        }
                     }
                 }
-                chartWaist.data.datasets.push({
+                if(users[i]['user'] == usernameTemplate){
+                    chartWaist.data.datasets.push({
+                            label: users[i]['user'],
+                            data: users[i]['waist'],
+                            backgroundColor: users[i]['gradient'],
+                            minBarLength: 100,
+                            borderWidth: 5,
+                            borderColor: '#6573e0'
+                    });
+                }else{
+                    chartWaist.data.datasets.push({
                         label: users[i]['user'],
                         data: users[i]['waist'],
-                        backgroundColor: gradient7,
+                        backgroundColor: users[i]['gradient'],
                         minBarLength: 100,
-                        borderWidth: 5,
+                        borderWidth: 2,
                         borderColor: '#fff'
-                   });
+                    });
+                }
             };
             chartWaist.update();
 
@@ -504,25 +650,52 @@ fetch('../../sendjsoncompare')
             });
             chartArms.data.labels = dates;
             for(let i=0;i<users.length;i++){
+                rand1 = Math.floor(255 * Math.random());
+                rand2 = Math.floor(255 * Math.random());
+                rand3 = Math.floor(255 * Math.random());
+                users[i]['gradient'] = myChartWeight.createLinearGradient(0, 0, 0, 400);
+                users[i]['gradient'].addColorStop(0, `rgba(${rand1},${rand2},${rand3},1)`);   
+                users[i]['gradient'].addColorStop(1, `rgba(${rand1},${rand2},${rand3},0)`);
                 let temp;
+                let tempDates = users[i]['date'].map(function (i) { return i });
                 for(let j=0;j<dates.length;j++){
-                    if(dates[j] != users[i]['date'][j] && users[i]['date'][j] != undefined){
+                    if(dates[j] != tempDates[j] && tempDates[j] != undefined){
                         temp = users[i]['arms'][j];
                         users[i]['arms'][j] = (users[i]['arms'][j-1]+users[i]['arms'][j])/2;
                         users[i]['arms'][j+1] = temp;
+                        if(tempDates[j+1] == undefined){
+                            tempDates[j+1] = dates[j];
+                        }
+                    }else{
+                        if(j<dates.length-1 && tempDates[j+1] == undefined){
+                            tempDates[j+1] = dates[j+1];
+                            temp = users[i]['arms'][j];
+                            users[i]['arms'][j+1] = temp;
+                        }
                     }
                 }
-                chartArms.data.datasets.push({
+                if(users[i]['user'] == usernameTemplate){
+                    chartArms.data.datasets.push({
+                            label: users[i]['user'],
+                            data: users[i]['arms'],
+                            backgroundColor: users[i]['gradient'],
+                            minBarLength: 100,
+                            borderWidth: 5,
+                            borderColor: '#6573e0'
+                    });
+                }else{
+                    chartArms.data.datasets.push({
                         label: users[i]['user'],
                         data: users[i]['arms'],
-                        backgroundColor: gradient8,
+                        backgroundColor: users[i]['gradient'],
                         minBarLength: 100,
-                        borderWidth: 5,
+                        borderWidth: 2,
                         borderColor: '#fff'
-                   });
+                    });
+                }
             };
             chartArms.update();
         });
-
+    }
 
       

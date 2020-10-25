@@ -13,8 +13,27 @@
     .homepage-left{
         margin-top: 4vw;
         justify-self: center;
-        img{
-            width: 100%;
+        .homepage-baner{
+            width: 80%;
+            padding: 2vw;
+            border-radius: .5em;
+            background-color: $bgcolor1;
+            margin: 1vw auto;
+            position: relative;
+            align-items: center;
+            img{
+                width: 100%;
+                border-radius: .5em;
+            }
+            &::after{
+                content: ' ';
+                position: absolute;
+                width: 80%;
+                bottom: -1.5px;
+                left: 10%;
+                border-radius: .5em;
+                border: 3px solid $purple;
+            }
         }
     }
     .tweets{

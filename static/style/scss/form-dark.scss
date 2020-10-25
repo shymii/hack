@@ -204,4 +204,14 @@
             }
         }
     }
+    >p{
+        margin: 1vw 0 0 17vw;
+        a{
+            color: $purple;
+            text-decoration: none;
+            &:hover{
+                font-weight: 700;
+            }
+        }
+    }
 }

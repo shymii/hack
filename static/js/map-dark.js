@@ -232,15 +232,14 @@ var style = [
                 };
                 service.getDetails(request, (details, status) => {
                     let marker_name = `<p>${details.name}</p>`;
-                    let marker_address = `<div>${details.adr_address}</div>`;
+                    let marker_address = `<div>${details.vicinity}</div>`;
                     let marker_url = `<a href="${details.url}" target="_blank">link do google maps</a>`;
                     infowindow.setContent([marker_name, marker_address, marker_url].join('\n'));
                     infowindow.open(map, marker);
                 });
               });
-
               for (let i = 0; i < origins.length; i++) {
-                  const results = response.rows[i].elements;
+                  results = response.rows[i].elements;
                   for (let j = 0; j < destinations.length; j++) {
                       if (results[j].duration.value < 900) {
                           template_string += `<p><span>${place.name}</span><span>${results[j].distance.text}</span><span>${results[j].duration.text}</span></p>`;
@@ -248,7 +247,7 @@ var style = [
                   }
               }
               output_div.innerHTML += template_string;
-            } 
+            }
     }
     );
 };
@@ -274,7 +273,6 @@ window.initMap = function () {
     const input = document.querySelector('#search');
     const autocomplete = new google.maps.places.Autocomplete(input);
     autocomplete.setFields(['address_components', 'geometry', 'icon', 'name']);
-
     const canvas = document.getElementById('map');
     let location;
     const default_location = new google.maps.LatLng(50.2942602, 18.6635169);
@@ -301,8 +299,9 @@ window.initMap = function () {
             map.setCenter(location);
             const request = {
                 location: location,
-                radius: '2000',
-                type: ['gym']
+                //radius: '2000',
+                type: ['gym'],
+                rankBy: google.maps.places.RankBy.DISTANCE
             };
             document.querySelector('.alert-success').classList.add('alert');
             document.querySelector('.alert-message').innerHTML = 'Pobrano lokalizację automatycznie';
@@ -313,8 +312,9 @@ window.initMap = function () {
         error => {
           const request = {
             location: default_location,
-            radius: '2000',
-            type: ['gym']
+            //radius: '2000',
+            type: ['gym'],
+            rankBy: google.maps.places.RankBy.DISTANCE
           };
           place_ = default_location;
           remove_markers();
@@ -333,8 +333,9 @@ window.initMap = function () {
             map.setCenter(location);
             const request = {
                 location: location,
-                radius: '2000',
-                type: ['gym']
+                //radius: '2000',
+                type: ['gym'],
+                rankBy: google.maps.places.RankBy.DISTANCE
             };
             service.nearbySearch(request, callback);
         }
