@@ -10,8 +10,10 @@
 {% endblock css %}
 {% block content %}
 <h1>Porównaj swoje statystyki</h1>
+<p>Twoje wartości wyświetlane są kolorem <span>fioletowym</span></p>
 <section class="charts-section">
     <h2>Osoby z Twojego miasta</h2>
+    {% if request.user.user_profile.sex %}
     <section class="chart-section">
         <div class="chart-section-chart">
             <canvas id="chartHeight"></canvas>
@@ -60,57 +62,64 @@
         </div>
         <p class="chart-section-desc">barki [cm]</p>
     </section>
+    {% else %}
+    <p>miasto nie zostało podane</p>
+    {% endif %}
 </section>
 <section class="charts-section">
     <h2>Osoby o Twojej płci</h2>
-    <section class="chart-section">
-        <div class="chart-section-chart">
-            <canvas id="chartHeight"></canvas>
-        </div>
-        <p class="chart-section-desc">wzrost [cm]</p>
-    </section>
-    <section class="chart-section">
-        <div class="chart-section-chart">
-            <canvas id="chartWeight"></canvas>
-        </div>
-        <p class="chart-section-desc">waga [kg]</p>
-    </section>
-    <section class="chart-section">
-        <div class="chart-section-chart">
-            <canvas id="chartChest"></canvas>
-        </div>
-        <p class="chart-section-desc">klatka [cm]</p>
-    </section>
-    <section class="chart-section">
-        <div class="chart-section-chart">
-            <canvas id="chartBicep"></canvas>
-        </div>
-        <p class="chart-section-desc">biceps [cm]</p>
-    </section>
-    <section class="chart-section">
-        <div class="chart-section-chart">
-            <canvas id="chartThigh"></canvas>
-        </div>
-        <p class="chart-section-desc">udo [cm]</p>
-    </section>
-    <section class="chart-section">
-        <div class="chart-section-chart">
-            <canvas id="chartWaist"></canvas>
-        </div>
-        <p class="chart-section-desc">talia [cm]</p>
-    </section>
-    <section class="chart-section">
-        <div class="chart-section-chart">
-            <canvas id="chartHips"></canvas>
-        </div>
-        <p class="chart-section-desc">biodra [cm]</p>
-    </section>
-    <section class="chart-section">
-        <div class="chart-section-chart">
-            <canvas id="chartArms"></canvas>
-        </div>
-        <p class="chart-section-desc">barki [cm]</p>
-    </section>
+    {% if request.user.user_profile.sex %}
+        <section class="chart-section">
+            <div class="chart-section-chart">
+                <canvas id="chartHeight2"></canvas>
+            </div>
+            <p class="chart-section-desc">wzrost [cm]</p>
+        </section>
+        <section class="chart-section">
+            <div class="chart-section-chart">
+                <canvas id="chartWeight2"></canvas>
+            </div>
+            <p class="chart-section-desc">waga [kg]</p>
+        </section>
+        <section class="chart-section">
+            <div class="chart-section-chart">
+                <canvas id="chartChest2"></canvas>
+            </div>
+            <p class="chart-section-desc">klatka [cm]</p>
+        </section>
+        <section class="chart-section">
+            <div class="chart-section-chart">
+                <canvas id="chartBicep2"></canvas>
+            </div>
+            <p class="chart-section-desc">biceps [cm]</p>
+        </section>
+        <section class="chart-section">
+            <div class="chart-section-chart">
+                <canvas id="chartThigh2"></canvas>
+            </div>
+            <p class="chart-section-desc">udo [cm]</p>
+        </section>
+        <section class="chart-section">
+            <div class="chart-section-chart">
+                <canvas id="chartWaist2"></canvas>
+            </div>
+            <p class="chart-section-desc">talia [cm]</p>
+        </section>
+        <section class="chart-section">
+            <div class="chart-section-chart">
+                <canvas id="chartHips2"></canvas>
+            </div>
+            <p class="chart-section-desc">biodra [cm]</p>
+        </section>
+        <section class="chart-section">
+            <div class="chart-section-chart">
+                <canvas id="chartArms2"></canvas>
+            </div>
+            <p class="chart-section-desc">barki [cm]</p>
+        </section>
+        {% else %}
+        <p>płeć nie została podana</p>
+        {% endif %}
 </section>
 {% endblock content %}
 {% block scripts %}
@@ -118,5 +127,6 @@
 <script src={% static "js/compareusersurveys.js" %}></script>
 <script>
     renderComparision('{{ user.username }}');
+    renderComparisionSex('{{ user.username }}');
 </script>
 {% endblock scripts %}
