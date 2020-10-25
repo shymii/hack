@@ -50,6 +50,16 @@
                 </p>
             </section>
         </section>
+        <section class="map-section">
+            <h2>Poradnie psychologiczne w Twojej okolicy</h2>
+            <input type="text" id="search">
+            <div id="map"></div>
+            <h3>Najbliższe miejsca:</h3>
+            <div id="output"></div>
+        </section>
+        <div class="alert-success">
+            <span class="alert-message"></span>
+        </div>
     </section>
 
 {% endblock content %}
@@ -61,5 +71,5 @@
 {% else %}
 <script src="{% static 'js/mental-light.js' %}"></script>
 {% endif %}
-
+<script src="{% static 'js/mapmental.js' %}"></script>
 {% endblock scripts %}
