@@ -1,0 +1,156 @@
+.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "head head" "rest rest" "map map";
+}
+.main h1 {
+  grid-area: head;
+}
+.main .physical-form {
+  width: 90%;
+  border-radius: 0.5em;
+  background-color: #303030;
+  margin: auto;
+  padding: 2.45vw;
+  margin-top: 4vw;
+  position: relative;
+}
+.main .physical-form form {
+  justify-content: center;
+}
+.main .physical-form form .form-fields {
+  margin-right: 1vw;
+}
+.main .physical-form form .form-fields input, .main .physical-form form .form-fields select {
+  background-color: #262626;
+}
+.main .physical-form form #p-output {
+  text-align: center;
+  margin-top: 1vw;
+}
+.main .physical-form form #p-output span {
+  font-weight: 700;
+  color: #6573e0;
+}
+.main .physical-form::after {
+  content: " ";
+  position: absolute;
+  width: 80%;
+  bottom: -1.5px;
+  left: 10%;
+  border-radius: 0.5em;
+  border: 3px solid #6573e0;
+}
+.main .physical-charts {
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-top: 3vw;
+}
+.main .physical-charts .physical-single-chart {
+  width: 100%;
+  padding: 1vw;
+  border-radius: 0.5em;
+  background-color: #303030;
+  margin: 1vw 0.25vw;
+  position: relative;
+}
+.main .physical-charts .physical-single-chart .physical-chart-div {
+  width: 90%;
+  margin: auto;
+  padding: 0.5vw;
+}
+.main .physical-charts .physical-single-chart .physical-chart-div canvas {
+  width: 100%;
+}
+.main .physical-charts .physical-single-chart .physical-chart-desc {
+  display: block;
+  text-align: left;
+  font-size: 1.3em;
+  padding: 0.5vw;
+}
+.main .physical-charts .physical-single-chart::after {
+  content: " ";
+  position: absolute;
+  width: 80%;
+  bottom: -1.5px;
+  left: 10%;
+  border-radius: 0.5em;
+  border: 3px solid #6573e0;
+}
+.main .map-section {
+  grid-area: map;
+  width: 90%;
+  border-radius: 0.5em;
+  background-color: #303030;
+  margin: auto;
+  padding: 2.45vw;
+  margin-top: 4vw;
+  position: relative;
+}
+.main .map-section h2 {
+  margin-bottom: 1vw;
+}
+.main .map-section #search {
+  width: 100%;
+  height: 2vw;
+  border-radius: 0.5em;
+  padding: 0.5vw;
+  outline: none;
+  border: none;
+  background-color: #262626;
+  color: #FFFBFC;
+}
+.main .map-section #search::placeholder {
+  color: #FFFBFC;
+}
+.main .map-section #search:focus {
+  outline: none;
+  border: none;
+}
+.main .map-section #map {
+  width: 100%;
+  height: 30vw;
+  border-radius: 0.5em;
+  margin-top: 0.5vw;
+}
+.main .map-section #map .gm-style-iw-c {
+  background-color: #262626;
+}
+.main .map-section #map .gm-style-iw-c .gm-style-iw-d {
+  background-color: #262626;
+}
+.main .map-section #map .gm-style-iw-c .gm-style-iw-d::-webkit-scrollbar-track {
+  background-color: #262626;
+}
+.main .map-section #map .gm-style-iw-c .gm-style-iw-d::-webkit-scrollbar-track-piece {
+  background-color: #262626;
+}
+.main .map-section #map .gm-style-iw-c .gm-style-iw-d > div p {
+  color: #6573e0;
+}
+.main .map-section #map .gm-style-iw-c .gm-style-iw-d > div div {
+  color: #FFFBFC;
+}
+.main .map-section #map .gm-style-iw-c .gm-style-iw-d > div div span {
+  color: #FFFBFC;
+}
+.main .map-section::after {
+  content: " ";
+  position: absolute;
+  width: 80%;
+  bottom: -1.5px;
+  left: 10%;
+  border-radius: 0.5em;
+  border: 3px solid #6573e0;
+}
+.main .map-section h3 {
+  margin: 0.5vw 0;
+}
+.main .map-section #output p span:first-of-type {
+  color: #6573e0;
+}
+.main .map-section #output p span {
+  margin-right: 1vw;
+}

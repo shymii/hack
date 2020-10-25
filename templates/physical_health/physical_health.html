@@ -4,108 +4,108 @@
 {% block css %}
 {% if request.session.browse_mode == 'dark' %}
 <link rel="stylesheet" href="{% static 'style/css/form-dark.css' %}">
+<link rel="stylesheet" href="{% static 'style/css/phhealth-dark.css' %}">
 {% else %}
 <link rel="stylesheet" href="{% static 'style/css/form-light.css' %}">
+<link rel="stylesheet" href="{% static 'style/css/phhealth-light.css' %}">
 {% endif %}
-<style>
-    #map {
-        height: 75%;
-        width: 50%;
-    }
-    #search {
-        width: 50%;
-        color: black;
-    }
-</style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 {% endblock css %}
 
 {% block content %}
 <h1>Zdrowie fizyczne</h1>
-<form method="" autocomplete="off">
-    <div class="form-fields">
-        
-        <div class="form-div">
-            {% if survey_result.weight %}
-            <input type="text" placeholder=" " id="weight" value="{{ survey_result.weight | floatformat:'-2' }}"><label for="weight"><span>Waga</span></label>
-            {% else %}
-            <input type="text" placeholder=" " id="weight"><label for="weight"><span>Waga</span></label>
-            {% endif %}
+<section class="physical-form">
+    <h2>Oblicz swoje zapotrzebowanie kaloryczne</h2>
+    <form method="" autocomplete="off">
+        <div class="form-fields">
+            <div class="form-div">
+                {% if survey_result.weight %}
+                <input type="text" placeholder=" " id="weight" value="{{ survey_result.weight | floatformat:'-2' }}"><label for="weight"><span>Waga</span></label>
+                {% else %}
+                <input type="text" placeholder=" " id="weight"><label for="weight"><span>Waga</span></label>
+                {% endif %}
+            </div>
+            <div class="form-div">
+                {% if survey_result.height %}
+                <input type="text" placeholder=" " id="height" value="{{ survey_result.height }}"><label for="height"><span>Wzrost</span></label>
+                {% else %}
+                <input type="text" placeholder=" " id="height"><label for="height"><span>Wzrost</span></label>
+                {% endif %}
+            </div>
+            <div class="form-div">
+                {% if birth_date %}
+                <input type="text" placeholder=" " id="age" value="{{ birth_date }}"><label for="age"><span>Wiek</span></label>
+                {% else %}
+                <input type="text" placeholder=" " id="age"><label for="age"><span>Wiek</span></label>
+                {% endif %}
+            </div>
+            <div class="form-div">
+                <select id="life-style">
+                    <option value="1.0">leżący lub siedzący tryb życia, brak aktywności fizycznej</option>
+                    <option value="1.2">praca siedząca, aktywność fizyczna na niskim poziomie</option>
+                    <option value="1.4">praca nie fizyczna, trening 2 razy w tygodniu</option>
+                    <option value="1.6">lekka praca fizyczna, trening 3-4 razy w tygodniu</option>
+                    <option value="1.8">praca fizyczna, trening 5 razy w tygodniu</option>
+                    <option value="2.0">ciężka praca fizyczna, codzienny trening</option>
+                </select>
+                <label for="life-style"><span>Styl życia</span></label>
+            </div>
+            <div class="form-div-radio">
+                {% if gender == 'kobieta' %}
+                <input type="radio" name="gender" value="mezczyzna" id="male"><label for="male">mężczyzna</label>
+                <input type="radio" name="gender" value="kobieta" id="female" checked><label for="female">kobieta</label>
+                {% elif gender == 'mężczyzna' %}
+                <input type="radio" name="gender" value="mezczyzna" id="male" checked><label for="male">mężczyzna</label>
+                <input type="radio" name="gender" value="kobieta" id="female"><label for="female">kobieta</label>
+                {% else %}
+                <input type="radio" name="gender" value="mezczyzna" id="male"><label for="male">mężczyzna</label>
+                <input type="radio" name="gender" value="kobieta" id="female"><label for="female">kobieta</label>
+                {% endif %}
+            </div>
+            <div class="form-div">
+                <select id="somatype">
+                    <option value="nie-znam">Nie znam</option>
+                    <option value="Ektomorfik">Ektomorfik</option>
+                    <option value="Mezomorfik">Mezomorfik</option>
+                    <option value="Endomorfik">Endomorfik</option>
+                </select>
+                <label for="somatype"><span>Somatotyp</span></label>
+            </div>
+            <div class="form-div-radio form-div-radio-last">
+                <input type="radio" name="purpose" value="masa" id="masa"><label for="masa">masa</label>
+                <input type="radio" name="purpose" value="redukcja" id="redukcja"><label for="redukcja">redukcja</label>
+            </div>
         </div>
-        <div class="form-div">
-            {% if survey_result.height %}
-            <input type="text" placeholder=" " id="height" value="{{ survey_result.height }}"><label for="height"><span>Wzrost</span></label>
-            {% else %}
-            <input type="text" placeholder=" " id="height"><label for="height"><span>Wzrost</span></label>
-            {% endif %}
+        <div class="form-right">
+            <input type="button" value="oblicz" id="btn">
+            <p id="p-output"></p>
         </div>
-        <div class="form-div">
-            {% if birth_date %}
-            <input type="text" placeholder=" " id="age" value="{{ birth_date }}"><label for="age"><span>Wiek</span></label>
-            {% else %}
-            <input type="text" placeholder=" " id="age"><label for="age"><span>Wiek</span></label>
-            {% endif %}
+    </form>
+</section>
+<section class="physical-charts">
+    <section class="physical-single-chart">
+        <div class="physical-chart-div">
+            <canvas id="myPsychChart"></canvas>
         </div>
-        <div class="form-div">
-            <select id="life-style">
-                <option value="1.0">leżący lub siedzący tryb życia, brak aktywności fizycznej</option>
-                <option value="1.2">praca siedząca, aktywność fizyczna na niskim poziomie</option>
-                <option value="1.4">praca nie fizyczna, trening 2 razy w tygodniu</option>
-                <option value="1.6">lekka praca fizyczna, trening 3-4 razy w tygodniu</option>
-                <option value="1.8">praca fizyczna, trening 5 razy w tygodniu</option>
-                <option value="2.0">ciężka praca fizyczna, codzienny trening</option>
-            </select>
-            <label for="life-style"><span>Styl życia</span></label>
+        <p class="physical-chart-desc">Wskaźnik umieralności z powodu otyłości(na 100 tys. ludzi)</p>
+    </section>
+    <section class="physical-single-chart">
+        <div class="physical-chart-div">
+            <canvas id="myBarChart"></canvas>
         </div>
-        <div class="form-div-radio">
-            {% if gender == 'kobieta' %}
-            <input type="radio" name="gender" value="mezczyzna" id="male"><label for="male">mężczyzna</label>
-            <input type="radio" name="gender" value="kobieta" id="female" checked><label for="female">kobieta</label>
-            {% elif gender == 'mężczyzna' %}
-            <input type="radio" name="gender" value="mezczyzna" id="male" checked><label for="male">mężczyzna</label>
-            <input type="radio" name="gender" value="kobieta" id="female"><label for="female">kobieta</label>
-            {% else %}
-            <input type="radio" name="gender" value="mezczyzna" id="male"><label for="male">mężczyzna</label>
-            <input type="radio" name="gender" value="kobieta" id="female"><label for="female">kobieta</label>
-            {% endif %}
-        </div>
-        <div class="form-div">
-            <select id="somatype">
-                <option value="nie-znam">Nie znam</option>
-                <option value="Ektomorfik">Ektomorfik</option>
-                <option value="Mezomorfik">Mezomorfik</option>
-                <option value="Endomorfik">Endomorfik</option>
-            </select>
-            <label for="somatype"><span>Somatotyp</span></label>
-        </div>
-        <div class="form-div-radio form-div-radio-last">
-            <input type="radio" name="purpose" value="masa" id="masa"><label for="masa">masa</label>
-            <input type="radio" name="purpose" value="redukcja" id="redukcja"><label for="redukcja">redukcja</label>
-        </div>
-    </div>
-    <div class="form-right">
-        <input type="button" value="oblicz" id="btn">
-    </div>
-</form>
-<input type="text" id="search">
-<div id="map"></div>
+        <p class="physical-chart-desc">Średnie spożycie dziennie kalorii na jednego człowieka (2013r.)</p>
+    </section>
+</section>
+<section class="map-section">
+    <h2>Obiekty sportowe w Twojej okolicy</h2>
+    <input type="text" id="search">
+    <div id="map"></div>
+    <h3>Najbliższe miejsca:</h3>
+    <div id="output"></div>
+</section>
 <div class="alert-success">
     <span class="alert-message"></span>
 </div>
-<div id="output"></div>
-<br>
-<div class="dChart">
-    <canvas id="myPsychChart"></canvas>
-</div>
-<p>
-    Wskaźnik umieralności z powodu otyłości (na 100tyś ludzi)
-</p>
-<div class="barChart">
-    <canvas id="myBarChart"></canvas>
-</div>
-<p>
-    Średnie spożycie dziennie kalorii na jednego człowieka (2013r.)
-</p>
 {% endblock content %}
 
 {% block scripts %}

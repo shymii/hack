@@ -9,6 +9,7 @@ btn.addEventListener("click", e => {
     const life_style = document.querySelector('#life-style');
     const somatype = document.querySelector('#somatype');
     const purpose = document.getElementsByName('purpose');
+    const p_output = document.querySelector("#p-output");
     
     var gender_value;
     gender.forEach(sex => {
@@ -114,7 +115,7 @@ btn.addEventListener("click", e => {
             }     
         }
         daily_caloric_demand = Math.ceil(daily_caloric_demand);
-        console.log(daily_caloric_demand);
+        p_output.innerHTML = `Twoje dzienne zapotrzebowanie kaloryczne wynosi <span> ${daily_caloric_demand} kcal</span>`;
     }
 
 });

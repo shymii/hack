@@ -1,0 +1,167 @@
+@import "utilities/variables-light";
+
+.main{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "head head"
+    "rest rest"
+    "map map";
+    h1{
+        grid-area: head;
+    }
+    .physical-form{
+        width: 90%;
+        border-radius: .5em;
+        background-color: $bgcolor1;
+        margin: auto;
+        padding: 2.45vw;
+        margin-top: 4vw;
+        position: relative;
+        form{
+            justify-content: center;
+            .form-fields{
+                margin-right: 1vw;
+                    input, select{
+                        background-color: $bgcolor2;
+                    }
+            }
+            #p-output{
+                text-align: center;
+                margin-top: 1vw;
+                span{
+                    font-weight: 700;
+                    color: $purple;
+                }
+            }
+        }
+        &::after{
+            content: ' ';
+            position: absolute;
+            width: 80%;
+            bottom: -1.5px;
+            left: 10%;
+            border-radius: .5em;
+            border: 3px solid $purple;
+        }  
+    }
+    .physical-charts {
+        width: 90%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        margin-top: 3vw;
+        .physical-single-chart {
+            width: 100%;
+            padding: 1vw;
+            border-radius: .5em;
+            background-color: $bgcolor1;
+            margin: 1vw .25vw;
+            position: relative;
+            .physical-chart-div{
+                canvas{
+                    width: 100%;
+                }
+                width: 90%;
+                margin: auto;
+                padding: .5vw;
+            }
+            .physical-chart-desc {
+                display: block;
+                text-align: left;
+                font-size: 1.3em;
+                padding: .5vw;
+            }
+            &::after{
+                content: ' ';
+                position: absolute;
+                width: 80%;
+                bottom: -1.5px;
+                left: 10%;
+                border-radius: .5em;
+                border: 3px solid $purple;
+            }  
+        }
+    }
+    .map-section{
+        grid-area: map;
+        width: 90%;
+        border-radius: .5em;
+        background-color: $bgcolor1;
+        margin: auto;
+        padding: 2.45vw;
+        margin-top: 4vw;
+        position: relative;
+        h2{
+            margin-bottom: 1vw;
+        }
+        #search{
+            width: 100%;
+            height: 2vw;
+            border-radius: .5em;
+            padding: .5vw;
+            outline: none;
+            border: none;
+            background-color: $bgcolor2;
+            color: $color;
+            &::placeholder{
+                color: $color;
+            }
+            &:focus{
+                outline: none;
+                border: none;
+            }
+        }
+        #map{
+            width: 100%;
+            height: 30vw;
+            border-radius: .5em;
+            margin-top: .5vw;
+            .gm-style-iw-c{
+                background-color: $bgcolor2;
+                .gm-style-iw-d{
+                    background-color: $bgcolor2;
+                    &::-webkit-scrollbar-track{
+                        background-color: $bgcolor2;
+                    }
+                    &::-webkit-scrollbar-track-piece{
+                        background-color: $bgcolor2;
+                    }
+                    >div{
+                        p{
+                            color: $purple;
+                        }
+                        div{
+                            color: $color;
+                            span{
+                                color: $color;
+                            }
+                        }
+                    }
+                } 
+            }
+        }
+        &::after{
+            content: ' ';
+            position: absolute;
+            width: 80%;
+            bottom: -1.5px;
+            left: 10%;
+            border-radius: .5em;
+            border: 3px solid $purple;
+        }
+        h3{
+            margin: .5vw 0;
+        }
+        #output{
+            p{
+                span:first-of-type{
+                    color: $purple;
+                }
+                span{
+                    margin-right: 1vw;
+                }
+            }
+        }
+    }
+}
