@@ -112,6 +112,7 @@
             border: none;
             background-color: $bgcolor2;
             color: $color;
+            position: relative;
             &::placeholder{
                 color: $color;
             }
@@ -167,7 +168,7 @@
                     color: $purple;
                 }
                 span{
-                    margin-right: 1vw;
+                    color: $purple;
                 }
             }
         }

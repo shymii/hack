@@ -159,7 +159,7 @@ var createMarker = function createMarker(place, ID) {
 
         for (var j = 0; j < destinations.length; j++) {
           if (results[j].duration.value < 900) {
-            template_string += "<p><span>".concat(place.name, "</span><span>").concat(results[j].distance.text, "</span><span>").concat(results[j].duration.text, "</span></p>");
+            template_string += "<p><span>".concat(place.name, "</span> znajduje si\u0119 w odleg\u0142o\u015Bci <span>").concat(results[j].distance.text, "</span> od Ciebie. Przybli\u017Cony czas dojazdu: <span>").concat(results[j].duration.text, "</span></p>");
           }
         }
       }
@@ -175,7 +175,7 @@ var callback = function callback(results, status) {
       createMarker(results[i], results[i].place_id);
     }
   } else {
-    output_div.innerHTML = "<p>Nie znaleziono obiekt\xF3w w twojej okolicy</p>";
+    output_div.innerHTML = "<p><span>Nie znaleziono obiekt\xF3w sportowych w twojej okolicy<span></p>";
   }
 };
 

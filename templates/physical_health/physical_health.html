@@ -5,9 +5,49 @@
 {% if request.session.browse_mode == 'dark' %}
 <link rel="stylesheet" href="{% static 'style/css/form-dark.css' %}">
 <link rel="stylesheet" href="{% static 'style/css/phhealth-dark.css' %}">
+<style>
+    .pac-container {
+        z-index: 10000 !important;
+        background-color: #303030;
+        border-bottom-right-radius: .5em;
+        border-bottom-left-radius: .5em;
+    }
+
+    .pac-matched{
+        color: #6573e0;
+    }
+    .pac-item:hover{
+        background-color: #262626;
+    }
+
+    .pac-item-query{
+        color: #FFFBFC;
+    }
+
+</style>
 {% else %}
 <link rel="stylesheet" href="{% static 'style/css/form-light.css' %}">
 <link rel="stylesheet" href="{% static 'style/css/phhealth-light.css' %}">
+<style>
+    .pac-container {
+        z-index: 10000 !important;
+        background-color: #f0f0f0;
+        border-bottom-right-radius: .5em;
+        border-bottom-left-radius: .5em;
+    }
+
+    .pac-matched{
+        color: #6573e0;
+    }
+    .pac-item:hover{
+        background-color: #FFFBFC;
+    }
+
+    .pac-item-query{
+        color: #303030;
+    }
+
+</style>
 {% endif %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 {% endblock css %}

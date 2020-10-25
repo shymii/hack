@@ -242,7 +242,7 @@ var style = [
                   results = response.rows[i].elements;
                   for (let j = 0; j < destinations.length; j++) {
                       if (results[j].duration.value < 900) {
-                          template_string += `<p><span>${place.name}</span><span>${results[j].distance.text}</span><span>${results[j].duration.text}</span></p>`;
+                          template_string += `<p><span>${place.name}</span> znajduje się w odległości <span>${results[j].distance.text}</span> od Ciebie. Przybliżony czas dojazdu: <span>${results[j].duration.text}</span></p>`;
                       }
                   }
               }
@@ -258,7 +258,7 @@ const callback = (results, status) =>  {
           createMarker(results[i], results[i].place_id);
         }
     } else {
-      output_div.innerHTML = `<p>Nie znaleziono obiektów w twojej okolicy</p>`;
+      output_div.innerHTML = `<p><span>Nie znaleziono sportowych obiektów w twojej okolicy</span></p>`;
     }
 };
 

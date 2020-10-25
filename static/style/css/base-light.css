@@ -136,7 +136,7 @@ body .header .header-nav .header-nav-list .header-nav-list-item .header-nav-nest
 body .header .header-nav .header-nav-list .header-nav-list-item .header-nav-nested-list .header-nav-nested-list-item {
   font-size: 90%;
   text-align: right;
-  font-weight: 100;
+  font-weight: 300;
 }
 body .header .header-nav .header-nav-list .header-nav-list-item:hover .header-nav-nested-list-inactive {
   animation: dropdown 0.5s ease-in;
@@ -192,7 +192,7 @@ body .header .header-account .header-account-list .header-account-list-item .hea
 body .header .header-account .header-account-list .header-account-list-item .header-account-nested-list .header-account-nested-list-item {
   font-size: 90%;
   text-align: right;
-  font-weight: 100;
+  font-weight: 300;
 }
 body .header .header-account .header-account-list .header-account-list-item:hover .header-account-nested-list-inactive {
   animation: dropdown 0.5s ease-in;

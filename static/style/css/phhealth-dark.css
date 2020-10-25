@@ -107,6 +107,7 @@
   border: none;
   background-color: #262626;
   color: #FFFBFC;
+  position: relative;
 }
 .main .map-section #search::placeholder {
   color: #FFFBFC;
@@ -158,5 +159,5 @@
   color: #6573e0;
 }
 .main .map-section #output p span {
-  margin-right: 1vw;
+  color: #6573e0;
 }
