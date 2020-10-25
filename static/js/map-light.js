@@ -8,6 +8,7 @@ var place_;
 var image = {
     url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
 };
+var output_div = document.querySelector('#output');
 
 var style = [
     {
@@ -171,14 +172,6 @@ var style = [
   ];
 
 const createMarker = (place, ID) => {
-    const marker = new google.maps.Marker({
-        map: map,
-        animation: google.maps.Animation.DROP,
-        position: place.geometry.location,
-        title: place.name,
-        icon: image
-    });
-    markers.push(marker);
     const distance = new google.maps.DistanceMatrixService();
     document.querySelector('#output').innerHTML = '';
     distance.getDistanceMatrix(
@@ -194,37 +187,44 @@ const createMarker = (place, ID) => {
         },
         (response, status) => {
             if (status === 'OK') {
-                const origins = response.originAddresses;
-                const destinations = response.destinationAddresses;
-                var output_div = document.querySelector('#output');
-                var template_string = ``;
+              const origins = response.originAddresses;
+              const destinations = response.destinationAddresses;
+              var template_string = ``;
 
-                for (let i = 0; i < origins.length; i++) {
-                    const results = response.rows[i].elements;
-                    for (let j = 0; j < destinations.length; j++) {
-                        if (results[j].duration.value < 900) {
-                            template_string += `<p><span>${place.name}</span><span>${results[j].distance.text}</span><span>${results[j].duration.text}</span></p>`;
-                        }
-                    }
-                }
-                output_div.innerHTML += template_string;
-            } else {
-                output_div.innerHTML = 'Nie znaleziono obiektów w twojej okolicy';
-            }
+              const marker = new google.maps.Marker({
+                map: map,
+                animation: google.maps.Animation.DROP,
+                position: place.geometry.location,
+                title: place.name,
+                icon: image
+              });
+              markers.push(marker);
+
+              marker.addListener('click', () => {
+                const request = {
+                    placeId: ID
+                };
+                service.getDetails(request, (details, status) => {
+                    let marker_name = `<p>${details.name}</p>`;
+                    let marker_address = `<div>${details.adr_address}</div>`;
+                    let marker_url = `<a href="${details.url}">link do google maps</a>`;
+                    infowindow.setContent([marker_name, marker_address, marker_url].join('\n'));
+                    infowindow.open(map, marker);
+                });
+              });
+
+              for (let i = 0; i < origins.length; i++) {
+                  const results = response.rows[i].elements;
+                  for (let j = 0; j < destinations.length; j++) {
+                      if (results[j].duration.value < 900) {
+                          template_string += `<p><span>${place.name}</span><span>${results[j].distance.text}</span><span>${results[j].duration.text}</span></p>`;
+                      }
+                  }
+              }
+              output_div.innerHTML += template_string;
+            } 
     }
     );
-    marker.addListener('click', () => {
-        const request = {
-            placeId: ID
-        };
-        service.getDetails(request, (details, status) => {
-            let marker_name = `<p>${details.name}</p>`;
-            let marker_address = `<div>${details.adr_address}</div>`;
-            let marker_url = `<a href="${details.url}">link do google maps</a>`;
-            infowindow.setContent([marker_name, marker_address, marker_url].join('\n'));
-            infowindow.open(map, marker);
-        });
-    });
 };
 
 const callback = (results, status) =>  {
@@ -232,6 +232,8 @@ const callback = (results, status) =>  {
         for (let i = 0; i < results.length; i++) {
           createMarker(results[i], results[i].place_id);
         }
+    } else {
+      output_div.innerHTML = `<p>Nie znaleziono obiektów w twojej okolicy</p>`;
     }
 };
 
@@ -239,6 +241,7 @@ const remove_markers = () => {
     markers.forEach(marker => {
         marker.setMap(null);
     });
+    markers = [];
 }
 
 window.initMap = function () {
@@ -258,23 +261,12 @@ window.initMap = function () {
         styles: style
     };
 
-    map = new google.maps.Map(canvas, options);
-    
+    map = new google.maps.Map(canvas, options); 
     service = new google.maps.places.PlacesService(map);
-
-    if(!navigator.geometry) {
-        const request = {
-            location: default_location,
-            radius: '2000',
-            type: ['gym']
-        };
-        place_ = default_location;
-        service.nearbySearch(request, callback);
-    }
 
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
-        (position) => {
+        position => {
             location = {
             lat: position.coords.latitude,
             lng: position.coords.longitude,
@@ -291,7 +283,17 @@ window.initMap = function () {
             setTimeout(function(){ document.querySelector('.alert-success').classList.add("alert-hide"); }, 3000);
             remove_markers();
             service.nearbySearch(request, callback);
-        }
+        },
+        error => {
+          const request = {
+            location: default_location,
+            radius: '2000',
+            type: ['gym']
+          };
+          place_ = default_location;
+          remove_markers();
+          service.nearbySearch(request, callback);
+          }
         );
     }
     infowindow = new google.maps.InfoWindow({ maxWidth: 250 });
