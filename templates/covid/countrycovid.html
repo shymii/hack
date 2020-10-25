@@ -4,16 +4,16 @@
 {% block css %}
 
 {% if request.session.browse_mode == 'dark' %}
-<link rel="stylesheet" href="{% static 'style/css/form-dark.css' %}">
+  <link rel="stylesheet" href="{% static 'style/css/form-dark.css' %}">
+  <link rel="stylesheet" href='{% static "style/css/globalcovid-dark.css" %}'>
+  <link rel="stylesheet" href='{% static "style/css/comparecovid.css" %}'>
 {% else %}
-<link rel="stylesheet" href="{% static 'style/css/form-light.css' %}">
+  <link rel="stylesheet" href="{% static 'style/css/form-light.css' %}">
+  <link rel="stylesheet" href='{% static "style/css/globalcovid-light.css" %}'>
+  <link rel="stylesheet" href='{% static "style/css/comparecovid.css" %}'>
 {% endif %}
-{% if request.session.browse_mode == 'dark' %}
-    <link rel="stylesheet" href='{% static "style/css/globalcovid-dark.css" %}'> 
-{% else %}
-    <link rel="stylesheet" href='{% static "style/css/globalcovid-light.css" %}'>
-{% endif %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+
 {% endblock css %}
 
 {% block content %}
@@ -304,6 +304,12 @@
     <p class="global-stats-desc" id="dpredRes"></p>
   </section>
 </section>
+
+<div class="huh">
+  <span class="alert-message">
+    Wybierz państwo
+  </span>
+</div>
 
 {% endblock content %}
 
