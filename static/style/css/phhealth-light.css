@@ -16,6 +16,7 @@
   position: relative;
 }
 .main .physical-form form {
+  margin: 5.25vw auto;
   justify-content: center;
 }
 .main .physical-form form .form-fields {
@@ -24,11 +25,16 @@
 .main .physical-form form .form-fields input, .main .physical-form form .form-fields select {
   background-color: #FFFBFC;
 }
-.main .physical-form form #p-output {
+.main .physical-form form .form-right #btn {
+  position: relative;
+}
+.main .physical-form form .form-right #p-output {
+  position: absolute;
   text-align: center;
   margin-top: 1vw;
+  width: 15vw;
 }
-.main .physical-form form #p-output span {
+.main .physical-form form .form-right #p-output span {
   font-weight: 700;
   color: #6573e0;
 }
@@ -81,7 +87,7 @@
 }
 .main .map-section {
   grid-area: map;
-  width: 90%;
+  width: 93%;
   border-radius: 0.5em;
   background-color: #f0f0f0;
   margin: auto;
