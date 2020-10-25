@@ -3,11 +3,9 @@ from users.models import user_survey
 import datetime
 
 from .decorators import is_not_session
-from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 @is_not_session
-@login_required(login_url = 'login')
 def physical_health_view(request):
     survey_result = user_survey.objects.filter(user = request.user.user_profile).order_by('-survey_date')[0]
     if survey_result == None:
