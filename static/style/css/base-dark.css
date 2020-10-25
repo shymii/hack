@@ -107,14 +107,14 @@ body .header .theme-switcher input[type=checkbox]:checked::before {
   box-shadow: inset 0 0 5px #303030;
 }
 body .header .header-nav {
-  margin-top: 5vh;
+  margin-top: 2vh;
   flex-basis: 25vh;
 }
 body .header .header-nav a > img {
   width: 70%;
 }
 body .header .header-nav p {
-  margin-top: 3vw;
+  margin-top: 2vw;
   text-align: left;
   padding: 0.8em;
   letter-spacing: 0.15em;
