@@ -6,7 +6,7 @@ var map;
 var markers = [];
 var place_;
 var image = {
-    url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    url: '../static/img/marker-dark.png',
 };
 var output_div = document.querySelector('#output');
 
