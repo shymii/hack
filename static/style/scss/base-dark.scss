@@ -299,7 +299,7 @@ body {
             width: 15vw;
             min-height: 3vw;
             border-radius: .5em;
-            position: absolute;
+            position: fixed;
             bottom: 1vw;
             right: 1vw;
             display: grid;
@@ -307,7 +307,6 @@ body {
             align-items: center;
             overflow: hidden;
             animation: alert_push 1s ease-in;
-            z-index: 999;
             &.alert-success{
                 background-color: #009122;
                 border-left: .5vw solid #44bd60;
