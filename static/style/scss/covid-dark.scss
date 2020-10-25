@@ -42,7 +42,13 @@
                 left: 10%;
                 border-radius: .5em;
                 border: 3px solid $purple;
-            }    
+            }   
+            &:hover{
+                background-color: $purple;
+                &:after{
+                    display:none;
+                }
+            }  
         }
     }
     .covid-content{
