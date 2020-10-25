@@ -19,6 +19,7 @@
         margin-top: 4vw;
         position: relative;
         form{
+            margin: 5.25vw auto;
             justify-content: center;
             .form-fields{
                 margin-right: 1vw;
@@ -26,12 +27,19 @@
                         background-color: $bgcolor2;
                     }
             }
-            #p-output{
-                text-align: center;
-                margin-top: 1vw;
-                span{
-                    font-weight: 700;
-                    color: $purple;
+            .form-right{
+                #btn{
+                    position: relative;
+                }
+                #p-output{
+                    position: absolute;
+                    text-align: center;
+                    margin-top: 1vw;
+                    width: 15vw;
+                    span{
+                        font-weight: 700;
+                        color: $purple;
+                    }
                 }
             }
         }
@@ -85,7 +93,7 @@
     }
     .map-section{
         grid-area: map;
-        width: 90%;
+        width: 93%;
         border-radius: .5em;
         background-color: $bgcolor1;
         margin: auto;
