@@ -171,10 +171,6 @@ var style = [
     }
   ];
 
-const sortByDistDM = (a, b) => {
-  return (a.distance.value - b.distance.value);
-};
-
 const createMarker = (place, ID) => {
     const distance = new google.maps.DistanceMatrixService();
     document.querySelector('#output').innerHTML = '';
@@ -210,7 +206,7 @@ const createMarker = (place, ID) => {
                 };
                 service.getDetails(request, (details, status) => {
                     let marker_name = `<p>${details.name}</p>`;
-                    let marker_address = `<div>${details.adr_address}</div>`;
+                    let marker_address = `<div>${details.vicinity}</div>`;
                     let marker_url = `<a href="${details.url}" target="_blank">link do google maps</a>`;
                     infowindow.setContent([marker_name, marker_address, marker_url].join('\n'));
                     infowindow.open(map, marker);
@@ -225,7 +221,7 @@ const createMarker = (place, ID) => {
                   }
               }
               output_div.innerHTML += template_string;
-            } 
+            }
     }
     );
 };
@@ -251,7 +247,6 @@ window.initMap = function () {
     const input = document.querySelector('#search');
     const autocomplete = new google.maps.places.Autocomplete(input);
     autocomplete.setFields(['address_components', 'geometry', 'icon', 'name']);
-
     const canvas = document.getElementById('map');
     let location;
     const default_location = new google.maps.LatLng(50.2942602, 18.6635169);
@@ -278,8 +273,9 @@ window.initMap = function () {
             map.setCenter(location);
             const request = {
                 location: location,
-                radius: '2000',
-                type: ['gym']
+                //radius: '2000',
+                type: ['gym'],
+                rankBy: google.maps.places.RankBy.DISTANCE
             };
             document.querySelector('.alert-success').classList.add('alert');
             document.querySelector('.alert-message').innerHTML = 'Pobrano lokalizację automatycznie';
@@ -290,8 +286,9 @@ window.initMap = function () {
         error => {
           const request = {
             location: default_location,
-            radius: '2000',
-            type: ['gym']
+            //radius: '2000',
+            type: ['gym'],
+            rankBy: google.maps.places.RankBy.DISTANCE
           };
           place_ = default_location;
           remove_markers();
@@ -310,8 +307,9 @@ window.initMap = function () {
             map.setCenter(location);
             const request = {
                 location: location,
-                radius: '2000',
-                type: ['gym']
+                //radius: '2000',
+                type: ['gym'],
+                rankBy: google.maps.places.RankBy.DISTANCE
             };
             service.nearbySearch(request, callback);
         }
