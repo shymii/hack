@@ -3,9 +3,49 @@
 
 {% block css %}
 {% if request.session.browse_mode == 'dark' %}
-    <link rel="stylesheet" href='{% static "style/css/mhealth-dark.css" %}'> 
+    <link rel="stylesheet" href='{% static "style/css/mhealth-dark.css" %}'>
+    <style>
+        .pac-container {
+            z-index: 10000 !important;
+            background-color: #303030;
+            border-bottom-right-radius: .5em;
+            border-bottom-left-radius: .5em;
+        }
+    
+        .pac-matched{
+            color: #6573e0;
+        }
+        .pac-item:hover{
+            background-color: #262626;
+        }
+    
+        .pac-item-query{
+            color: #FFFBFC;
+        }
+    
+    </style>
 {% else %}
     <link rel="stylesheet" href='{% static "style/css/mhealth-light.css" %}'>
+    <style>
+        .pac-container {
+            z-index: 10000 !important;
+            background-color: #f0f0f0;
+            border-bottom-right-radius: .5em;
+            border-bottom-left-radius: .5em;
+        }
+    
+        .pac-matched{
+            color: #6573e0;
+        }
+        .pac-item:hover{
+            background-color: #FFFBFC;
+        }
+    
+        .pac-item-query{
+            color: #303030;
+        }
+    
+    </style>
 {% endif %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 {% endblock css %}
@@ -50,12 +90,14 @@
                 </p>
             </section>
         </section>
-        <section class="map-section">
-            <h2>Poradnie psychologiczne w Twojej okolicy</h2>
-            <input type="text" id="search">
-            <div id="map"></div>
-            <h3>Najbliższe miejsca:</h3>
-            <div id="output"></div>
+        <section class="mental-health-section">
+            <section class="map-section">
+                <h2>Poradnie psychologiczne w Twojej okolicy</h2>
+                <input type="text" id="search">
+                <div id="map"></div>
+                <h3>Najbliższe miejsca:</h3>
+                <div id="output"></div>
+            </section>
         </section>
         <div class="alert-success">
             <span class="alert-message"></span>
