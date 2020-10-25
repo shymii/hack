@@ -18,8 +18,8 @@
     <section>
         <h3 class="about-section-name">Dawid</h3>
         <p class="about-section-content">19 lat, z informatyką jestem związany praktycznie od dzieciństwa, lecz programuję stosunkowo od niedawna. Uwielbiam programować w Pythonie, aczkolwiek inne języki nie są mi obce. Głownie zajmuję się backendem poświęcając ogrom czasu, aby doprecyzować poprawne działanie aplikacji – pojęcie frontendu również nie jest mi nieznane. Oprócz informatyki lubię pyszną kawkę w połączeniu z dobrą muzyką ;)</p>
-        <a href="mailto:kontakt.raczu@gmail.com" class="about-email">email</a>
-        <a target="_blank" href="https://github.com/raczu" class="about-github">github</a>
+        <a target="_blank" href="https://github.com/raczu" class="about-github">{% if request.session.browse_mode != 'dark' %}<img src="{% static 'img/github-dark.png' %}" alt="github">{% else %}<img src="{% static 'img/github-light.png' %}" alt="github">{% endif %}</a>
+        <a href="mailto:kontakt.raczu@gmail.com" class="about-email">{% if request.session.browse_mode != 'dark' %}<img src="{% static 'img/email-dark.png' %}" alt="mail">{% else %}<img src="{% static 'img/email-light.png' %}" alt="mail">{% endif %}</a>
     </section>
 </section>
 <section class="about-section">
@@ -29,8 +29,8 @@
     <section>
         <h3 class="about-section-name">Maciek</h3>
         <p class="about-section-content">19 lat, głównie zajmuję się produkcją filmów i zdjęciami. Od dziecka programuję i chciałbym iść dalej w tym kierunku. Obecnie uczę się C# w celu tworzenia gier w Unity, ale inne języki również nie są mi obce. Przy tworzeniu stron internetowych głównie zajmuję się skryptami i stylami.</p>
-        <a href="mailto:kontakt.wzarek@gmail.com" class="about-email">email</a>
-        <a target="_blank" href="https://github.com/wzarek" class="about-github">github</a>
+        <a target="_blank" href="https://github.com/wzarek" class="about-github">{% if request.session.browse_mode != 'dark' %}<img src="{% static 'img/github-dark.png' %}" alt="github">{% else %}<img src="{% static 'img/github-light.png' %}" alt="github">{% endif %}</a>
+        <a href="mailto:kontakt.wzarek@gmail.com" class="about-email">{% if request.session.browse_mode != 'dark' %}<img src="{% static 'img/email-dark.png' %}" alt="mail">{% else %}<img src="{% static 'img/email-light.png' %}" alt="mail">{% endif %}</a>
     </section>
 </section>
 <section class="about-section">
@@ -40,8 +40,8 @@
     <section>
         <h3 class="about-section-name">Szymek</h3>
         <p class="about-section-content">18 lat, informatyka to moja pasja od małego, programuję od niedawna. Głównie zajmuje się frontendem, a najbardziej Javascript(XD). Największy fan pjesków na świecie.</p>
-        <a href="mailto:shymii@protonmail.com" class="about-email">email</a>
-        <a target="_blank" href="https://github.com/shymii" class="about-github">github</a>
+        <a target="_blank" href="https://github.com/shymii" class="about-github">{% if request.session.browse_mode != 'dark' %}<img src="{% static 'img/github-dark.png' %}" alt="github">{% else %}<img src="{% static 'img/github-light.png' %}" alt="github">{% endif %}</a>
+        <a href="mailto:shymii@protonmail.com" class="about-email">{% if request.session.browse_mode != 'dark' %}<img src="{% static 'img/email-dark.png' %}" alt="mail">{% else %}<img src="{% static 'img/email-light.png' %}" alt="mail">{% endif %}</a>
     </section>
 </section>
 <section class="about-section">
@@ -51,8 +51,8 @@
     <section>
         <h3 class="about-section-name">Radek</h3>
         <p class="about-section-content">18 lat, interesuje się informatyką od małego. Całe życie spędziłem wokół komputerów. Programowaniem i tworzeniem(XD) stron interesuje się stosunkowo od niedawna. Poza informatyką interesuje się muzyką i językami obcymi.</p>
-        <a href="mailto:hnchh@protonmail.com" class="about-email">email</a>
-        <a target="_blank" href="https://github.com/hunchoradek" class="about-github">github</a>
+        <a target="_blank" href="https://github.com/hunchoradek" class="about-github">{% if request.session.browse_mode != 'dark' %}<img src="{% static 'img/github-dark.png' %}" alt="github">{% else %}<img src="{% static 'img/github-light.png' %}" alt="github">{% endif %}</a>
+        <a href="mailto:hnchh@protonmail.com" class="about-email">{% if request.session.browse_mode != 'dark' %}<img src="{% static 'img/email-dark.png' %}" alt="mail">{% else %}<img src="{% static 'img/email-light.png' %}" alt="mail">{% endif %}</a>
     </section>
 </section>
 {% endblock content %}

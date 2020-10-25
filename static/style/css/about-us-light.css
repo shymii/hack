@@ -18,6 +18,21 @@
   border-radius: 0.5em;
   border: 3px solid #6573e0;
 }
+.main .about-section .about-github img {
+  width: 1.5em;
+  margin-top: 1vw;
+}
+.main .about-section .about-github img:hover {
+  filter: invert(48%) sepia(8%) saturate(7179%) hue-rotate(205deg) brightness(93%) contrast(89%);
+}
+.main .about-section .about-email img {
+  width: 2em;
+  margin-top: 1vw;
+  margin-left: 1vw;
+}
+.main .about-section .about-email img:hover {
+  filter: invert(48%) sepia(8%) saturate(7179%) hue-rotate(205deg) brightness(93%) contrast(89%);
+}
 .main .about-section figure {
   width: 10vw;
   height: 10vw;
