@@ -3,6 +3,7 @@
 
 {% block css %}
 {% if request.session.browse_mode == 'dark' %}
+<link rel="stylesheet" href="{% static 'style/css/about-us.css' %}">
 {% else %}
 {% endif %}
 {% endblock css %}
@@ -10,27 +11,47 @@
 {% block content %}
 <h1>O nas</h1>
 <section class="about-section">
-    <img src="">
-    <p class="about-section-content"></p>
-    <a href="mailto:" class="about-email">email</a>
-    <a href="" class="about-github">github</a>
+    <figure>
+        <img src="{% static 'img/dawid.jpg' %}">
+    </figure>
+    <section>
+        <h3 class="about-section-name">Dawid</h3>
+        <p class="about-section-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, quis?</p>
+        <a href="mailto:" class="about-email">email</a>
+        <a href="" class="about-github">github</a>
+    </section>
 </section>
 <section class="about-section">
-    <img src="">
-    <p class="about-section-content"></p>
-    <a href="mailto:" class="about-email">email</a>
-    <a href="" class="about-github">github</a>
+    <section>
+        <h3 class="about-section-name">Maciek</h3>
+        <p class="about-section-content">19 lat, głównie zajmuje się produkcją filmów i zdjęciami. Czasami stworzy stronkę z nudów.</p>
+        <a href="mailto:" class="about-email">email</a>
+        <a href="" class="about-github">github</a>
+    </section>
+    <figure>
+        <img src="{% static 'img/maciek.jpg' %}">
+    </figure>
 </section>
 <section class="about-section">
-    <img src="">
-    <p class="about-section-content"></p>
-    <a href="mailto:" class="about-email">email</a>
-    <a href="" class="about-github">github</a>
+    <figure>
+        <img src="{% static 'img/szymek.png' %}">
+    </figure>
+    <section>
+        <h3 class="about-section-name">Szymek</h3>
+        <p class="about-section-content">18 lat, informatyka to moja pasja od małego, programuję od niedawna. Głównie zajmuje się frontendem, a najbardziej Javascript(XD). Największy fan pjesków na świecie.</p>
+        <a href="mailto:shymii@protonmail.com" class="about-email">email</a>
+        <a href="" class="about-github">github</a>
+    </section>
 </section>
 <section class="about-section">
-    <img src="">
-    <p class="about-section-content"></p>
-    <a href="mailto:" class="about-email">email</a>
-    <a href="" class="about-github">github</a>
+    <section>
+        <h3 class="about-section-name">Radek</h3>
+        <p class="about-section-content">18 lat, interesuje się informatyką od małego. Całe życie spędziłem wokół komputerów. Programowaniem i tworzeniem stron interesuje się stosunkowo od niedawna. Poza informatyką interesuje się muzyką i językami obcymi.</p>
+        <a href="mailto:hnchh@protonmail.com" class="about-email">email</a>
+        <a href="" class="about-github">github</a>
+    </section>
+    <figure>
+        <img src="{% static 'img/radek.png' %}">
+    </figure>
 </section>
 {% endblock content %}
