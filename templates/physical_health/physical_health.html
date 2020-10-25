@@ -5,9 +5,11 @@
 {% if request.session.browse_mode == 'dark' %}
 <link rel="stylesheet" href="{% static 'style/css/form-dark.css' %}">
 <link rel="stylesheet" href="{% static 'style/css/phhealth-dark.css' %}">
+<link rel="stylesheet" href="{% static 'style/css/comparecovid.css' %}">
 {% else %}
 <link rel="stylesheet" href="{% static 'style/css/form-light.css' %}">
 <link rel="stylesheet" href="{% static 'style/css/phhealth-light.css' %}">
+<link rel="stylesheet" href="{% static 'style/css/comparecovid.css' %}">
 {% endif %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 {% endblock css %}
@@ -106,7 +108,7 @@
 <div class="alert-success">
     <span class="alert-message"></span>
 </div>
-<div class="alert-error">
+<div class="huh">
     <span class="alert-message">Uzupełnij poprawnie formularz</span>
 </div>
 {% endblock content %}
