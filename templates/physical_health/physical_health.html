@@ -5,6 +5,7 @@
 {% if request.session.browse_mode == 'dark' %}
 <link rel="stylesheet" href="{% static 'style/css/form-dark.css' %}">
 <link rel="stylesheet" href="{% static 'style/css/phhealth-dark.css' %}">
+<link rel="stylesheet" href="{% static 'style/css/comparecovid.css' %}">
 <style>
     .pac-container {
         z-index: 10000 !important;
@@ -28,6 +29,7 @@
 {% else %}
 <link rel="stylesheet" href="{% static 'style/css/form-light.css' %}">
 <link rel="stylesheet" href="{% static 'style/css/phhealth-light.css' %}">
+<link rel="stylesheet" href="{% static 'style/css/comparecovid.css' %}">
 <style>
     .pac-container {
         z-index: 10000 !important;
@@ -143,10 +145,7 @@
     <h3>Najbliższe miejsca:</h3>
     <div id="output"></div>
 </section>
-<div class="alert-success">
-    <span class="alert-message"></span>
-</div>
-<div class="alert-error">
+<div class="huh">
     <span class="alert-message">Uzupełnij poprawnie formularz</span>
 </div>
 {% endblock content %}
