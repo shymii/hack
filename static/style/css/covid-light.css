@@ -54,6 +54,15 @@
   background-color: #f0f0f0;
   position: relative;
 }
+.main .covid-content .help .help-single::after {
+  content: " ";
+  position: absolute;
+  width: 80%;
+  bottom: -1.5px;
+  left: 10%;
+  border-radius: 0.5em;
+  border: 3px solid #6573e0;
+}
 .main .covid-content .help .help-single .help-single-title {
   padding: 1vw 0;
 }

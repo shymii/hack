@@ -14,6 +14,7 @@ urlpatterns = [
     path('logout/', views.logout_view, name="logout"),
     path('sendjson/', views.create_json, name="create_json"),
     path('sendjsoncompare/', views.create_json_compare, name="create_json_compare"),
+    path('sendjsoncompare2/', views.create_json_compare2, name="create_json_compare2"),
     path('browse-mode/<str:url>', views.browse_mode, name="browse_mode")
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
