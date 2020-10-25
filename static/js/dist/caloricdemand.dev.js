@@ -10,7 +10,8 @@ btn.addEventListener("click", function (e) {
   var life_style = document.querySelector('#life-style');
   var somatype = document.querySelector('#somatype');
   var purpose = document.getElementsByName('purpose');
-  var p_output = document.querySelector("#p-output");
+  var p_output = document.querySelector('#p-output');
+  var alert = document.querySelector('.alert-error');
   var gender_value;
   gender.forEach(function (sex) {
     if (sex.checked) {
@@ -119,5 +120,24 @@ btn.addEventListener("click", function (e) {
 
     daily_caloric_demand = Math.ceil(daily_caloric_demand);
     p_output.innerHTML = "Twoje dzienne zapotrzebowanie kaloryczne wynosi <span> ".concat(daily_caloric_demand, " kcal</span>");
+  } else {
+    var y = document.querySelector('.huh');
+    y.classList.remove('huh');
+    y.classList.add('alert');
+    y.classList.add('alert-error');
+    setTimeout(function () {
+      y.classList.add('alert-hide');
+      setTimeout(function () {
+        y.classList.remove('alert');
+        y.classList.remove('alert-error');
+        y.classList.remove('alert-hide');
+        y.classList.add('huh');
+      }, 1000);
+    }, 3000); // alert.classList.add('alert');
+    // setTimeout(function(){ alert.classList.add("alert-hide");}, 3000);
+    // setTimeout(function(){ alert.classList.remove("alert"); }, 4000);
+    // setTimeout(function(){ alert.classList.remove("alert-hide"); }, 4000);
+
+    p_output.innerHTML = '';
   }
 });
