@@ -342,4 +342,8 @@ window.initMap = function () {
     });
 };
 
+document.querySelector('main').addEventListener('scroll', () => {
+  document.querySelector('.pac-container').style.display = 'none';
+});
+
 document.head.appendChild(script);
