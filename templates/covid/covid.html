@@ -14,16 +14,31 @@
 <section>
     <a href="{% url 'globalcovid' %}">
         <article class="global-stats">
+            {% if request.session.browse_mode == 'dark' %}
+            <img src="{% static '/img/earth-dark.png' %}" alt="">
+            {% else %}
+            <img src="{% static '/img/earth-light.png' %}" alt="">
+            {% endif %}
             <h4>globalne statystyki</h4>
         </article>
     </a>
     <a href="{% url 'comparecovid' %}">
         <article class="comparison">
+            {% if request.session.browse_mode == 'dark' %}
+            <img src="{% static '/img/compare-dark.png' %}" alt="">
+            {% else %}
+            <img src="{% static '/img/compare-light.png' %}" alt="">
+            {% endif %}
             <h4>porównaj dwa państwa</h4>
         </article>
     </a>
     <a href="{% url 'countrycovid' %}">
         <article class="single-stats">
+            {% if request.session.browse_mode == 'dark' %}
+            <img src="{% static '/img/flag-dark.png' %}" alt="">
+            {% else %}
+            <img src="{% static '/img/flag-light.png' %}" alt="">
+            {% endif %}
             <h4>statystyki danego kraju</h4>
         </article>
     </a>

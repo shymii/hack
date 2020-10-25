@@ -14,9 +14,7 @@ links.splice(los3, 1);
 var los4 = Math.floor(Math.random() * (links.length - 1));
 var link2 = links[los4];
 
+console.log(document.getElementById("link1"));
 
-document.getElementById("res1").innerHTML = fact1;
-document.getElementById("res2").innerHTML = fact2;
-
-document.getElementById("link1").innerHTML = `<img src="/static/img/${link1}.png" alt="info1">`;
-document.getElementById("link2").innerHTML = `<img src="/static/img/${link2}.png" alt="info2">`;
+document.getElementById("link1").src = `/static/img/${link1}.png`;
+document.getElementById("link2").src = `/static/img/${link2}.png`;
