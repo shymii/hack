@@ -171,6 +171,10 @@ var style = [
     }
   ];
 
+const sortByDistDM = (a, b) => {
+  return (a.distance.value - b.distance.value);
+};
+
 const createMarker = (place, ID) => {
     const distance = new google.maps.DistanceMatrixService();
     document.querySelector('#output').innerHTML = '';
@@ -207,14 +211,13 @@ const createMarker = (place, ID) => {
                 service.getDetails(request, (details, status) => {
                     let marker_name = `<p>${details.name}</p>`;
                     let marker_address = `<div>${details.adr_address}</div>`;
-                    let marker_url = `<a href="${details.url}">link do google maps</a>`;
+                    let marker_url = `<a href="${details.url}" target="_blank">link do google maps</a>`;
                     infowindow.setContent([marker_name, marker_address, marker_url].join('\n'));
                     infowindow.open(map, marker);
                 });
               });
-
               for (let i = 0; i < origins.length; i++) {
-                  const results = response.rows[i].elements;
+                  results = response.rows[i].elements;
                   for (let j = 0; j < destinations.length; j++) {
                       if (results[j].duration.value < 900) {
                           template_string += `<p><span>${place.name}</span><span>${results[j].distance.text}</span><span>${results[j].duration.text}</span></p>`;

@@ -58,6 +58,10 @@
                 <li class="header-account-list-item logout"><a href="{% url 'logout' %}">wyloguj</a></li>
                 {% endif %}
             </ul>
+            <p>twórcy</p>
+            <ul class="header-account-list">
+                <li class="header-account-list-item {% if request.resolver_match.view_name == 'about' %} header-item-active {% endif %}"><a href="{% url 'about' %}">o nas</a></li>
+            </ul>
         </nav>
         <div class="theme-switcher">
             <span>zmień motyw</span>

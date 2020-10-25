@@ -2,6 +2,22 @@
   height: 100vw;
   max-height: auto !important;
 }
+.main .mental-health-int {
+  width: 80%;
+  margin: 2vw auto;
+  background-color: #f0f0f0;
+  padding: 2vw;
+  border-radius: 0.5em;
+}
+.main .mental-health-int::after {
+  content: " ";
+  position: absolute;
+  width: 80%;
+  bottom: -1.5px;
+  left: 10%;
+  border-radius: 0.5em;
+  border: 3px solid #6573e0;
+}
 .main .mental-health {
   width: 90%;
   margin: auto;
@@ -43,6 +59,25 @@
   left: 10%;
   border-radius: 0.5em;
   border: 3px solid #6573e0;
+}
+.main .mental-health .mental-health-section:last-of-type {
+  background-color: #f0f0f0;
+}
+.main .mental-health .mental-health-section:last-of-type::after {
+  content: " ";
+  position: absolute;
+  width: 80%;
+  bottom: -1.5px;
+  left: 10%;
+  border-radius: 0.5em;
+  border: 3px solid #6573e0;
+}
+.main .mental-health .mental-health-section:last-of-type h3 {
+  padding: 1vw;
+}
+.main .mental-health .mental-health-section:last-of-type p {
+  padding-left: 2vw;
+  padding-bottom: 1vw;
 }
 .main .mental-health .mental-health-section .mental-health-subsection {
   position: relative;

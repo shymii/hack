@@ -43,7 +43,7 @@
                 </ul>
                 <p>Czasem jednak pojawiają się takiej objawy jak utrata węchu i smaku, bóle mięśni i głowy, biegunka, wysypka.</p>
                 <p>Jeśli masz takie objawy, skontaktuj się z Twoim lekarzem podstawowej opieki zdrowotnej za pośrednictwem teleporady. Lekarz może zlecić Ci test na koronawirusa.</p>
-                <p>Tutaj możesz sprawdzić, w której placówce POZ w pobliżu możesz uzyskać teleporadę: <a href="https://www.nfz.gov.pl/aktualnosci/aktualnosci-centrali/teleporady-dotyczace-koronawirusa-w-przychodniach,7621.html">lista placówek</a></p>
+                <p>Tutaj możesz sprawdzić, w której placówce POZ w pobliżu możesz uzyskać teleporadę: <a href="https://www.nfz.gov.pl/aktualnosci/aktualnosci-centrali/teleporady-dotyczace-koronawirusa-w-przychodniach,7621.html" target="_blank">lista placówek</a></p>
                 <h4>Jeśli twój stan jest cięzki. Nie czekaj. Zadzwoń na numer alarmowy 112 lub 999 i uprzedź, że możesz mieć koronawirusa.</h4>
                 <p>Jeśli w ostatnim czasie byłeś za granicą, w krajach, w których wiele osób choruje, ale <strong>nie zaobserwowałeś u siebie objawów</strong>, to kontroluj swój stan zdrowia. Zwracaj uwagę na występowanie objawów grypopodobnych (złe samopoczucie, bóle mięśniowe, kaszel), a takżę często mierz temperaturę ciała.</p>
                 <p><strong>Jeżeli miałeś kontakt z osobą chorą lub zakażoną koronawirusem</strong>, to bezzwłocznie, telefonicznie powiadom stację sanitarno-epidemiologiczną: dzwoń do Centrum kontaktu COVID-19. Infolinia czynna całodobowo <a href="tel:222500115">22 25 00 115.</a></p>
@@ -61,18 +61,18 @@
                     <li>dodatniego testu na koronawirus</li>
                     <li>bliskiego kontaktu z osobą zakażoną</li>
                 </ul>
-                <p>Skontaktuj się z sanepidem przez formularz online: <br><a href="https://aplikacje.gov.pl/app/sanepid">wyślij zgłoszenie</a></p>
-                <p>Do wysłania zgłoszenia niezbędne jest posiadanie profilu zaufanego. (<a href="https://www.gov.pl/web/gov/zaloz-profil-zaufany">tutaj dowiesz się jak go założyć</a>)</p>
+                <p>Skontaktuj się z sanepidem przez formularz online: <br><a href="https://aplikacje.gov.pl/app/sanepid" target="_blank">wyślij zgłoszenie</a></p>
+                <p>Do wysłania zgłoszenia niezbędne jest posiadanie profilu zaufanego. (<a href="https://www.gov.pl/web/gov/zaloz-profil-zaufany" target="_blank">tutaj dowiesz się jak go założyć</a>)</p>
             </section>
         </section>
         <section class="help-single">
             <h3 class="help-single-title">Lista przydatnych linków</h3>
             <section class="help-single-content">
-                <p><a href="https://pacjent.gov.pl/koronawirus/sprawdz-objawy">Tutaj</a> sprawdzisz czy twoje objawy mogą oznaczać zakażenie koronawirusem</p>
-                <p><a href="https://pacjent.gov.pl/teleporada">Tutaj</a> możesz zapisać się na teleporadę online</p>
-                <p><a href="https://www.gov.pl/web/koronawirus/teleporady-poz">Tutaj</a> sprawdzisz rejestr placówek podstawowej opieki zdrowotnej, które mogą udzielić teleporady</p>
-                <p><a href="https://www.gov.pl/web/koronawirus/stacje-sanitarno-epidemiologiczne">Tutaj</a> sprawdzisz listę stacji sanitarno-epidemiologicznych</p>
-                <p><a href="https://www.gov.pl/web/koronawirus/pytania-i-odpowiedzi">Tutaj</a> znajdziesz odpowiedzi na najczęściej zadawane pytania dotyczące koronawirusa</p>
+                <p><a href="https://pacjent.gov.pl/koronawirus/sprawdz-objawy" target="_blank">Tutaj</a> sprawdzisz czy twoje objawy mogą oznaczać zakażenie koronawirusem</p>
+                <p><a href="https://pacjent.gov.pl/teleporada" target="_blank">Tutaj</a> możesz zapisać się na teleporadę online</p>
+                <p><a href="https://www.gov.pl/web/koronawirus/teleporady-poz" target="_blank">Tutaj</a> sprawdzisz rejestr placówek podstawowej opieki zdrowotnej, które mogą udzielić teleporady</p>
+                <p><a href="https://www.gov.pl/web/koronawirus/stacje-sanitarno-epidemiologiczne" target="_blank">Tutaj</a> sprawdzisz listę stacji sanitarno-epidemiologicznych</p>
+                <p><a href="https://www.gov.pl/web/koronawirus/pytania-i-odpowiedzi" target="_blank">Tutaj</a> znajdziesz odpowiedzi na najczęściej zadawane pytania dotyczące koronawirusa</p>
             </section>
         </section>
     </section>
@@ -82,12 +82,12 @@
         <article class="tweet-single">
             <section class="tweet-user">
                 <img src="{{ tweet.profile_image }}">
-                <p><a href="https://twitter.com/{{ tweet.screen_name }}">{{ tweet.name }}</a></p>
+                <p><a href="https://twitter.com/{{ tweet.screen_name }}" target="_blank">{{ tweet.name }}</a></p>
                 
             </section>
             <section class="tweet-content">
                 <p>{{ tweet.text }}</p>
-                <a href="https://twitter.com/MZ_GOV_PL/status/{{ tweet.tweet_id }}"><img src="{% static 'img/twitter.svg' %}" alt="link do tweeta"></a>
+                <a href="https://twitter.com/MZ_GOV_PL/status/{{ tweet.tweet_id }}" target="_blank"><img src="{% static 'img/twitter.svg' %}" alt="link do tweeta"></a>
                 <span>{{ tweet.tweet_date }}</span>
             </section>
         </article>
@@ -95,7 +95,3 @@
     </section>
 </section>
 {% endblock content %}
-
-{% block scripts %}
-
-{% endblock scripts %}

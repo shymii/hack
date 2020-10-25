@@ -11,7 +11,6 @@
 <link rel="stylesheet" href='{% static "style/css/globalcovid-light.css" %}'>
 <link rel="stylesheet" href='{% static "style/css/comparecovid.css" %}'>
 {% endif %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 {% endblock css %}
 
 {% block content %}
@@ -535,16 +534,7 @@
 </form>
 
 <section class="global-stats" id="chart-box">
-  <section class="global-stats-section" id="first-chart">
-    <div class="global-stats-chart">
-      <canvas id="myChart1"></canvas>
-    </div>
-  </section>
-  <section class="global-stats-section" id="second-chart">
-    <div class="global-stats-chart">
-      <canvas id="myChart2"></canvas>
-    </div>
-  </section>
+  
 </section>
 
 <div class="huh">
@@ -556,6 +546,7 @@
 {% endblock content %}
 
 {% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 {% if request.session.browse_mode == 'dark' %}
 <script src="{% static 'js/comparecovid-dark.js' %}"></script>
 {% else %}
