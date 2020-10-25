@@ -11,8 +11,27 @@
   margin-top: 4vw;
   justify-self: center;
 }
-.main .homepage-left img {
+.main .homepage-left .homepage-baner {
+  width: 80%;
+  padding: 2vw;
+  border-radius: 0.5em;
+  background-color: #303030;
+  margin: 1vw auto;
+  position: relative;
+  align-items: center;
+}
+.main .homepage-left .homepage-baner img {
   width: 100%;
+  border-radius: 0.5em;
+}
+.main .homepage-left .homepage-baner::after {
+  content: " ";
+  position: absolute;
+  width: 80%;
+  bottom: -1.5px;
+  left: 10%;
+  border-radius: 0.5em;
+  border: 3px solid #6573e0;
 }
 .main .tweets {
   width: 80%;
