@@ -17,11 +17,16 @@
   position: relative;
 }
 .main > section:first-of-type a article {
-  margin-top: 10%;
+  margin-top: 1vw;
   height: 80%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+.main > section:first-of-type a article img {
+  max-width: 4vw;
+  margin: auto;
+  padding: 2vw 0;
 }
 .main > section:first-of-type a article h4 {
   text-align: left;
