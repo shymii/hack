@@ -9,51 +9,6 @@
         grid-template-columns: 1fr 1fr;
         align-items: center;
         .form-fields{
-            .form-div-radio-list{
-                position: relative;
-                width: 15vw;
-                margin-top: 1vw;
-                ul{
-                    list-style: none;
-                    display: grid;
-                    grid-template-columns: 1fr 1fr 1fr;
-                    width: 100%;
-                    padding-top: 1vw;
-                    input{
-                        display: none;
-                        &:checked + label{
-                            border: 1px solid $purple;
-                        }
-                    }
-                    label{
-                        text-align: center;
-                        border: 1px solid $color;
-                        border-radius: .5em;
-                        padding: 1vw;
-                        cursor: pointer;
-                        &:hover{
-                            border: 1px solid $purple;
-                        }
-                    }
-                }
-                >label{
-                    text-transform: lowercase;
-                    margin-right: 2vw;
-                    position: absolute;
-                    bottom: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    pointer-events: none;
-                    transition: transform .5s;
-                    span{
-                        pointer-events: none;
-                        position: absolute;
-                        bottom: 1vw;
-                        padding-left: 1vw;
-                    }
-                }
-            }
             .form-div-radio{
                 display: grid;
                 grid-template-columns: 1fr 1fr;
@@ -182,6 +137,56 @@
             margin-bottom: 1vw
         }
         .form-right{
+            .form-div-radio-list{
+                position: relative;
+                width: 15vw;
+                margin: 1vw 0;
+                ul{
+                    list-style: none;
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    justify-content: center;
+                    align-content: center;
+                    grid-gap: 1vw;
+                    width: 100%;
+                    padding-top: 1vw;
+                    input{
+                        display: none;
+                        &:checked + label{
+                            border: 1px solid $purple;
+                        }
+                    }
+                    label{
+                        width: 15vw;
+                        height: 3vw;
+                        text-align: center;
+                        border: 1px solid $color;
+                        border-radius: .5em;
+                        padding: 1vw;
+                        display:inline-block;
+                        cursor: pointer;
+                        &:hover{
+                            border: 1px solid $purple;
+                        }
+                    }
+                }
+                >label{
+                    text-transform: lowercase;
+                    margin-right: 2vw;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    pointer-events: none;
+                    transition: transform .5s;
+                    span{
+                        pointer-events: none;
+                        position: absolute;
+                        top: -1vw;
+                    }
+                }
+            }
             margin-bottom: .3vw;
             input[type="submit"], input[type="button"], button{
                 background-color: $purple;

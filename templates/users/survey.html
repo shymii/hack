@@ -21,15 +21,28 @@
                 <span>{{ error }}</span>
             {% endfor %}
         </div>
-        {% else %}
-        <div class="form-div-radio-list">
-            {{ field }}<label for="{{ field.id_for_label }}"><span>{{ field.label }}</span></label>
-        </div>
         {% endif %}
         {% endfor %}
     </div>
     <div class="form-right">
+        <div class="form-div-radio-list">
+            {{ form.stress }}<label for="{{ form.stress.id_for_label }}"><span>{{ form.stress.label }}</span></label>
+        </div>
         <input type="submit" value="wyślij">
     </div>
 </form>
 {% endblock content %}
+
+{% block scripts %}
+<script>
+    const labels = document.querySelectorAll(".form-div-radio-list label");
+    labels.forEach(label => {
+        label.addEventListener("click", function(){
+            labels.forEach(l => {
+                l.style.border = '';
+            });
+            label.style.border = '1px solid #6573e0';
+        })
+    })
+</script>
+{% endblock scripts %}
