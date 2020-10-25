@@ -51,7 +51,7 @@ class user_survey(models.Model):
     chest = models.DecimalField(max_digits = 5, decimal_places = 2)
     bicep = models.DecimalField(max_digits = 4, decimal_places = 2)
     thigh = models.DecimalField(max_digits = 5, decimal_places = 2)
-    waist = models.DecimalField(max_digits = 4, decimal_places = 2)
+    waist = models.DecimalField(max_digits = 5, decimal_places = 2)
     hips = models.DecimalField(max_digits = 5, decimal_places = 2)
     arms = models.DecimalField(max_digits = 5, decimal_places = 2)
     stress = models.CharField(max_length = 20)
